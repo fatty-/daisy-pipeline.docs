@@ -1,0 +1,127 @@
+= DAISY Pipeline Progress Report, May 2011 to September 2011 =
+
+= Executive summary =
+
+The first development phase of the Pipeline 2 project has reached an end with the release of the 1.0 version on October 3d. The objectives have been achieved, although it is too early to get proper user feedback. The team is now ready to continue with the second development phase.
+
+The TTS Working Group has reached a satisfying level of preparation. Its results will progressively be used in phase 2 (see the updated charter).
+
+The Braille Working Group is well active, with increasing participation. Its activity will continue as an independently driven group during the second phase, in coordination with the core developers team (see the updated charter).
+
+The Pipeline 1 is still being maintained and supported. A release is planned when the new "Save as DAISY" add-in version 2.5 is released.
+
+= Pipeline 2 Core =
+
+== Team Organization ==
+
+The core Pipeline 2 team is composed of 5 developers:
+ * Bernhard Wagner (SBS, 30% FTE)
+ * Javier Asensio Cubero (DAISY, 40% FTE)
+ * Jostein Austvik Jacobsen (NLB, 60% FTE)
+ * Marisa !DeMeglio (DAISY, 90% FTE)
+ * Romain Deltour (DAISY, 90% FTE, project lead).
+
+*Note*: Javier is currently hired by DAISY and funded 100% by member organizations until the end of 2011. Javier is willing to keep on working on the project through the end of the charter if funding is available.
+
+The team is collaborating remotely via a [http://groups.google.com/group/daisy-pipeline-dev mailing list] (hosted on Google Groups) and project [http://code.google.com/p/daisy-pipeline/ web space] (hosted on Google Code) and is having a conference call every two weeks (see the [http://code.google.com/p/daisy-pipeline/w/list?q=Type%3DMinutes+WG%3DCore meeting minutes]).
+
+
+== Progress ==
+
+=== Milestones since October 2010  ===
+
+ * April 2011: Face-to-face meeting in Zurich (hosted by SBS)
+ * July 2nd:  1.0-beta1 released
+ * July 14th: 1.0-beta2 released
+ * September 3d: 1.0-beta3 released
+ * September 26th: 1.0-rc released
+ * October 3d: 1.0 released
+
+=== a) Framework ===
+
+The framework included in the 1.0 version features:
+
+ * a module system
+ * a runtime engine (based on open source XProc and XSLT engines)
+ * a build environment (to be consolidated)
+ * a testing framework (to be consolidated)
+ * a Java API
+ * an interoperable REST API (web service)
+ * a command line user interface
+
+*Notes*: 
+ * the framework is now a solid foundation for the project, but some well-identified parts will still be improved or refactored in the 2nd phase.
+ * the 1.0 version has been released under LGPL, however the team is looking for legal advice and may consider changing the licensing in an upcoming release
+ * the underlying third-party XProc engine is still subject to change in a later release, depending on licensing considerations and the progress of third-party developments (open source projects). This can be done at reasonably low cost.
+
+=== b) Processing modules ===
+
+The processing modules included in the 1.0 version are:
+
+ * DAISY 3 XML (DTBook) to DAISY 4 XML (ZedAI book profile)
+ * DAISY 4 XML (ZedAI) to EPUB 3
+ * DAISY 2.02 to EPUB 3
+ * DTBook utility for upgrading to DTBook 2005-3
+ * DTBook utility for merging two or more files
+ * DAISY 4 XML (ZedAI) to HTML (the XHTML5 flavor used in EPUB) - not exposed to the end user
+
+*Note*: The modules included in version 1.0 are considered stable and have passed local tests. However, it must be considered that:
+ * most of the modules can be enhanced with additional functionality in the 2nd phase
+ * the evolving nature EPUB 3 validation tools (currently in beta status) may cause unknown bugs to be discovered after the 1.0 release for the daisy202-to-epub3 and zedai-to-epub3 modules
+ * the lack of real-world ZedAI content may cause unknown bugs to be discovered after the 1.0 release for the zedai-to-epub3 and zedai-to-html modules
+
+== Roadmap ==
+
+ * October 2011: charter for phase 2, pending DAISY Board's approval
+ * November 2011: F2F meeting in Nancy (France), kicking-off phase 2
+
+== Adoption ==
+
+_The following  figures have been gathered from Google Analytics or built-in Google Code download counters_
+
+From July 1st to September 20th:
+ * 1,512 visits / 5,356 page views / 562 visitors (27% new visits) on the Google Code development site
+ * 209 visits on the Pipeline 2 project page at daisy.org
+ * a total of 68 downloads for Pipeline 2 betas
+
+These numbers do not show a wide adoption so far, although it is coherent with releases having been only announced on the developers mailing list until the 1.0 version.
+
+== Conclusion ==
+
+The 1.0 release marks the end of the first phase, with a solid framework foundation and initial support for DAISY 4 XML and EPUB 3 production. Development will now continue with the 2nd phase, consisting in both a consolidation of the 1st phase results and a progressive introduction of new features.
+
+= TTS Production WG =
+
+Chair: Romain Deltour (DAISY)
+
+The group is collaborating via a [http://groups.google.com/group/daisy-pipeline-tts mailing list] (hosted on Google Groups). Conference calls have been cancelled (see the note below).
+
+
+The group has reached a satisfying level of preparation for phase 2:
+ * [http://code.google.com/p/daisy-pipeline/wiki/TTSProductionRequirements functional requirements] have been published
+ * [http://code.google.com/p/daisy-pipeline/wiki/TTSProductionWorkflow production workflow] has been sketched
+
+*Note*: Although (or because of?) the objectives have been met, participation to the WG has gotten lower and lower. Development have stalled since May 2011, when the chair decided to prioritize other phase 1 core objectives. The WG have benefited from a strong participation of TPB and Dedicon, the latter ending with the departure of Ted van der Togt.
+
+= Braille Production WG =
+
+Chair: Christian Egli (SBS)
+
+The group is collaborating via a [http://groups.google.com/group/daisy-pipeline-braille mailing list] (hosted on Google Groups) and is having a conference call every three weeks (see the [http://code.google.com/p/daisy-pipeline/w/list?q=Type%3DMinutes+WG%3DBraille meeting minutes]).)
+
+The WG has agreed on a list of objectives and has carried on with an analysis of the existing productions systems and workflows used by the participating organizations. A list of print items required for accurate Braille production has been identified, along with the corresponding DAISY 4 XML markup (or lack thereof).
+
+Christian Egli presented the WG activity at the [http://www.braille21.net Braille21 conference] (September 2011, Leipzig). An informal face-to-face meeting has been arranged with volunteer attendees during the conference on September 29th.
+
+The next step is to prepare a limited set of end-to-end prototype Braille production solutions (see the updated charter).
+
+= Pipeline 1 =
+
+Maintenance and advanced technical support is carried on by Romain Deltour.
+
+Noteworthy activity:
+ * Support and bug fixes for Save as DAISY version 2.5 beta
+ * Dotify integration developed by Joel Håkansson (TPB)
+ * DTBook to LaTeX and DTBook volume splitter further developed / contributed by Christian Egli (SBS)
+
+
