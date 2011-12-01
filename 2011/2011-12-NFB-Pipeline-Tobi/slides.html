@@ -32,45 +32,121 @@
 	
 	<script src="./deck.js/deck.status.js"></script>
 	<link rel="stylesheet" href="./deck.js/deck.status.css" type="text/css">
+	<style type="text/css">
 	
+	.deck-container .slide h2.daisy {
+	  color: #009;
+	}
+	.deck-container .slide h2.pipeline {
+	  color: #3333CC;
+	}
+	.deck-container .slide h2.tobi {
+	  color: #669933;
+	}
+	
+	.csstransitions.csstransforms .deck-container:not(.deck-menu) > .slide .deck-before,
+	.csstransitions.csstransforms .deck-container:not(.deck-menu) > .slide .deck-previous {
+	  opacity: 1;
+	}
+
+	 </style>
 </head>
 <body class="deck-container">
 
-<!-- Create any number of elements with class slide within the container -->
 <section class="slide">
- <h2>How to Make a Deck</h2>
+ <h2>eBook Accessibility Symposium</h2>
+<blockquote cite="http://example.org">
+ <p>NFB (National Federation of the Blind)</p>
+ <p><cite>Jernigan Institute, 200 East Wells Street, Jernigan Place, Baltimore, MD 21230</cite></p>
+</blockquote>
+</section>
+
+<section class="slide">
+ <h2 class="daisy">Content Transformation Tools: Automated Tools and Interactive Authoring</h2>
+<img style="float: right;"
+  width="236" height="219"
+  src="./DAISY-logo.png" alt="DAISY Consortium logo"><!-- 472x438 -->
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+  <h3>December 6, 2011 (11am-12pm)</h3>
+  <p><cite>Romain Deltour &amp; Daniel Weck (DAISY Consortium)</cite></p>
+</section>
+
+
+<section class="slide">
+	<img style="float: right;margin-top:1em;"
+	  src="./Pipeline-logo.png" alt="Pipeline logo">
+ <h2 class="pipeline">Pipeline 2</h2>
+
   <ol>
     <li>
-      <h3>Write Slides</h3>
-      <p>Slide content is simple HTML.</p>
+      <h3>First Bullet</h3>
+      <p>Content #1.</p>
     </li>
     <li>
-      <h3>Choose Themes</h3>
-      <p>One for slide styles and one for deck transitions.</p>
+      <h3>Second Bullet</h3>
+      <p>Content #2.</p>
     </li>
   </ol>
 </section>
 
+
 <section class="slide">
-  <h2>Extensions</h2>
-  <p>Core gives you basic slide functionality...</p>		
+	<img
+	style="float: right; margin-top:1em;"
+	width="250" height="85"
+	  src="./Tobi-logo-text.png" alt="Tobi logo"><!-- 509x171 -->
+ <h2 class="tobi">Tobi, in a nutshell</h2>
+
   <ul>
-     <li class="slide">
-        <h3>deck.goto</h3>
-        <p>Adds a shortcut key to jump to any slide number...</p>
-     </li>
-     <li class="slide">...</li>	
-     <li class="slide">...</li>
-     <li class="slide">...</li>
+  <li class="slide">
+    <p>Authoring tool for talking books ("read aloud")</p>
+	<ul>
+		  <li>
+    <p>Synchronization of text with spoken words</p>
+		  </li>
+				  <li>
+    <p>Human narration, not speech synthesis</p>
+				  </li>
+	  </ul>
+  </li>
+    <li class="slide">
+	    <p>Interactive audio production workflow, not automated</p>
+	  <ul>
+		  <li>
+		    <p>Live voice recording</p>
+		  </li>
+				  <li>
+				    <p>Import pre-recorded tracks</p>
+				  </li>
+						  <li>
+						    <p>Waveform editor</p>
+						  </li>
+	  </ul>
+    </li>
+    <li  class="slide">
+      <p>No XML editing (limited to minor text alterations)</p>
+    </li>
   </ul>
 </section>
 
+
 <section class="slide">
-<img src="http://placekitten.com/600/375" alt="Kitties">
-<blockquote cite="http://example.org">
-  <p>Food is an important part of a balanced diet.</p>
-  <p><cite>Fran Lebowitz</cite></p>
-</blockquote>
+ <h2 class="tobi">Tobi</h2>
+  <ol>
+    <li>
+      <h3>First Bullet</h3>
+      <p>Content #1.</p>
+    </li>
+    <li>
+      <h3>Second Bullet</h3>
+      <p>Content #2.</p>
+    </li>
+    <li class="slide">
+      <h3>Third Bullet</h3>
+      <p>Content #3.</p>
+    </li>
+  </ol>
 </section>
 
 <p class="deck-status">
