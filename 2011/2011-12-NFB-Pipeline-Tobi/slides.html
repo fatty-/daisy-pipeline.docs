@@ -7,7 +7,8 @@
 	
 	<link rel="stylesheet" href="./deck.js/deck.core.css" type="text/css">
 	<link rel="stylesheet" href="./deck.js/swiss.css" type="text/css">
-	<link rel="stylesheet" href="./deck.js/horizontal-slide.css" type="text/css">
+
+	<link rel="stylesheet" href="./deck.js/horizontal-slide_fade.css" type="text/css">
 	
 	<script src="./deck.js/jquery.min.js"></script>
 	
@@ -44,16 +45,19 @@
 	  color: #669933;
 	}
 	
-	.csstransitions.csstransforms .deck-container:not(.deck-menu) > .slide .deck-before,
-	.csstransitions.csstransforms .deck-container:not(.deck-menu) > .slide .deck-previous {
-	  opacity: 1;
-	}
+.deck-container .slide ul li ul li p {
+	margin-bottom: 0px;
+}
+
+.highlight {
+	background-color: yellow;
+}
 
 	 </style>
 </head>
 <body class="deck-container">
 
-<section class="slide">
+<section class="slide fade">
  <h2>eBook Accessibility Symposium</h2>
 <blockquote cite="http://example.org">
  <p>NFB (National Federation of the Blind)</p>
@@ -61,7 +65,7 @@
 </blockquote>
 </section>
 
-<section class="slide">
+<section class="slide fade">
  <h2 class="daisy">Content Transformation Tools: Automated Tools and Interactive Authoring</h2>
 <img style="float: right;"
   width="236" height="219"
@@ -99,19 +103,21 @@
  <h2 class="tobi">Tobi, in a nutshell</h2>
 
   <ul>
-  <li class="slide">
-    <p>Authoring tool for talking books ("read aloud")</p>
+  <li class="slide fade">
+	<h3>Authoring tool for talking books</h3>
+    <p>("read aloud" e-books)</p>
 	<ul>
 		  <li>
-    <p>Synchronization of text with spoken words</p>
+    <p><span class="slide_">Text</span> <span class="slide_">synchronized</span> <span class="slide_">with</span> <span class="slide_">spoken</span> <span class="slide_">words</span></p>
 		  </li>
 				  <li>
     <p>Human narration, not speech synthesis</p>
 				  </li>
 	  </ul>
   </li>
-    <li class="slide">
-	    <p>Interactive audio production workflow, not automated</p>
+    <li class="slide fade">
+	<h3>Interactive audio workflow</h3>
+	    <p>(no automated production)</p>
 	  <ul>
 		  <li>
 		    <p>Live voice recording</p>
@@ -124,10 +130,12 @@
 						  </li>
 	  </ul>
     </li>
-    <li  class="slide">
-      <p>No XML editing (limited to minor text alterations)</p>
+    <li  class="slide fade">
+	<h3>No XML editing</h3>
+      <p>(limited to minor text alterations)</p>
     </li>
   </ul>
+
 </section>
 
 

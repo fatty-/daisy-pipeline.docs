@@ -1,0 +1,173 @@
+
+
+/* SLIDE 1 */
+.csstransitions.csstransforms {
+  overflow-x: hidden;
+}
+
+
+
+/* FADE 1 */
+.csstransitions.csstransforms .deck-container .slide.fade {
+  -webkit-transition: opacity 500ms ease-in-out 0ms;
+  -moz-transition: opacity 500ms ease-in-out 0ms;
+  -ms-transition: opacity 500ms ease-in-out 0ms;
+  -o-transition: opacity 500ms ease-in-out 0ms;
+  transition: opacity 500ms ease-in-out 0ms;
+}
+
+/* SLIDE 2 */
+.csstransitions.csstransforms .deck-container > .slide:not(.fade) {
+  -webkit-transition: -webkit-transform 500ms ease-in-out;
+  -moz-transition: -moz-transform 500ms ease-in-out;
+  -ms-transition: -ms-transform 500ms ease-in-out;
+  -o-transition: -o-transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out;
+}
+
+
+
+/* FADE 2 */
+/* SLIDE 3 */
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 48px;
+}
+
+
+
+/* FADE 3 */
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .slide .slide.fade {
+  position: relative;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+/* SLIDE 4 */
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .slide .slide:not(.fade) {
+  position: relative;
+  left: 0;
+  top: 0;
+  -webkit-transition: -webkit-transform 500ms ease-in-out, opacity 500ms ease-in-out;
+  -moz-transition: -moz-transform 500ms ease-in-out, opacity 500ms ease-in-out;
+  -ms-transition: -ms-transform 500ms ease-in-out, opacity 500ms ease-in-out;
+  -o-transition: -o-transform 500ms ease-in-out, opacity 500ms ease-in-out;
+  transition: -webkit-transform 500ms ease-in-out, opacity 500ms ease-in-out;
+}
+
+
+
+/* SLIDE 5 */
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .slide .deck-next:not(.fade),
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .slide .deck-after:not(.fade) {
+  visibility: visible;
+  -webkit-transform: translate3d(200%, 0, 0);
+  -moz-transform: translate(200%, 0);
+  -ms-transform: translate(200%, 0);
+  -o-transform: translate(200%, 0);
+  transform: translate3d(200%, 0, 0);
+}
+
+
+/* SLIDE 6 */
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .slide .deck-before:not(.fade),
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .slide .deck-previous:not(.fade) {
+  opacity: 0.4;
+}
+
+/* FADE 4 */
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .slide .deck-before.fade,
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .slide .deck-previous.fade {
+  opacity: 1;
+}
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .slide .deck-current.fade {
+  opacity: 1;
+}
+
+
+
+/* FADE 5 */
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .deck-previous.fade,
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .deck-before.fade,
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .deck-next.fade,
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .deck-after.fade {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+
+/* SLIDE 7 */
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .deck-previous { /* :not(.fade) */
+  -webkit-transform: translate3d(-200%, 0, 0);
+  -moz-transform: translate(-200%, 0);
+  -ms-transform: translate(-200%, 0);
+  -o-transform: translate(-200%, 0);
+  transform: translate3d(-200%, 0, 0);
+}
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .deck-before { /* :not(.fade) */
+  -webkit-transform: translate3d(-400%, 0, 0);
+  -moz-transform: translate(-400%, 0);
+  -ms-transform: translate(-400%, 0);
+  -o-transform: translate(-400%, 0);
+  transform: translate3d(-400%, 0, 0);
+}
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .deck-next { /* :not(.fade) */
+  -webkit-transform: translate3d(200%, 0, 0);
+  -moz-transform: translate(200%, 0);
+  -ms-transform: translate(200%, 0);
+  -o-transform: translate(200%, 0);
+  transform: translate3d(200%, 0, 0);
+}
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .deck-after { /* :not(.fade) */
+  -webkit-transform: translate3d(400%, 0, 0);
+  -moz-transform: translate(400%, 0);
+  -ms-transform: translate(400%, 0);
+  -o-transform: translate(400%, 0);
+  transform: translate3d(400%, 0, 0);
+}
+
+
+
+
+/* FADE 6 */
+/* SLIDE 8 */
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .deck-before .slide,
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .deck-previous .slide {
+  visibility: visible;
+}
+
+
+
+/* FADE 7 */
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .deck-child-current {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* SLIDE 9 */
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .deck-child-current {
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
+  transform: none;
+}
+
+
+
+/* FADE 8 */
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .deck-child-current .deck-next.fade,
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .deck-child-current .deck-after.fade {
+visibility: hidden;
+/*  opacity: 0.5; */
+}
+
