@@ -187,8 +187,8 @@ opacity: 0.5;
 			  </ul>
 		  </li>
 		    <li class="slide fade">
-			<h3>Interactive audio workflow</h3>
-			    <p>(unlike automated TTS production)</p>
+			<h3>Interactive audio production workflow</h3>
+			    <p>(more time-consuming than automated TTS)</p>
 
 			  <ul>
 				  <li>
@@ -248,7 +248,7 @@ alt="talking book listener">
 			    </li>
 				    <li  class="slide fade">
 					<h3>Content navigation</h3>
-				      <p>(chapters, pages, document markup, authoring placemarks)</p>
+				      <p>(chapters, pages, document markup, placemarks)</p>
 				    </li>
 		
 					    <li  class="slide fade">
@@ -464,14 +464,18 @@ More info:
 
 <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
 
-<!-- Initialize the deck. You can put this in an external file if desired. -->
+
 <script>
 	$(function() {
 		$.deck('.slide');
 		
 		$(document).bind('deck.change', function(event, from, to) {
 			
-			$('#slide-' + to + ' .animated').each(function(index, elem) {
+			var jq1 = $('#slide-' + to + ' .animated');
+			if (jq1.length > 0)
+			{
+				if (from < to)
+			jq1.each(function(index, elem) {
 				//$(elem).removeClass('animated').addClass('animated');
 				/*
 				elem.style.webkitAnimationName = "";
@@ -484,6 +488,50 @@ More info:
 				var newOne = elm.cloneNode(true);
 				elm.parentNode.replaceChild(newOne, elm);
 			});
+			} else {
+				
+				setTimeout(function ()
+				{
+
+//				console.log("FROM:" + from + " TO: " + to);
+				
+				var jq = $('section.deck-before.deck-child-current #slide-' + from);
+			if (jq.length == 0)
+			{
+//			console.log("_1");
+				 jq = $('section.deck-previous.deck-child-current #slide-' + from);
+				if (jq.length == 0)
+				{
+//				console.log("_2");
+				
+				jq = $('section.deck-previous');
+				if(jq.length==0)
+				{
+				jq = $('section.deck-before:last');
+
+				
+						 jq.each(function(index_, elem_) { //'[id |= "slide"]' // , $('.deck-container').elem
+
+//							console.log("_3");
+							
+							//console.log($(elem_).attr('id'));
+							//console.log($(elem_).attr('class'));
+							//if ($(elem_).hasClass('deck-child-current'))
+							
+				$('.animated', elem_).each(function(index, elem) {
+								console.log("ANIM");
+
+							var elm = elem;
+							var newOne = elm.cloneNode(true);
+							elm.parentNode.replaceChild(newOne, elm);
+										});
+			});
+		}
+
+		}}
+		
+		}, 100);
+			}
 			
 		});
 	});
