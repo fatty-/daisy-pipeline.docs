@@ -79,7 +79,7 @@
 /* SLIDE 6 */
 .csstransitions.csstransforms .deck-container:not(.deck-menu) > .slide .deck-before:not(.fade),
 .csstransitions.csstransforms .deck-container:not(.deck-menu) > .slide .deck-previous:not(.fade) {
-  opacity: 0.4;
+  opacity: 1;
 }
 
 /* FADE 4 */
