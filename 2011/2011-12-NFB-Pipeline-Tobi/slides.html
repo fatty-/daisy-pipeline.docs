@@ -8,10 +8,22 @@
 	<link href='http://fonts.googleapis.com/css?family=Spinnaker' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 	
-	<link rel="stylesheet" href="./deck.js/animate.css" type="text/css">
-	
 	<link rel="stylesheet" href="./deck.js/deck.core.css" type="text/css">
 	<link rel="stylesheet" href="./deck.js/swiss.css" type="text/css">
+
+
+	
+	<style type="text/css">
+
+	.slide .slide {
+	  visibility: visible;
+	}
+	.deck-child-current .slide {
+	  visibility: visible;
+	}
+	 </style>
+	
+	<link rel="stylesheet" href="./deck.js/animate.css" type="text/css">
 
 	<link rel="stylesheet" href="./deck.js/horizontal-slide_fade.css" type="text/css">
 	
@@ -32,6 +44,11 @@
 	
 	<script src="./deck.js/deck.navigation.js"></script>
 	<link rel="stylesheet" href="./deck.js/deck.navigation.css" type="text/css">
+	
+	
+	
+	
+	
 	
 	<!-- script src="./deck.js/deck.scale.js"></script>
 	<link rel="stylesheet" href="./deck.js/deck.scale.css" type="text/css" -->
@@ -191,7 +208,7 @@ opacity: 0.5;
 		    <p><span class="slide fade highlight">Text,</span> <span class="slide fade highlight">synchronized</span> <span class="slide fade highlight">with</span> <span class="slide fade highlight">spoken</span> <span class="slide fade highlight">words</span></p>
 				  </li>
 			  </ul>
-				    <p class="slide"><span style="font-size:130%;margin-left:1em;">&#8618;</span>&nbsp;"read aloud" e-books, children's stories</p>
+				    <p class="slide"><span style="font-size:130%;margin-left:1em;">&#8618;</span>&nbsp;"read aloud" e-books, illustrated children's stories</p>
 
 		  </li>
 		    <li class="slide fade">
@@ -214,7 +231,7 @@ opacity: 0.5;
 		    </li>
 		    <li class="slide fade">
 			<h3>Limitation: no XML editing</h3>
-		      <p>support for minor text alterations only</p>
+		      <p>support for minor text corrections only</p>
 		    </li>
 		  </ul>
 		</td>
@@ -233,107 +250,6 @@ alt="talking book listener">
 </table>
 		
 </section>
-
-
-<section class="slide">
-	<img
-	style="float: right; margin-top:1em;"
-	width="250" height="85"
-	  src="./Tobi-logo-text.png" alt="Tobi logo"><!-- 509x171 -->
- <h2 class="tobi">Features highlight</h2>
-	
-<table width="100%">
-	<tr>
-		<td>
-		  <ul>
-		  <li class="slide fade">
-			<h3>Built-in content validator/checker</h3>
-		    <p class="quote">invalid markup, metadata errors, missing audio</p>
-		    </li>
-		
-			    <li  class="slide fade">
-				<h3>Helpers for publication metadata</h3>
-			      <p class="quote">Z39.86-2005 standard, soon EPUB3</p>
-			    </li>
-				    <li  class="slide fade">
-					<h3>Content navigation</h3>
-				      <p class="quote">chapters, pages, document markup, placemarks</p>
-				    </li>
-		
-					    <li  class="slide fade">
-						<h3>Unlimited undo/redo</h3>
-					      <p class="quote">+ "cleanup" function to save space</p>
-					    </li>
-		  </ul>
-		</td>
-		<td>
-<img
-class="swing animated"
-style="opacity: 0.5; -webkit-transform:rotate(4deg);"
-src="./Tobi-screenthumb-1.png"
-alt="Tobi screenshot thumbnail">
-				<p>&nbsp;</p>
-<img
-class="swing animated"
-style="opacity: 0.5; -webkit-transform:rotate(-4deg);"
-src="./Tobi-screenthumb-2.png"
-alt="Tobi screenshot thumbnail">
-
-
-		</td>
-	</tr>
-</table>
-		
-</section>
-
-
-<section class="slide">
-	<img
-	style="float: right; margin-top:1em;"
-	width="250" height="85"
-	  src="./Tobi-logo-text.png" alt="Tobi logo"><!-- 509x171 -->
- <h2 class="tobi">Accessibility</h2>
-	
-<table width="100%">
-	<tr>
-		<td>
-		  <ul>
-		  <li class="slide fade">
-			<h3>Screen readers</h3>
-		    <p class="quote">tested with NVDA, JAWS 9+</p>
-		    </li>
-		
-			    <li  class="slide fade">
-				<h3>Built-in magnification</h3>
-			      <p class="quote">crisp vector graphics</p>
-			    </li>
-				    <li  class="slide fade">
-					<h3>High-contrast mode</h3>
-				      <p class="quote">system settings</p>
-				    </li>
-		
-					    <li  class="slide fade">
-						<h3>Keyboard-optimized</h3>
-					      <p class="quote">configurable shortcuts, quick focus change</p>
-					    </li>
-		  </ul>
-		</td>
-		<td>
-			
-				<p>&nbsp;</p>
-<img
-class="pulse animated"
-style="opacity: 0.5;"
-src="./accessibility.png"
-alt="icon">
-
-
-		</td>
-	</tr>
-</table>
-		
-</section>
-
 
 <section class="slide">
 	<img
@@ -360,7 +276,7 @@ alt="icon">
 			    </li>
 				    <li  class="slide fade">
 					<h3>DIAGRAM image descriptions</h3>
-				      <p class="quote" style="margin-bottom:0;">standard not yet finalized
+				      <p class="quote" style="margin-bottom:0;">standard not finalized yet
 </p>
 						<p  class="quote slide" style="opacity: 0.8;">&#10137;&nbsp;audio annotations: April 2012</p>
 				    </li>
@@ -432,6 +348,114 @@ alt="open source icon">
 		
 </section>
 
+
+
+<section class="slide">
+	<img
+	style="float: right; margin-top:1em;"
+	width="250" height="85"
+	  src="./Tobi-logo-text.png" alt="Tobi logo"><!-- 509x171 -->
+ <h2 class="tobi">Features highlight</h2>
+	
+<table width="100%">
+	<tr>
+		<td>
+		  <ul>
+		  <li class="slide fade">
+			<h3>Built-in content validator/checker</h3>
+		    <p class="quote">invalid markup, metadata errors, missing audio</p>
+		    </li>
+		
+			    <li  class="slide fade">
+				<h3>Helpers for publication metadata</h3>
+			      <p class="quote">Z39.86-2005 standard, soon EPUB3</p>
+			    </li>
+				    <li  class="slide fade">
+					<h3>Content navigation</h3>
+				      <p class="quote">chapters, pages, document markup, placemarks, search</p>
+				    </li>
+		
+								    <li  class="slide fade">
+									<h3>Unlimited undo/redo</h3>
+								      <p class="quote">+ "cleanup" function to save space</p>
+								    </li>
+												    <li  class="slide fade">
+													<h3>Narrator document style</h3>
+												      <p class="quote">preferred text font/size, compact reading view</p>
+												    </li>
+		  </ul>
+		</td>
+		<td>
+				<p>&nbsp;</p>
+				<img
+class="swing animated"
+style="opacity: 0.5; -webkit-transform:rotate(4deg);"
+src="./Tobi-screenthumb-1.png"
+alt="Tobi screenshot thumbnail">
+				<p>&nbsp;</p>
+<img
+class="swing animated"
+style="opacity: 0.5; -webkit-transform:rotate(-4deg);"
+src="./Tobi-screenthumb-2.png"
+alt="Tobi screenshot thumbnail">
+
+
+		</td>
+	</tr>
+</table>
+		
+</section>
+
+
+<section class="slide">
+	<img
+	style="float: right; margin-top:1em;"
+	width="250" height="85"
+	  src="./Tobi-logo-text.png" alt="Tobi logo"><!-- 509x171 -->
+ <h2 class="tobi">Accessibility</h2>
+	
+<table width="100%">
+	<tr>
+		<td>
+		  <ul>
+		  <li class="slide fade">
+			<h3>Screen readers</h3>
+		    <p class="quote">tested with NVDA, JAWS 9+</p>
+		    </li>
+		
+			    <li  class="slide fade">
+				<h3>Built-in magnification</h3>
+			      <p class="quote">crisp vector graphics</p>
+			    </li>
+				    <li  class="slide fade">
+					<h3>High-contrast mode</h3>
+				      <p class="quote">system settings</p>
+				    </li>
+		
+					    <li  class="slide fade">
+						<h3>Keyboard-optimized</h3>
+					      <p class="quote">configurable shortcuts, quick focus change</p>
+					    </li>
+		  </ul>
+		</td>
+		<td>
+			
+				<p>&nbsp;</p>
+<img
+class="pulse animated"
+style="opacity: 0.5;"
+src="./accessibility.png"
+alt="icon">
+
+
+		</td>
+	</tr>
+</table>
+		
+</section>
+
+
+
 <section class="slide">
 	
 	<img
@@ -482,7 +506,6 @@ More info:
 
 <script>
 	$(function() {
-		$.deck('.slide');
 		
 		$(document).bind('deck.change', function(event, from, to) {
 			
@@ -549,6 +572,8 @@ More info:
 			}
 			
 		});
+		
+		$.deck('.slide');
 	});
 </script>
 </body>
