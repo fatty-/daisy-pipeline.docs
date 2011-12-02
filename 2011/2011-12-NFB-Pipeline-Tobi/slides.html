@@ -5,6 +5,10 @@
 	<title>Pipeline / Tobi joint presentation</title>
 	<meta name="viewport" content="width=1024, user-scalable=no">
 	
+	<link href='http://fonts.googleapis.com/css?family=Spinnaker' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+
+	
 	<link rel="stylesheet" href="./deck.js/deck.core.css" type="text/css">
 	<link rel="stylesheet" href="./deck.js/swiss.css" type="text/css">
 
@@ -28,18 +32,45 @@
 	<script src="./deck.js/deck.navigation.js"></script>
 	<link rel="stylesheet" href="./deck.js/deck.navigation.css" type="text/css">
 	
-	<script src="./deck.js/deck.scale.js"></script>
-	<link rel="stylesheet" href="./deck.js/deck.scale.css" type="text/css">
+	<!-- script src="./deck.js/deck.scale.js"></script>
+	<link rel="stylesheet" href="./deck.js/deck.scale.css" type="text/css" -->
 	
-	<script src="./deck.js/deck.status.js"></script>
-	<link rel="stylesheet" href="./deck.js/deck.status.css" type="text/css">
+	<!-- script src="./deck.js/deck.status.js"></script>
+	<link rel="stylesheet" href="./deck.js/deck.status.css" type="text/css" -->
+	
+	
 	<style type="text/css">
 	
+	.deck-container {
+	font-family: 'Spinnaker', sans-serif;
+	  font-size: 1.3em;
+	}
+	
+.deck-container .slide h2
+{
+	font-family: sans-serif;
+  font-size: 1.9em;
+	}
+	
+.deck-container .slide h3
+{
+	font-family: 'Varela Round', sans-serif;
+	}
+	
+	.deck-container ul li {
+	  list-style: square;
+	}
+	.deck-container ul li ul li {
+	  list-style: circle;
+	}
+	
+	.deck-container .slide h2.nfb {
+	}
 	.deck-container .slide h2.daisy {
 	  color: #009;
 	}
 	.deck-container .slide h2.pipeline {
-	  color: #3333CC;
+	  color: #333399;
 	}
 	.deck-container .slide h2.tobi {
 	  color: #669933;
@@ -49,31 +80,42 @@
 	margin-bottom: 0px;
 }
 
-.highlight {
-	background-color: yellow;
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .slide .deck-current.fade.highlight {
+background-color: yellow;
 }
+
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .deck-child-current .deck-next.fade.highlight,
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .deck-child-current .deck-after.fade.highlight {
+/*  visibility: visible; */
+opacity: 0.5;
+}
+
 
 	 </style>
 </head>
 <body class="deck-container">
 
-<section class="slide fade">
- <h2>eBook Accessibility Symposium</h2>
-<blockquote cite="http://example.org">
- <p>NFB (National Federation of the Blind)</p>
- <p><cite>Jernigan Institute, 200 East Wells Street, Jernigan Place, Baltimore, MD 21230</cite></p>
-</blockquote>
+<section class="slide fade" style="margin-left: 6em;">
+	
+ <h2 class="nfb" style="margin-top: 6em;">eBook Accessibility Symposium</h2>
+
+<!-- ul><li -->
+ <h3>NFB <span style="font-size: 80%;">(National Federation of the Blind)</span></h3>
+ <p><cite>Jernigan Institute,<br>200 East Wells Street, Jernigan Place,<br>Baltimore, MD 21230</cite></p>
+<!-- /li></ul -->
 </section>
 
-<section class="slide fade">
- <h2 class="daisy">Content Transformation Tools: Automated Tools and Interactive Authoring</h2>
-<img style="float: right;"
-  width="236" height="219"
-  src="./DAISY-logo.png" alt="DAISY Consortium logo"><!-- 472x438 -->
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-  <h3>December 6, 2011 (11am-12pm)</h3>
-  <p><cite>Romain Deltour &amp; Daniel Weck (DAISY Consortium)</cite></p>
+<section class="slide fade" style="padding-top:4em;">
+	
+			<img style="float: right;margin-top:8em;"
+			  width="210" height="200"
+			  src="./DAISY-logo.png" alt="DAISY Consortium logo"><!-- 472x438 -->
+			
+ <h2 style="margin-top: 4em;" class="daisy">Content Transformation: Automated Tools &amp; Interactive Authoring</h2>
+	
+ <h3>December 6, 2011 (11am-12pm)</h3>
+ <p><cite>Romain Deltour &amp; Daniel Weck<br>(DAISY Consortium)</cite></p>
+	
 </section>
 
 
@@ -96,46 +138,87 @@
 
 
 <section class="slide">
+	
+	<img
+	style="margin-top: 5em;" 
+	  src="./Tobi-logo-text.png" alt="Tobi logo"><!-- 509x171 -->
+
+<ul style="margin-left: 10em;">
+	<li>
+	<h3>Introduction</h3>
+	<p class="slide fade">(10mn)</p>
+	</li>
+	<li>
+	<h3>Demo</h3>
+	<p class="slide fade">(15mn)</p>
+	</li>
+	<li>
+	<h3>Questions</h3>
+	<p class="slide fade">(5mn)</p>
+	</li>
+</ul>
+</section>
+
+<section class="slide">
 	<img
 	style="float: right; margin-top:1em;"
 	width="250" height="85"
 	  src="./Tobi-logo-text.png" alt="Tobi logo"><!-- 509x171 -->
  <h2 class="tobi">Tobi, in a nutshell</h2>
+	
+<table width="100%">
+	<tr>
+		<td>
+		  <ul>
+		  <li class="slide fade">
+			<h3>Authoring tool for talking books</h3>
+		    <p>("read aloud" e-books)</p>
 
-  <ul>
-  <li class="slide fade">
-	<h3>Authoring tool for talking books</h3>
-    <p>("read aloud" e-books)</p>
-	<ul>
-		  <li>
-    <p><span class="slide_">Text</span> <span class="slide_">synchronized</span> <span class="slide_">with</span> <span class="slide_">spoken</span> <span class="slide_">words</span></p>
-		  </li>
+			<ul>
+					  <li>
+		<p>Human narration, not speech synthesis</p>
+					  </li>
 				  <li>
-    <p>Human narration, not speech synthesis</p>
+		    <p><span class="slide fade highlight">Text</span> <span class="slide fade highlight">synchronized</span> <span class="slide fade highlight">with</span> <span class="slide fade highlight">spoken</span> <span class="slide fade highlight">words</span></p>
 				  </li>
-	  </ul>
-  </li>
-    <li class="slide fade">
-	<h3>Interactive audio workflow</h3>
-	    <p>(no automated production)</p>
-	  <ul>
-		  <li>
-		    <p>Live voice recording</p>
+			  </ul>
 		  </li>
+		    <li class="slide fade">
+			<h3>Interactive audio workflow</h3>
+			    <p>(unlike automated TTS production)</p>
+
+			  <ul>
 				  <li>
-				    <p>Import pre-recorded tracks</p>
+				    <p>Live voice recording</p>
 				  </li>
 						  <li>
-						    <p>Waveform editor</p>
+						    <p>Use pre-recorded tracks</p>
 						  </li>
-	  </ul>
-    </li>
-    <li  class="slide fade">
-	<h3>No XML editing</h3>
-      <p>(limited to minor text alterations)</p>
-    </li>
-  </ul>
+								  <li>
+								    <p>Waveform editor</p>
 
+								  </li>
+			  </ul>
+		    </li>
+		    <li  class="slide fade">
+			<h3>No XML editing</h3>
+		      <p>(limited to minor text alterations)</p>
+		    </li>
+		  </ul>
+		</td>
+		<td>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+<img
+style="opacity: 0.5;"
+src="./audiobook-listener.png"
+alt="talking book listener">
+		</td>
+	</tr>
+</table>
+		
 </section>
 
 
@@ -157,11 +240,11 @@
   </ol>
 </section>
 
-<p class="deck-status">
+<!-- p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
 	<span class="deck-status-total"></span>
-</p>
+</p -->
 
 <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
 <a href="#" class="deck-next-link" title="Next">&#8594;</a>

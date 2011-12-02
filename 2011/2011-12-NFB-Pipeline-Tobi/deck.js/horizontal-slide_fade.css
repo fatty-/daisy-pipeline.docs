@@ -91,8 +91,6 @@
   opacity: 1;
 }
 
-
-
 /* FADE 5 */
 .csstransitions.csstransforms .deck-container:not(.deck-menu) > .deck-previous.fade,
 .csstransitions.csstransforms .deck-container:not(.deck-menu) > .deck-before.fade,
@@ -167,7 +165,7 @@
 /* FADE 8 */
 .csstransitions.csstransforms .deck-container:not(.deck-menu) > .deck-child-current .deck-next.fade,
 .csstransitions.csstransforms .deck-container:not(.deck-menu) > .deck-child-current .deck-after.fade {
-visibility: hidden;
-/*  opacity: 0.5; */
+/*  visibility: hidden; */
+opacity: 0;
 }
 
