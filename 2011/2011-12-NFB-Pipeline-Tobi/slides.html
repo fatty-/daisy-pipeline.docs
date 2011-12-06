@@ -91,9 +91,13 @@ font-size: 1.4em;
 	}
 	.deck-container .slide h2.pipeline {
 	  color: #333399;
+	  margin-bottom: 2em;
 	}
 	.deck-container .slide h2.tobi {
 	  color: #669933;
+	}
+	.deck-container .slide {
+	  background-color: transparent;
 	}
 	
 .deck-container .slide ul li ul li p {
@@ -135,21 +139,290 @@ opacity: 0.5;
 			<!-- /li></ul -->
 		</section>
 
-		<section class="slide fade" style="padding-top:4em;">
+<!--====================================================================================-->
+<!--===  Pipeline2: Title                                                             ==-->
+<!--====================================================================================-->
+<section class="slide">
+	
+	<img
+	class="bounceInDown animated"
+	style="margin-top: 5em;" 
+	  src="./Pipeline-logo.png" alt="Pipeline logo">
 
-			<img style="float: right;margin-top:8em;" width="210" height="200"
-				src="./DAISY-logo.png" alt="DAISY Consortium logo" />
-			<!-- 472x438 -->
+	<center>
+		<h2 class="pipeline" style="margin-bottom: 0.5em;">The DAISY Pipeline 2 project</h2>
+		<p class="quote"><strong>An open framework for automated document processing</strong></p>
+		<ul style="margin-top: 2em;">
+			<li class="slide fade" style="list-style-type: none;">
+				<h3>Introduction</h3>
+				<p style="opacity: 0.8">(15mn)</p>
+			</li>
+			<li class="slide fade" style="list-style-type: none;">
+				<h3>Workflow samples</h3>
+				<p style="opacity: 0.8">(10mn)</p>
+			</li>
+			<li class="slide fade" style="list-style-type: none;">
+				<h3>Questions</h3>
+				<p style="opacity: 0.8">(5mn)</p>
+			</li>
+		</ul>
+	</center>
+	
+</section>
 
-			<h2 style="margin-top: 4em;" class="daisy">Content Transformation: Automated Tools &amp;
-				Interactive Authoring</h2>
+
+<!--====================================================================================-->
+<!--===  Pipeline2: Background                                                        ==-->
+<!--====================================================================================-->
+<section class="slide">
+	<img
+	style="float: right; margin-top:1em;"
+    src="./Pipeline-logo.png" alt="Pipeline logo">
+
+	<h2 class="pipeline">Background</h2>
+	
+	<img
+	class="wobble animated"
+	style="float:right; opacity: 0.5; width: 20%"
+	src="./cogs.png"
+	alt="cogs">
+	
+	
+	<ul>
+		<li class="slide fade">
+			<h3>An increasing demand for accessible content</h3>
+			<ul class="quote slide fade" style="margin-bottom: 0;">
+				<li><p>to a wide range of user groups</p></li>
+				<li><p>through various distribution channels</p></li>
+				<li><p>to an increasing variety of devices</p></li>
+				<li><p>in several output formats</p></li>
+			</ul>
+		</li>
+		<li class="slide fade">
+			<h3>Follow-up of the successful Pipeline 1 project</h3>
+			<ul class="quote slide fade">
+				<li><p>Pipeline 1: started in 2002, now in maintenance mode</p></li>
+				<li><p>Pipeline 2: started in 2010, total redesign</p></li>
+			</ul>
+		</li>
+		<li class="slide fade">
+			<h3>High-level objectives</h3>
+			<ul>
+				<li class="slide">
+					<p><strong>Efficiency</strong></p>
+					<p><span style="margin-left:1em;">&#8618;</span>&nbsp;produce many documents in a short time</p>
+				</li>
+				<li class="slide">
+					<p><strong>Low cost</strong></p>
+					<p><span style="margin-left:1em;">&#8618;</span>&nbsp;easy to develop and easy to maintain</p>
+				</li>
+				<li class="slide">
+					<p><strong>Versatility</strong></p>
+					<p style="margin-bottom: 0;"><span style="margin-left:1em;">&#8618;</span>&nbsp;several output formats</p>
+					<p><span style="margin-left:1em;">&#8618;</span>&nbsp;interoperable with other systems</p>
+				</li>
+			</ul>
+		</li>		
+	</ul>
+</section>
+
+<!--====================================================================================-->
+<!--===  Pipeline2: Approach                                                      ==-->
+<!--====================================================================================-->
+<section class="slide">
+	<img
+	style="float: right; margin-top:1em;"
+    src="./Pipeline-logo.png" alt="Pipeline logo">
+
+	<h2 class="pipeline">Approach</h2>
+	
+	<ul>
+		<li class="slide fade">
+			<h3>Modular system</h3>
+			<ul class="quote slide">
+				<li><p>easy to extend</p></li>
+				<li><p>easy to customize</p></li>
+				<li><p>open to commercial plugins/services</p></li>
+			</ul>
+			
+		</li>
+		<li class="slide fade">
+			<h3>Promote "single source" publishing</h3>
+			<img style="align: center; width: 40%" class="slide" src="./single-source.png" alt="single source publishing diagram">
+		</li>
+	</ul>
+</section>
+<!--====================================================================================-->
+<!--===  Pipeline2: Architecture                                                    ==-->
+<!--====================================================================================-->
+<section class="slide">
+	<img
+	style="float: right; margin-top:1em;"
+    src="./Pipeline-logo.png" alt="Pipeline logo">
+
+	<h2 class="pipeline">Architecture</h2>
+	
+	
+	<img
+	class="rollIn animated icon"
+	style="margin-bottom: 2em; float: right; width: 20%"
+	src="./W3C_logo.jpg"
+	alt="W3C logo">
+	
+	<ul class="with-icon">
+		<li class="slide fade">
+			<h3><em>XProc</em> core</h3>
+			<ul class="quote slide fade">
+				<li><p>"XML Pipeline Language"</p></li>
+				<li><p>W3C Recommendation since May 2010</p></li>
+				<li><p>several open source and commercial engines</p></li>
+			</ul>
+		</li>
+		<li class="slide fade">
+			<h3>Module system</h3>
+			<ul class="quote slide fade">
+				<li><p>XSLT tranforms | XPath functions | Java code | external tools</p></li>
+				<li><p>orchestrated via XProc + XML catalogs</p></li>
+			</ul>
+		</li>
+		<li class="slide fade">
+			<h3>Runtime framework</h3>
+			<ul class="quote slide fade">
+				<li><p>Java-based, powered by OSGi</p></li>
+				<li>
+					<p style="margin-bottom: 0">Service-oriented</p>
+					<p><span style="margin-left:1em;">&#8618;</span>&nbsp;Job management, logging, etc</p>
+				</li>
+			</ul>
+		</li>
+	</ul>
+	
+</section>
+<!--====================================================================================-->
+<!--===  Pipeline2: Deployment options                                                ==-->
+<!--====================================================================================-->
+<section class="slide">
+	<img
+	style="float: right; margin-top:1em;"
+    src="./Pipeline-logo.png" alt="Pipeline logo">
+
+	<h2 class="pipeline">Deployment options</h2>
+	
+	<img
+	class="wobble animated"
+	style="float:right; opacity: 0.5; width: 20%"
+	src="./3d-human-globe.jpg"
+	alt="3d human with a globe in the hands">
+	
+	<ul>
+		<li class="slide fade">
+			<h3>Command line tool</h3>
+			<p class="quote slide" style="opacity: 0.8">&#10137;&nbsp;already available &mdash;&nbsp;revamped in early 2012</p>
+		</li>                                          
+		<li class="slide fade">                        
+			<h3>Web service</h3>                       
+			<p class="quote slide" style="opacity: 0.8">&#10137;&nbsp;already available &mdash;&nbsp;gradually enriched</p>
+		</li>                                          
+		<li class="slide fade">                        
+			<h3>Web application</h3>                   
+			<p class="quote slide" style="opacity: 0.8">&#10137;&nbsp;June 2012</p>
+		</li>                                          
+		<li class="slide fade">                        
+			<h3>Desktop UI</h3>                        
+			<p class="quote slide" style="opacity: 0.8">&#10137;&nbsp;First half of 2013</p>
+		</li>
+	</ul>
+</section>
+
+<!--====================================================================================-->
+<!--===  Pipeline2: Demo                                                            ==-->
+<!--====================================================================================-->
+<section class="slide">
+	
+	<img
+	class="bounceInDown animated"
+	style="margin-top: 5em;" 
+	  src="./Pipeline-logo.png" alt="Pipeline logo">
+
+	<center>
+		<h2 class="pipeline">Sample workflows</h2>
+	</center>
+</section>
 
 			<h3>December 6, 2011 (11am-12pm)</h3>
 			<p>
 				<cite>Romain Deltour &amp; Daniel Weck<br />(DAISY Consortium)</cite>
 			</p>
 
-		</section>
+<!--====================================================================================-->
+<!--===  Pipeline2: Open platform                                                     ==-->
+<!--====================================================================================-->
+<section class="slide">
+	<img
+	style="float: right; margin-top:1em;"
+    src="./Pipeline-logo.png" alt="Pipeline logo">
+
+	<h2 class="pipeline">DAISY Pipeline 2</h2>
+	
+	<img
+	class="animated tada"
+	style="float:right; opacity: 0.5; width: 30%"
+	src="./3d-humans-team.jpg"
+	alt="q team">
+	
+	<ul>
+		<li class="slide fade">
+			<h3>Open platform</h3>
+			<ul class="quote">
+				<li><p>Open source (LGPL / Apache license ?)</p></li>
+				<li><p>Collaborative project</p></li>
+				<li><p>Extensible and customizable</p></li>
+			</ul>
+		</li>
+		<li class="slide">
+			<h3>Available today:</h3>
+			<ul class="quote">
+				<li><p>DTBook to DAISY AI</p></li>
+				<li><p>DAISY AI to EPUB 3</p></li>
+				<li><p>DAISY 2.02 to EPUB 3</p></li>
+			</ul>
+		</li>
+		<li class="slide">
+			<h3>In the works:</h3>
+			<ul class="quote">
+				<li><p>Improved EPUB 3 support</p></li>
+				<li><p>Additional input formats</p></li>
+				<li><p>Braille production</p></li>
+				<li><p>TTS-based production</p></li>
+			</ul>
+		</li>
+	</ul>
+</section>
+
+<!--====================================================================================-->
+<!--===  Pipeline2: Thanks                                                            ==-->
+<!--====================================================================================-->
+<section class="slide">
+	
+	<img
+	class="bounceInDown animated"
+	style="margin-top: 5em;" 
+	  src="./Pipeline-logo.png" alt="Pipeline logo">
+
+	<center>
+		<h2 class="pipeline">Thank you</h2>
+		<p>More info: <a href="http://www.daisy.org/tobi">http://www.daisy.org/pipeline2</a></p>
+	</center>
+</section>
+
+
+
+<section class="slide">
+	
+	<img
+	class="bounceInDown animated"
+	style="margin-top: 5em;" 
+	  src="./Tobi-logo-text.png" alt="Tobi logo"><!-- 509x171 -->
 
 
 		<section class="slide">
