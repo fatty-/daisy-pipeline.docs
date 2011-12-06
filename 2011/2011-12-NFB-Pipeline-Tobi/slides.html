@@ -94,6 +94,7 @@ font-size: 1.4em;
 	}
 	.deck-container .slide h2.tobi {
 	  color: #669933;
+	  margin-bottom: 1.3em;
 	}
 	.deck-container .slide {
 	  background-color: transparent;
@@ -163,7 +164,7 @@ opacity: 0.5;
 				<p class="quote">
 					<strong>An open framework for automated document processing</strong>
 				</p>
-				<ul style="margin-top: 2em;">
+				<ul style="margin-top: 2em; margin-left: 0;">
 					<li class="slide fade" style="list-style-type: none;">
 						<h3>Introduction</h3>
 						<p style="opacity: 0.8">(15mn)</p>
@@ -456,8 +457,9 @@ opacity: 0.5;
 
 			<center>
 				<h2 class="pipeline">Thank you</h2>
-				<p>More info: <a href="http://www.daisy.org/tobi"
-					>http://www.daisy.org/pipeline2</a></p>
+				<p>
+					<a href="http://www.daisy.org/pipeline2">http://www.daisy.org/pipeline2</a>
+				</p>
 			</center>
 		</section>
 
@@ -472,16 +474,16 @@ opacity: 0.5;
 				alt="Tobi logo" />
 			<!-- 509x171 -->
 
-			<ul style="margin-left: 10em;">
-				<li>
+			<ul style="margin-left: 10em; margin-left: 0; text-align: center;">
+				<li style="list-style-type: none;">
 					<h3>Introduction</h3>
 					<p class="slide">(10mn)</p>
 				</li>
-				<li>
+				<li style="list-style-type: none;">
 					<h3>Demo</h3>
 					<p class="slide">(15mn)</p>
 				</li>
-				<li>
+				<li style="list-style-type: none;">
 					<h3>Questions</h3>
 					<p class="slide">(5mn)</p>
 				</li>
@@ -494,67 +496,54 @@ opacity: 0.5;
 			<!-- 509x171 -->
 			<h2 class="tobi">Tobi, in a nutshell</h2>
 
-			<table width="100%">
-				<tr>
-					<td>
-						<ul>
-							<li class="slide fade">
-								<h3>Authoring tool for talking books</h3>
+			<img class="wobble animated"
+				style="opacity: 0.5; margin-top: 4em; float: right; clear: right;"
+				src="./audiobook-listener.png" alt="talking book listener" />
+			<ul>
+				<li class="slide fade">
+					<h3>Authoring tool for talking books</h3>
 
-								<ul class="slide fade" style="margin-bottom: 0.6em;">
-									<li>
-										<p>Human narration, not speech synthesis</p>
-									</li>
-									<li>
-										<p>
-											<span class="slide fade highlight">Text,</span>
-											<span class="slide fade highlight">synchronized</span>
-											<span class="slide fade highlight">with</span>
-											<span class="slide fade highlight">spoken</span>
-											<span class="slide fade highlight">words</span>
-										</p>
-									</li>
-								</ul>
-								<p class="slide">&#10137; "read aloud" e-books, illustrated
-									children's stories</p>
-								<!-- span style="font-size:130%;">&#8618;</span -->
-							</li>
-							<li class="slide fade">
-								<h3>Interactive audio production</h3>
+					<ul class="slide fade" style="margin-bottom: 0.6em;">
+						<li>
+							<p>Human narration, not speech synthesis</p>
+						</li>
+						<li>
+							<p>
+								<span class="slide fade highlight">Text,</span>
+								<span class="slide fade highlight">synchronized</span>
+								<span class="slide fade highlight">with</span>
+								<span class="slide fade highlight">spoken</span>
+								<span class="slide fade highlight">words</span>
+							</p>
+						</li>
+					</ul>
+					<p class="slide">&#10137; "read aloud" e-books, illustrated children's
+						stories</p>
+					<!-- span style="font-size:130%;">&#8618;</span -->
+				</li>
+				<li class="slide fade">
+					<h3>Interactive audio production</h3>
 
-								<ul class="slide fade" style="margin-bottom: 0.6em;">
-									<li>
-										<p>Live voice recording</p>
-									</li>
-									<li>
-										<p>Pre-recorded tracks</p>
-									</li>
-									<li>
-										<p>Waveform editor</p>
+					<ul class="slide fade" style="margin-bottom: 0.6em;">
+						<li>
+							<p>Live voice recording</p>
+						</li>
+						<li>
+							<p>Pre-recorded tracks</p>
+						</li>
+						<li>
+							<p>Waveform editor</p>
 
-									</li>
-								</ul>
-								<p class="slide">&#10137; more time-consuming than automated TTS
-									workflow</p>
+						</li>
+					</ul>
+					<p class="slide">&#10137; more time-consuming than automated TTS workflow</p>
 
-							</li>
-							<li class="slide fade">
-								<h3>Limitation: no XML editing</h3>
-								<p>support for minor text corrections only</p>
-							</li>
-						</ul>
-					</td>
-					<td>
-						<p>&#160;</p>
-						<p>&#160;</p>
-						<p>&#160;</p>
-						<p>&#160;</p>
-						<img class="wobble animated" style="opacity: 0.5;"
-							src="./audiobook-listener.png" alt="talking book listener" />
-					</td>
-				</tr>
-			</table>
-
+				</li>
+				<li class="slide fade">
+					<h3>Limitation: no XML editing</h3>
+					<p>support for minor text corrections only</p>
+				</li>
+			</ul>
 		</section>
 
 		<section class="slide">
@@ -563,46 +552,30 @@ opacity: 0.5;
 			<!-- 509x171 -->
 			<h2 class="tobi">Open standards</h2>
 
-			<table width="100%">
-				<tr>
-					<td>
-						<ul>
-							<li class="slide fade">
-								<h3>DAISY 3 Digital Talking Books</h3>
-								<p class="quote" style="margin-bottom:0;">synchronized DTBook +
-									audio </p>
-								<p class="quote slide" style="opacity: 0.8;padding-top:0.2em;"
-									>&#10137; fully-supported</p>
-							</li>
-							<li class="slide fade">
-								<h3>EPUB 3 Media Overlays</h3>
-								<p class="quote" style="margin-bottom:0;">synchronized (X)HTML5 +
-									audio </p>
-								<p class="quote slide" style="opacity: 0.8;">&#10137; may / June
-									2012</p>
-							</li>
-							<li class="slide fade">
-								<h3>DIAGRAM image descriptions</h3>
-								<p class="quote" style="margin-bottom:0;">standard not finalized yet </p>
-								<p class="quote slide" style="opacity: 0.8;">&#10137; audio
-									annotations: April 2012</p>
-							</li>
-						</ul>
-						<h3 class="slide" style="opacity: 0.8;text-align:right;">XML formats &#8644;
-							interoperability</h3>
-					</td>
-					<td>
-
-						<p>&#160;</p>
-						<p>&#160;</p>
-						<img class="rollIn animated" style="opacity: 0.5;" src="./standards.jpg"
-							alt="icon" />
-
-
-					</td>
-				</tr>
-			</table>
-
+			<img class="rollIn animated"
+				style="opacity: 0.5; margin-top: 3em; float: right; clear: right;"
+				src="./standards.jpg" alt="icon" />
+			<ul>
+				<li class="slide fade">
+					<h3>DAISY 3 Digital Talking Books</h3>
+					<p class="quote" style="margin-bottom:0;">synchronized DTBook + audio </p>
+					<p class="quote slide" style="opacity: 0.8;padding-top:0.2em;">&#10137;
+						fully-supported</p>
+				</li>
+				<li class="slide fade">
+					<h3>EPUB 3 Media Overlays</h3>
+					<p class="quote" style="margin-bottom:0;">synchronized (X)HTML5 + audio </p>
+					<p class="quote slide" style="opacity: 0.8;">&#10137; may / June 2012</p>
+				</li>
+				<li class="slide fade">
+					<h3>DIAGRAM image descriptions</h3>
+					<p class="quote" style="margin-bottom:0;">standard not finalized yet </p>
+					<p class="quote slide" style="opacity: 0.8;">&#10137; audio annotations: April
+						2012</p>
+				</li>
+			</ul>
+			<h3 class="slide" style="opacity: 0.8;text-align:center;">XML formats &#8644;
+				interoperability</h3>
 		</section>
 
 		<section class="slide">
@@ -611,42 +584,29 @@ opacity: 0.5;
 			<!-- 509x171 -->
 			<h2 class="tobi">Free and open source</h2>
 
-			<table width="100%">
-				<tr>
-					<td>
-						<ul>
-							<li class="slide fade">
-								<h3>Windows (XP, Vista, 7)</h3>
-								<p class="quote">.NET 3.5 / 4.0, DirectX 9</p>
-							</li>
-							<li class="slide fade">
-								<h3>Install once, automatic new versions</h3>
-								<p class="quote">9MB download, smaller incremental updates</p>
-							</li>
+			<img class="bounceInUp animated"
+				style="opacity: 0.5; margin-top: 4em; float: right; clear: right;"
+				src="./opensource.png" alt="open source icon" />
 
-							<li class="slide fade">
-								<h3>Shared code, modular design</h3>
-								<p class="quote">Urakawa SDK: Obi, Tobi</p>
-							</li>
-							<li class="slide fade">
-								<h3>Flexible software licence</h3>
-								<p class="quote">LGPL, BSD</p>
-							</li>
-						</ul>
-					</td>
-					<td>
+			<ul>
+				<li class="slide fade">
+					<h3>Windows (XP, Vista, 7)</h3>
+					<p class="quote">.NET 3.5 / 4.0, DirectX 9</p>
+				</li>
+				<li class="slide fade">
+					<h3>Install once, automatic new versions</h3>
+					<p class="quote">9MB download, smaller incremental updates</p>
+				</li>
 
-						<p>&#160;</p>
-						<p>&#160;</p>
-						<p>&#160;</p>
-						<img class="bounceInUp animated" style="opacity: 0.5;"
-							src="./opensource.png" alt="open source icon" />
-
-
-					</td>
-				</tr>
-			</table>
-
+				<li class="slide fade">
+					<h3>Shared code, modular design</h3>
+					<p class="quote">Urakawa SDK: Obi, Tobi</p>
+				</li>
+				<li class="slide fade">
+					<h3>Flexible software licence</h3>
+					<p class="quote">LGPL, BSD</p>
+				</li>
+			</ul>
 		</section>
 
 
@@ -657,50 +617,39 @@ opacity: 0.5;
 			<!-- 509x171 -->
 			<h2 class="tobi">Features highlight</h2>
 
-			<table width="100%">
-				<tr>
-					<td>
-						<ul>
-							<li class="slide fade">
-								<h3>Built-in content validation</h3>
-								<p class="quote">invalid markup, metadata errors, missing audio</p>
-							</li>
+			<img class="swing animated"
+				style="opacity: 0.5; -webkit-transform:rotate(4deg); margin-top: 2em; float: right; clear: right;"
+				src="./Tobi-screenthumb-1.png" alt="Tobi screenshot thumbnail" />
 
-							<li class="slide fade">
-								<h3>Publication metadata helpers</h3>
-								<p class="quote">Z39.86-2005, soon EPUB3</p>
-							</li>
-							<li class="slide fade">
-								<h3>Rich navigation</h3>
-								<p class="quote">chapters, pages, document markup, placemarks,
-									search</p>
-							</li>
+			<img class="swing animated"
+				style="opacity: 0.5; -webkit-transform:rotate(-4deg); margin-top: 1em;  float: right; clear: right;"
+				src="./Tobi-screenthumb-2.png" alt="Tobi screenshot thumbnail" />
 
-							<li class="slide fade">
-								<h3>Unlimited undo/redo</h3>
-								<p class="quote">+ "cleanup" function to save space</p>
-							</li>
-							<li class="slide fade">
-								<h3>Flexible user-interface</h3>
-								<p class="quote">narrator's preferred text font/size, compact
-									reading view, etc.</p>
-							</li>
-						</ul>
-					</td>
-					<td>
-						<p>&#160;</p>
-						<img class="swing animated"
-							style="opacity: 0.5; -webkit-transform:rotate(4deg);"
-							src="./Tobi-screenthumb-1.png" alt="Tobi screenshot thumbnail" />
-						<p>&#160;</p>
-						<img class="swing animated"
-							style="opacity: 0.5; -webkit-transform:rotate(-4deg);"
-							src="./Tobi-screenthumb-2.png" alt="Tobi screenshot thumbnail" />
+			<ul>
+				<li class="slide fade">
+					<h3>Built-in content validation</h3>
+					<p class="quote">invalid markup, metadata errors, missing audio</p>
+				</li>
 
+				<li class="slide fade">
+					<h3>Publication metadata helpers</h3>
+					<p class="quote">Z39.86-2005, soon EPUB3</p>
+				</li>
+				<li class="slide fade">
+					<h3>Rich navigation</h3>
+					<p class="quote">chapters, pages, document markup, placemarks, search</p>
+				</li>
 
-					</td>
-				</tr>
-			</table>
+				<li class="slide fade">
+					<h3>Unlimited undo/redo</h3>
+					<p class="quote">+ "cleanup" function to save space</p>
+				</li>
+				<li class="slide fade">
+					<h3>Flexible user-interface</h3>
+					<p class="quote">narrator's preferred text font/size, compact reading view,
+						etc.</p>
+				</li>
+			</ul>
 
 		</section>
 
@@ -711,40 +660,30 @@ opacity: 0.5;
 			<!-- 509x171 -->
 			<h2 class="tobi">Accessibility</h2>
 
-			<table width="100%">
-				<tr>
-					<td>
-						<ul>
-							<li class="slide fade">
-								<h3>Screen readers</h3>
-								<p class="quote">tested with NVDA, JAWS 9+</p>
-							</li>
 
-							<li class="slide fade">
-								<h3>Built-in magnification</h3>
-								<p class="quote">crisp vector graphics</p>
-							</li>
-							<li class="slide fade">
-								<h3>High-contrast mode</h3>
-								<p class="quote">system settings</p>
-							</li>
+			<img class="pulse animated"
+				style="opacity: 0.5; margin-top: 3em; float: right; clear: right;"
+				src="./accessibility.png" alt="icon" />
+			<ul>
+				<li class="slide fade">
+					<h3>Screen readers</h3>
+					<p class="quote">tested with NVDA, JAWS 9+</p>
+				</li>
 
-							<li class="slide fade">
-								<h3>Keyboard-optimized</h3>
-								<p class="quote">configurable shortcuts, quick focus change</p>
-							</li>
-						</ul>
-					</td>
-					<td>
+				<li class="slide fade">
+					<h3>Built-in magnification</h3>
+					<p class="quote">crisp vector graphics</p>
+				</li>
+				<li class="slide fade">
+					<h3>High-contrast mode</h3>
+					<p class="quote">system settings</p>
+				</li>
 
-						<p>&#160;</p>
-						<img class="pulse animated" style="opacity: 0.5;" src="./accessibility.png"
-							alt="icon" />
-
-
-					</td>
-				</tr>
-			</table>
+				<li class="slide fade">
+					<h3>Keyboard-optimized</h3>
+					<p class="quote">configurable shortcuts, quick focus change</p>
+				</li>
+			</ul>
 
 		</section>
 
@@ -764,16 +703,28 @@ opacity: 0.5;
 
 		<section class="slide">
 
-			<img class="bounceInDown animated" style="margin-top: 5em;" src="./Tobi-logo-text.png"
-				alt="Tobi logo" />
-			<!-- 509x171 -->
 
 			<center>
-				<h2>Thank you</h2> More info: <a href="http://www.daisy.org/tobi"
-					>http://www.daisy.org/tobi</a>
+				<img class="bounceInDown animated" style="margin-top: 5em;"
+					src="./Pipeline-logo.png" alt="Pipeline logo" />
+
+				<p>
+					<a href="http://www.daisy.org/pipeline2">http://www.daisy.org/pipeline2</a>
+				</p>
+
+				<img class="bounceInDown animated"
+					width="300"
+					style="margin-top: 9em;"
+					src="./Tobi-logo-text.png" alt="Tobi logo" />
+				<!-- 509x171 -->
+
+				<p>
+					<a href="http://www.daisy.org/tobi">http://www.daisy.org/tobi</a>
+				</p>
+
+
 			</center>
 		</section>
-
 
 
 		<!-- p class="deck-status">
