@@ -1,0 +1,30 @@
+/* CSS last edit rd 20110407, kk 20070125, mg 20030905 */ 
+body {font-style: normal; font-weight: normal; font-family: arial, verdana, sans-serif; margin-right: 15%; margin-left: 10%;}
+body {background-image: url("http://www.daisy.org/images/daisylogo-w.gif"); background-repeat: no-repeat; background-position: 85% 2.5em;}
+h6 {font-weight: bold; font-size:  75%; color: #000099; margin-top: 1.2em; margin-bottom: 0.2em;}
+h5 {font-weight: bold; font-size:  80%; color: #000099; margin-top: 1.2em; margin-bottom: 0.2em;}
+h4 {font-weight: bold; font-size:  88%; color: #000099; margin-top: 2.0em; margin-bottom: 0.4em;}
+h3 {font-weight: bold; font-size: 100%; color: #000099; margin-top: 2.0em; margin-bottom: 0.5em; letter-spacing: 0.04em;}
+h2 {font-weight: bold; font-size: 115%; color: #000099; margin-top: 2.5em; margin-bottom: 0.5em; letter-spacing: 0.15em;}
+h1 {font-weight: bold; font-size: 130%; color: #000099; margin-top: 3.0em; margin-bottom: 0.5em; letter-spacing: 0.20em;}
+h1:first-child {margin-right: 20%;}
+ul.linklist {list-style: none; margin-left: 0em;}
+ul.linklist ul {list-style: none; margin-left: 2em;}
+.top {font-size: 80%; display: block;}
+img {border:inherit none; float: right}
+*.box {font-size:95%; border: 1px solid rgb(100,100,100); padding:0.3em}
+*.author {color:#000099; font-size:80%;}
+*.comment {color:#000099; font-size:80%;}
+*.alert {border: 1px solid red; padding: 0.2em; font-size:95%; font-weight:bold;}
+*.action {color: rgb(0,0,153); font-size:90%; border: 1px solid rgb(0,0,50); padding: 0.2em; background-color: rgb(240,240,240); font-weight:bold;}
+span.bullet {font-family:"Courier New", sans-serif;}
+span.padding {font:.3em "Courier New", sans-serif;}
+span.indent {margin-left:1em;text-indent:-1em;}
+span.indent2 {text-indent:1.5em;}
+ol.indent3 {margin-top:0em;}
+dt {font-weight:bold;}
+pre {margin-left:10px;}
+code {font: 80% "Courier New", sans-serif;}
+.edit-delete {text-decoration: line-through; background: #CCCCCC; }
+td,th,table{border: 1px solid gray}
+th{text-align: left; font-size: 90%;}

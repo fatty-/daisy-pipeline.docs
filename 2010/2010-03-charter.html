@@ -1,0 +1,1018 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>
+			DAISY Consortium Project Charter: DAISY Pipeline 2
+		</title>
+		<meta name="author" content="Romain Deltour" />
+		<meta name="copyright" content="DAISY Consortium" />
+		<style type="text/css">
+/*<![CDATA[*/
+		/* CSS last edit mg 20030905 */
+		body {background-image: url("http://www.daisy.org/images-site2/logos/daisy_small.jpg"); background-repeat: no-repeat; background-position: 95% 10px;}
+		body {font-style: normal; font-weight: normal; font-family: arial, verdana, sans-serif; margin-right: 15%; margin-left: 10%;}
+		h6 {font-weight: bold; font-size: 75%; margin-top: 1.2em; color: #000099;  margin-bottom: 0.2em;}
+		h5 {font-weight: bold; font-size: 80%; margin-top: 1.2em; color: #000099; margin-bottom: 0.2em;}
+		h4 {font-weight: bold; font-size: 88%; color: #000099; margin-top: 2.5em; margin-bottom: 0.4em;}
+		h3 {font-weight: bold; font-size: 100%; color: #000099; letter-spacing: 0.04em; margin-top: 2.5em; margin-bottom: 1em;}
+		h2 {font-weight: bold; font-size: 115%; color: #000099; letter-spacing: 0.15em; margin-top: 4em;}
+		h1 {font-weight: bold; font-size: 130%; color: #000099; margin-top: 3em; margin-bottom: 1em; letter-spacing: 0.2em;}
+		ul.linklist {list-style: none; margin-left: 0em;}
+		ul.linklist ul {list-style: none; margin-left: 2em;}
+		.top {font-size: 80%; display: block;}
+		img {border-width: inherit; border-style: none; border-color: inherit; float: right;}
+		*.box {font-size:95%; border: 1px solid rgb(100,100,100); padding:0.3em}
+		*.author {color:#000099; font-size:80%;}
+		*.comment {color:#000099; font-size:80%;}
+		*.alert {border: 1px solid red; padding: 0.2em; font-size:95%; font-weight:bold;}
+		*.action {color: rgb(0,0,153); font-size:90%; border: 1px solid rgb(0,0,50); padding: 0.2em; background-color: rgb(240,240,240); font-weight:bold;}
+		td,th,table{border: 1px solid gray}
+		th{text-align: left; font-size: 90%;}
+/*]]>*/     
+		</style>
+	</head>
+	<body>
+		<h1>
+			DAISY Pipeline 2 Project Charter
+		</h1>
+		<h1 id="Overview">
+			Overview
+		</h1>
+		<p>
+			DAISY Consortium members and content producers have to keep up with an ever increasing set of digital publication content, all the more with the new revision of the DAISY standards and the rapid growth of EPUB usage in the consumer market. The demand for economic and efficient automated production tools is still very high.
+		</p>
+		<p>
+			While the DAISY Pipeline first released in 2008 has so far been a successful answer to the needs of the DAISY community, new standards and technologies have emerged and can be leveraged to reduce the maintenance cost, lower the learning curve for new adopters, and increase the interoperability with the heterogeneous community needs.
+		</p>
+		<p>
+			The DAISY Pipeline 2 project will introduce a fundamental redesign of the original technical solution, which will enable a more robust development of new functionality. It intends to be a long term investment to achieve an enterprise-grade production system for accessible content.
+		</p>
+		<p>
+			The outcome will benefit all DAISY Consortium members involved in automated content production, as well as commercial companies wishing to take advantage of the open source and liberally licensed deliverables.
+		</p>
+		<h1 id="toc">
+			Table of Contents
+		</h1>
+		<ul>
+			<li>
+				<a href="#Overview">Overview</a>
+			</li>
+			<li>
+				<a href="#Rationale_for_a_major_framework_redesign">Rationale for a major framework redesign</a>
+			</li>
+			<li>
+				<a href="#Project_Development_Cycle">Project Development Cycle</a>
+			</li>
+			<li>
+				<a href="#Project_Scope_and_project_phases">Project Scope and project phases</a>
+				<ul>
+					<li>
+						<a href="#A._First_Phase_-_May_2010_to_September_2011">A. First Phase - May 2010 to September 2011</a>
+						<ul>
+							<li>
+								<a href="#A.1_Fundamental_framework_redesign">A.1 Fundamental framework redesign</a>
+								<ul>
+									<li>
+										<a href="#A.1.1_Adoption_of_XProc_as_the_workflow-description_language">A.1.1 Adoption of XProc as the workflow-description language</a>
+									</li>
+									<li>
+										<a href="#A.1.2_Adaptation_of_an_XProc_engine">A.1.2 Adaptation of an XProc engine</a>
+									</li>
+									<li>
+										<a href="#A.1.3_Definition_of_overarching_principles">A.1.3 Definition of overarching principles</a>
+									</li>
+									<li>
+										<a href="#A.1.4_Preparatory_work_for_advanced_framework_extensions">A.1.4 Preparatory work for advanced framework extensions</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#A.2_Processing_functions">A.2 Processing functions</a>
+								<ul>
+									<li>
+										<a href="#A.2.1_Development_of_a_DAISY_4_XSLT_Suite">A.2.1 Development of a DAISY 4 XSLT Suite</a>
+									</li>
+									<li>
+										<a href="#A.2.2_Integration_of_the_ZedAI_validator">A.2.2 Integration of the ZedAI validator</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#A.3_Deployment_Options">A.3 Deployment Options</a>
+								<ul>
+									<li>
+										<a href="#A.3.1_Command_line_interface">A.3.1 Command line interface</a>
+									</li>
+									<li>
+										<a href="#A.3.2_Java_API">A.3.2 Java API</a>
+									</li>
+									<li>
+										<a href="#A.3.3_Basic_Web_Service_API">A.3.3 Basic Web Service API</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#A.4_Creation_of_sub_working_groups">A.4 Creation of sub working groups</a>
+								<ul>
+									<li>
+										<a href="#A.4.1_Braille_in_DAISY_working_group">A.4.1 Braille in DAISY working group</a>
+									</li>
+									<li>
+										<a href="#A.4.2_TTS_Production_working_group">A.4.2 TTS Production working group</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#B._Second_Phase_-_September_2011_to_September_2013">B. Second Phase - September 2011 to September 2013</a>
+						<ul>
+							<li>
+								<a href="#B.1_Advanced_framework_redesign">B.1 Advanced framework redesign</a>
+								<ul>
+									<li>
+										<a href="#B.1.1_Dynamic_component_architecture">B.1.1 Dynamic component architecture</a>
+									</li>
+									<li>
+										<a href="#B.1.2_Web-Service_integration">B.1.2 Web-Service integration</a>
+									</li>
+									<li>
+										<a href="#B.1.3_File_set_manipulation">B.1.3 File set manipulation</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#B.2_Processing_functions">B.2 Processing functions</a>
+								<ul>
+									<li>
+										<a href="#B.2.1_TTS_based_DTB_production">B.2.1 TTS based DTB production</a>
+									</li>
+									<li>
+										<a href="#B.2.2_Braille_in_DAISY">B.2.2 Braille in DAISY</a>
+									</li>
+									<li>
+										<a href="#B.2.3_Port_of_part_of_the_existing_Pipeline_1_functionality">B.2.3 Port of part of the existing Pipeline 1 functionality</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#B.3_Deployment_Options">B.3 Deployment Options</a>
+								<ul>
+									<li>
+										<a href="#B.3.1_Lightweight_GUI">B.3.1 Lightweight GUI</a>
+									</li>
+									<li>
+										<a href="#B.3.2_Advanced_UIs">B.3.2 Advanced UI(s)</a>
+									</li>
+									<li>
+										<a href="#B.3.3_Advanced_Web_Service_API">B.3.3 Advanced Web Service API</a>
+									</li>
+									<li>
+										<a href="#B.3.4_Non-Java_APIs">B.3.4 Non-Java APIs (e.g. .Net API)</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#Team_Organization_and_Management">Team Organization and Management</a>
+			</li>
+			<li>
+				<a href="#Timeline">Timeline</a>
+			</li>
+			<li>
+				<a href="#Budget_Financial_summary">Budget / Financial summary</a>
+			</li>
+			<li>
+				<a href="#Strategic_political_issues_to_be_considered_in_the_project">Strategic/political issues to be considered in the project</a>
+				<ul>
+					<li>
+						<a href="#Licensing">Licensing</a>
+					</li>
+					<li>
+						<a href="#Role_of_the_DAISY_Consortium">Role of the DAISY Consortium</a>
+					</li>
+					<li>
+						<a href="#Relationship_with_the_Pipeline_1">Relationship with the Pipeline 1</a>
+					</li>
+					<li>
+						<a href="#Enabling_Technologies_Framework_WIPO_project">"Enabling Technologies Framework" WIPO project</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#Risk_Management">Risk Management</a>
+			</li>
+		</ul>
+		<h1 id="Rationale_for_a_major_framework_redesign">
+			Rationale for a major framework redesign
+		</h1>
+		<p>
+			In the long term, it does not make economic sense to maintain our own version of the Pipeline core engine since standards with the same scope are now available. The <strong>adoption of existing standards</strong> (and off-the-shelf implementations of those standards) at the heart of the Pipeline framework will allow us to:
+		</p>
+		<ul>
+			<li>
+				<strong>minimize the development and maintenance cost</strong>. Developers can ultimately focus more on actual transformations rather than the engine that drives the transformations.
+			</li>
+			<li>
+				<strong>lower the framework learning curve</strong>. The use of well documented and widely adopted standards makes it easier for partners to get involved and contribute to the project.
+			</li>
+			<li>
+				<strong>increase the interoperability with the heterogeneous community needs</strong>. The use of standardized protocols and technologies makes it easier to integrate the Pipeline in different application contexts, increasing the likelihood of re-use in both open source and commercial applications.
+			</li>
+		</ul>
+		<p>
+			An emerging standard that will particularly play a central role in the Pipeline 2 redesign is <strong>XProc</strong>. XProc is a W3C specification for an XML Pipeline Language describing operations to be performed on XML documents. It is developed by the W3C XML Processing Model Working Group, and is expected to become a W3C Recommendation in 2010.
+		</p>
+		<p>
+			XProc has a certain numbers of key features that are particularly relevant in the Pipeline context:
+		</p>
+		<ul>
+			<li>Open standard: XProc will soon become a W3C recommendation, using it to replace the proprietary Pipeline 1 grammars helps to reduce the cost of maintenance and the lower learning curve.
+			</li>
+			<li>Platform neutrality: the XProc specification is fundamentally platform neutral: a standard XProc pipeline can be executed with any XProc processor, independently of their implementation language.
+			</li>
+			<li>Popularity in the XML community: there is already a great uptake of XProc in the XML publishing community, and several solid implementations are available (including open source ones).
+			</li>
+			<li>Declarative approach: the focus is placed on the workflow description rather than on the implementation details, making it easier to author for non-developers.
+			</li>
+			<li>Expressiveness: the XProc language has a greater expressivity than the Pipeline 1.0 script grammar, allowing the description of more complex processing workflows.
+			</li>
+			<li>Scalability: all XProc pipelines are reusable components, allowing combination of existing pipelines into larger pipelines.
+			</li>
+			<li>Extensibility: the XProc specification provides great extensibility hooks, via the definition of custom step libraries. This can help to fit XProc into the DAISY functional domain.
+			</li>
+		</ul>
+		<p>
+			Because of the huge amount of overlap between their fundamental concepts, it is a natural choice to use XProc as the primary language for describing processing workflows in the DAISY Pipeline.
+		</p>
+		<h1 id="Project_Development_Cycle">
+			Project Development Cycle
+		</h1>
+		<p>
+			Based on the Board's decision that new core projects will not be started before the financing is secured, the Board of Directors of the DAISY Consortium decided in Seoul (June 2009) to follow a standardized Project Development Cycle for major projects and which consists of the following steps (see Minutes of the Board Meeting in Seoul, Items 9, 10, 49a, and 49b):
+		</p>
+		<ol>
+			<li>Outline of a Project submitted by the management and approval by the Board for further development of the Project;
+			</li>
+			<li>Call for Participation (the members are invited to participate in the development of the corresponding Project Charter);
+			</li>
+			<li>Together with the finalized draft Charter a Call for Support is sent out to the membership; it asks for human and/or financial commitments;
+			</li>
+			<li>Submission of the final charter to the Board for final approval; it includes the budget and the agreements between the DAISY Consortium and the organizations regarding their commitments
+			</li>
+		</ol>
+		<p>
+			The Outline for the Pipeline 2 project was approved by the Board at its meeting in Seoul (see Minutes of the Board Meeting in Seoul, Items 20 and 49f).
+		</p>
+		<p>
+			The Call for Participation was sent out by e-mail to the Board and the membership in general on July 13th 2009.
+		</p>
+		<p>
+			The present draft Charter was edited by Romain Deltour integrating comments from Markus Gylling, Bernhard Heinser and George Kersher. Furthermore, the following individuals reviewed the present charter or contributed to the overall inception effort: Kathleen Asjes (Dedicon), Jostein Austvik Jacobsen (NLB), Christian Egli (SBS), Ian Greenow (RNIB), Joel Håkansson (TPB), Kenny Johar (Vision Australia), Arne Kyrkjebø (NLB), Peter Osborne (RNIB), Gerald N. Schmidt (The Open University).
+		</p>
+		<h1 id="Project_Scope_and_project_phases">
+			Project Scope and project phases
+		</h1>
+		<p>
+			This DAISY Pipeline 2 project essentially consists in two main tasks:
+		</p>
+		<ol>
+			<li>the technical redesign of the Pipeline core framework
+			</li>
+			<li>the development of new processing functionality
+			</li>
+		</ol>
+		<p>
+			The fundamental framework redesign coupled with the critical need to provide a reference implementation for the DAISY standard revision are very ambitious objectives that demand a strong development effort. To get the best from the available resources, the project objectives are hereafter separated in two main development phase: the <a href="#A._First_Phase_-_May_2010_to_September_2011">first phase</a> focuses on a limited set of requirements towards a usable release and the preparation of the second phase through two dedicated working groups (mainly for TTS and Braille production), while the <a href="#B._Second_Phase_-_September_2011_to_September_2013">second phase</a> consists in more advanced framework changes and processing functionality. Although the second phase is outlined in the present charter, its concretion will highly depend on the outcomes of the work done by the two working groups.
+		</p>
+		<p>
+			Note: because one of the main objective of the project is to create an open framework for the creation of modular processing functions, the charter cannot obviously list all the future contributions explicitly. This charter only mentions the items of particular strategical importance or developed principally by the DAISY Consortium staff.
+		</p>
+		<h2 id="A._First_Phase_-_May_2010_to_September_2011">
+			A. First Phase - May 2010 to September 2011
+		</h2>
+		<p>
+			The first phase encompass the fundamental objectives towards a first usable release. It focuses on the minimal framework redesign required to achieve a first reference implementation of the DAISY standard revision. It also includes the preparatory work required to plan the second phase, such as the creation of dedicated working groups for the development of Braille or TTS-based production.
+		</p>
+		<h3 id="A.1_Fundamental_framework_redesign">
+			A.1 Fundamental framework redesign
+		</h3>
+		<h4 id="A.1.1_Adoption_of_XProc_as_the_workflow-description_language">
+			A.1.1 Adoption of XProc as the workflow-description language
+		</h4>
+		<p>
+			The first necessary step in the adoption of XProc as the central language for the description of the processing pipelines is for the core developers team to get familiar with the new concepts and technologies.
+		</p>
+		<ol>
+			<li>
+				<strong>Getting started with XProc</strong>: the core developers need to acquire some expertise with the XProc specification. They will have to read some documentation and tutorials, and experiment with existing XProc processors and their built-in samples.
+			</li>
+			<li>
+				<strong>Development of simple XProc prototypes</strong>: the learning of XProc and its standard step library needs to be consolidated by the development of small XProc pipelines (e.g. performing basic XML manipulation).
+			</li>
+		</ol>
+		<h4 id="A.1.2_Adaptation_of_an_XProc_engine">
+			A.1.2 Adaptation of an XProc engine
+		</h4>
+		<p>
+			To reduce the initial development cost, an existing open source XProc processor will most probably be reused at the roots of the core Pipeline 2 engine. However, some adaptation work still needs to be done to fully achieve the project requirements, notably in terms of integration within a larger software system.
+		</p>
+		<ol>
+			<li>
+				<strong>Selection of an XProc engine</strong>: the engine to use at the core of the DAISY Pipeline 2 needs to be carefully selected amongst the existing third-party XProc implementations. The choice will depend on feature sets, ease of adaptation and licensing compatibilities.
+			</li>
+			<li>
+				<strong>Development of a basic engine wrapper</strong>: the developers need to get familiar with the API of the selected XProc engine in order to be able embed it in the DAISY Pipeline core framework.
+			</li>
+			<li>
+				<strong>Adaptation of the message/event system</strong>: some programming hooks needs to be developed to receive notifications on the execution status and user-oriented messages.
+			</li>
+			<li>
+				<strong>Integration of extended parameter information</strong>: the XProc languages allow pipelines to be configurable via options or parameters, but some language extensions are required for documentation purposes and to improve the accuracy of the representation of these configuration options in a user interface.
+			</li>
+		</ol>
+		<h4 id="A.1.3_Definition_of_overarching_principles">
+			A.1.3 Definition of overarching principles
+		</h4>
+		<p>
+			The DAISY Pipeline project is fundamentally a very modular project where all the processing functions are split in dedicated components. Some overarching principles are needed to ensure a cohesive architectural design, which is essential to increase the developers productivity and and reduce the maintenance cost.
+		</p>
+		<ol>
+			<li>
+				<strong>Definition of a modular organization for processing components</strong>: the DAISY Pipeline is by essence a very modular project composed of an evolving set of dedicated processing components, some rules are therefore required to keep a well-organized structure that is easy to extend and maintain.
+			</li>
+			<li>
+				<strong>Definition of guidelines for the handling of user or application settings</strong>: configuration files are often used to refine the behavior of Pipeline components, the establishment of common practices for the declaration and manipulation of such settings will help in providing a coherent and consistent user experience.
+			</li>
+			<li>
+				<strong>Development of guidelines and utilities for localization</strong>: guidelines and utilities built in the core framework will help the developers of Pipeline components to solve the common need for localization.
+			</li>
+		</ol>
+		<h4 id="A.1.4_Preparatory_work_for_advanced_framework_extensions">
+			A.1.4 Preparatory work for advanced framework extensions
+		</h4>
+		<p>
+			The scope of the XProc language does not entirely cover the needs of the DAISY Pipeline project. Fortunately, it is possible to extend the language and tools to cover a broader functional domain. While the processing functions included in the first phase are mostly based on built-in XProc features, it is essential to plan future extensions early in the development to get a complete overview of the technical challenges. It will help to take the right architectural decisions for the next development phase.
+		</p>
+		<p>
+			This preparatory work basically consists in a set of prototypes. It can be based on a simplified scenario of TTS-based DTB production, which is an ideal candidate encompassing many of the foreseen technical challenges.
+		</p>
+		<ol>
+			<li>
+				<strong>Prototype adaptation of the XProc engine to a service-oriented architecture</strong>: a modular and complex project such as the DAISY Pipeline can only be easy to extend and maintain if special care is given to the underlying software architecture. A service-based framework (such as OSGi for Java) can greatly help us to achieve this goal, but some development work is required to adapt state-of-the-art XProc engines to such a framework.
+			</li>
+			<li>
+				<strong>Development of prototype XProc processor-specific steps</strong>: functionality not included in the standard XProc feature set (such as TTS processing) needs to be implemented as extensions to the XProc processor, the development of prototype extensions will give us the expertise required for the development of the second phase.
+			</li>
+			<li>
+				<strong>Development of prototype XProc steps calling a Web Service</strong>: Web services, based on standards and platform-neutral protocols, and are a key solution to interoperability issues ; early prototypes are a first step towards the integration of external services (TTS, metadata repository, etc) as native components within the Pipeline framework.
+			</li>
+			<li>
+				<strong>Development of prototype XProc steps for complex file sets manipulations</strong>: because DAISY book are composed of a set of files including not only of XML documents but also other data files (images, audio, etc), the Pipeline needs to allow the easy manipulation of such file sets. Prototypes will help to adapt the XML-centric XProc framework to this requirement.
+			</li>
+		</ol>
+		<h3 id="A.2_Processing_functions">
+			A.2 Processing functions
+		</h3>
+		<p>
+			The processing functions targeted in the first phase of the Pipeline 2 project intend to provide a first reference implementation of the forthcoming Z39.86-2010 Authoring and Interchange Framework specification. By supporting the "DAISY 4" revision early in the lifespan of the standard, we lower the entry threshold and speed up the adoption rate of said standard. This work needs to be harmonized with the redesign of the core framework and will mostly involve built-in XProc functionality which do not require the advanced extensions planned in the second development phase.
+		</p>
+		<h4 id="A.2.1_Development_of_a_DAISY_4_XSLT_Suite">
+			A.2.1 Development of a DAISY 4 XSLT Suite
+		</h4>
+		<p>
+			This first implementation of the Z39.86-2010 Authoring and Interchange (ZedAI) framework consists in a set of XSLT-based transformations allowing the conversion of ZedAI documents to a set of popular XML-based formats (and possibly the other way).
+		</p>
+		<ol>
+			<li>
+				<strong>DTBook to ZedAI</strong>: conversion of a DTBook (DAISY XML) document to a Z39.86-2010 Authoring and Interchange (ZedAI) document.
+			</li>
+			<li>
+				<strong>ZedAI to DTBook</strong>: conversion of a Z39.86-2010 Authoring and Interchange (ZedAI) document to a DTBook (DAISY XML) document.
+			</li>
+			<li>
+				<strong>ZedAI to XHTML</strong>: conversion of a Z39.86-2010 Authoring and Interchange (ZedAI) document to an XHTML document.
+			</li>
+			<li>
+				<strong>XHTML to ZedAI</strong>: conversion of an XHTML document to a Z39.86-2010 Authoring and Interchange (ZedAI) document.
+			</li>
+			<li>
+				<strong>XHTML to XHTML</strong>: conversion of a flavor of XHTML to another version, supporting XHTML 1.0, XHTML 1.1, XHTML5.
+			</li>
+			<li>
+				<strong>ZedAI to EPUB3</strong>: conversion of a Z39.86-2010 Authoring and Interchange (ZedAI) document to an EPUB file set.
+			</li>
+			<li>
+				<strong>possibly ZedAI to DocBook5</strong>: conversion of a Z39.86-2010 Authoring and Interchange (ZedAI) document to a DocBook5 document.
+			</li>
+		</ol>
+		<h4 id="A.2.2_Integration_of_the_ZedAI_validator">
+			A.2.2 Integration of the ZedAI validator
+		</h4>
+		<p>
+			A new validator for Z39.86-2010 Authoring and Interchange documents is being developed by the DAISY standard revision working group. This validator tool will be integrated in the DAISY Pipeline 2 framework to allow its inclusion into any document processing workflow.
+		</p>
+		<ol>
+			<li>
+				<strong>Integration of the new ZedAI validator as a Pipeline component</strong>: the integration must allow to finely configure the validator from a processing pipeline and to easily retrieve and process the validation results.
+			</li>
+		</ol>
+		<h3 id="A.3_Deployment_Options">
+			A.3 Deployment Options
+		</h3>
+		<p>
+			The integration of DAISY Pipeline 2 functionality in the heterogeneous infrastructural contexts that constitute the current DAISY community needs to be seamless and easy to implement. A new set of user interfaces must be developed, sometimes based on standard protocols. They can increase the framework uptake in both developed and developing countries and improve the interoperability with other parties such as mainstream publishers.
+		</p>
+		<h4 id="A.3.1_Command_line_interface">
+			A.3.1 Command line interface
+		</h4>
+		<p>
+			The <strong>development of a command line interface</strong> will provide a simple way to call the DAISY Pipeline 2 functionality from any of the major operating systems (Windows, Mac OS X and Linux). A command line tool is easy to use and adopt and can even play a role in a basic integration of the Pipeline in a more complex system.
+		</p>
+		<h4 id="A.3.2_Java_API">
+			A.3.2 Java API
+		</h4>
+		<p>
+			The <strong>development of a Java API (Application Programming Interface)</strong> will provide a finely grained access to the entire DAISY Pipeline 2 functionality in a third-party Java application. A clear and well-documented API is also the entry gate to the learning of the framework by new adopters.
+		</p>
+		<h4 id="A.3.3_Basic_Web_Service_API">
+			A.3.3 Basic Web Service API
+		</h4>
+		<p>
+			The <strong>development of a simple Web Service API</strong> will provide a standard and platform-neutral way to access the DAISY Pipeline 2 functionality. Based on (such as SOAP/WS-<tt>*</tt> or REST), it allows the fine integration of the Pipeline independently of the programming language used by the host application, thus achieving a truly interoperable system.
+		</p>
+		<h3 id="A.4_Creation_of_sub_working_groups">
+			A.4 Creation of sub working groups
+		</h3>
+		<p>
+			TTS-based DTB production and Braille production are particularly popular requirements in the DAISY community. Because of their strategical importance, it is proposed to create special working groups dedicated to the development of these tasks.
+		</p>
+		<h4 id="A.4.1_Braille_in_DAISY_working_group">
+			A.4.1 Braille in DAISY working group
+		</h4>
+		<p>
+			The <strong>establishement of a Braille in DAISY working group</strong> must ensure a unified approach towards the uncontested objective to have Braille as a result of the production workflow. Despite the delicate political and heterogeneous technical requirements, the collaborative DAISY Pipeline project offers a great opportunity for this group to integrate the driving forces and lead a systematic approach.
+		</p>
+		<p>
+			During the first phase of the project, the objectives of this group are to:
+		</p>
+		<ul>
+			<li>identify the interested parties
+			</li>
+			<li>identify a group leader
+			</li>
+			<li>secure the group objectives, aligned with the overall Pipeline objectives
+			</li>
+		</ul>
+		<h4 id="A.4.2_TTS_Production_working_group">
+			A.4.2 TTS Production working group
+		</h4>
+		<p>
+			The TTS-based production of DAISY content is clearly the most widely used feature of the DAISY Pipeline. The DAISY Pipeline 2 project is the right opportunity to develop a redesigned TTS-based production facility to better meet the users needs, integrate with recent standards (SSML, PLS), and support the new DAISY revisions.
+		</p>
+		<p>
+			The <strong>establishement of a TTS-based production working group</strong> is proposed during the first phase, in order to:
+		</p>
+		<ul>
+			<li>identify the interested parties
+			</li>
+			<li>refine the end-user requirements
+			</li>
+			<li>collaborate with the core developers on item A.1.4 (Preparatory work for advanced framework extensions)
+			</li>
+		</ul>
+		<p>
+			Note: Because of the almost unanimous use of the feature amongst the existing Pipeline adopters and its central role as a test-bed for the core framework redesign, the development of this work item will be led by the DAISY Consortium.
+		</p>
+		<h2 id="B._Second_Phase_-_September_2011_to_September_2013">
+			B. Second Phase - September 2011 to September 2013
+		</h2>
+		<p>
+			The second phase of the project consists in the finalization of the framework redesign along with the development of advanced production functionality.
+		</p>
+		<h3 id="B.1_Advanced_framework_redesign">
+			B.1 Advanced framework redesign
+		</h3>
+		<p>
+			The DAISY Pipeline 2 core framework is the common basis for all the processing functions. It must be both complete and flexible enough to allow the easy implementation of all the planned and future developments.
+		</p>
+		<h4 id="B.1.1_Dynamic_component_architecture">
+			B.1.1 Dynamic component architecture
+		</h4>
+		<p>
+			The modular organization already started in the first phase must lead to a dynamic and extensible component architecture.
+		</p>
+		<p>
+			In order to ever increase the productivity and maintainability, the service-based approach will be adopted in most part of the framework. The primary objectives is to facilitate the development of processor-specific step extensions.
+		</p>
+		<ol>
+			<li>Adapt the XProc engine to a service-based OSGi runtime (OSGi is the de facto standard for a dynamic and service-oriented module system for Java).
+			</li>
+			<li>Allow the definition of XProc steps as OSGi services
+			</li>
+			<li>Finalize the definition of a plugin architecture for the framework
+			</li>
+		</ol>
+		<h4 id="B.1.2_Web-Service_integration">
+			B.1.2 Web-Service integration
+		</h4>
+		<p>
+			The integration of existing third-party services in the production chain is of utmost importance to achieve a truly interoperable framework. The framework must facilitate the development of processing steps based on web-service, and provide some sample code to lower the learning curve for new adopters.
+		</p>
+		<ol>
+			<li>Develop the adaptive code required to the use of web services as XProc steps
+			</li>
+			<li>Develop sample code for calling a web service from the DAISY Pipeline
+			</li>
+		</ol>
+		<h4 id="B.1.3_File_set_manipulation">
+			B.1.3 File set manipulation
+		</h4>
+		<p>
+			Advanced production functionality such as DAISY book production requires support for complex file set manipulation. The framework must define a standard and common way to represent a file set throughout the workflow and provide a comprehensive step library for manipulating it.
+		</p>
+		<ol>
+			<li>Define a standard representation for file sets in XML
+			</li>
+			<li>Develop a comprehensive library of file set manipulation functions
+			</li>
+			<li>Develop sample pipelines using the aforementioned library
+			</li>
+		</ol>
+		<h3 id="B.2_Processing_functions">
+			B.2 Processing functions
+		</h3>
+		<p>
+			The processing functions targeted in the second phase can leverage more advanced framework possibilities. They include the objectives of the TTS-based production and Braille in DAISY working groups as well as the progressive migration of some Pipeline 1 functionality to the new Pipeline 2 framework.
+		</p>
+		<h4 id="B.2.1_TTS_based_DTB_production">
+			B.2.1 TTS based DTB production
+		</h4>
+		<p>
+			The primary purpose of the TTS-based production working group is to deliver a reference implementation of the Z39.86-2010 Part B (Distribution) specification.
+		</p>
+		<ol>
+			<li>ZedAI to ZedDist Audio Profile
+			</li>
+			<li>ZedAI to ZedDist Classic Profile
+			</li>
+		</ol>
+		<h4 id="B.2.2_Braille_in_DAISY">
+			B.2.2 Braille in DAISY
+		</h4>
+		<p>
+			The details of this work item will be refined by the Braille in DAISY working group during the first phase.
+		</p>
+		<h4 id="B.2.3_Port_of_part_of_the_existing_Pipeline_1_functionality">
+			B.2.3 Port of part of the existing Pipeline 1 functionality
+		</h4>
+		<p>
+			It is relevant to port proven and widely used Pipeline 1 functionality to the new framework, so that it can be more easily integrated in Pipeline 2 workflows. Although it can appear an additional work to achieve an already existing functionality, the long term benefit in terms of reuse and maintenance cost far outweighs the initial development effort.
+		</p>
+		<p>
+			The scripts that could ultimately be ported are:
+		</p>
+		<ul>
+			<li>Production
+				<ul>
+					<li>Audacity Save-as-DAISY
+					</li>
+					<li>Daisy 2.02 DTB Light Validator (see the #Validation section)
+					</li>
+					<li>Daisy 2.02 to Z3986-2005
+					</li>
+					<li>DTBook Migrator
+					</li>
+					<li>DTBook to LaTeX
+					</li>
+					<li>DTBook to RTF
+					</li>
+					<li>DTBook to XHTML
+					</li>
+					<li>EPUB Creator
+					</li>
+					<li>Fileset Generator - Daisy 2.02 Text-Only
+					</li>
+					<li>OCF Creator
+					</li>
+					<li>ODT to DTBook
+					</li>
+					<li>RTF to DTBook
+					</li>
+					<li>RTF to XHTML
+					</li>
+					<li>XHTML to DTBook
+					</li>
+				</ul>
+			</li>
+			<li>Manipulation
+				<ul>
+					<li>Audio Tagger
+					</li>
+					<li>Charset Switcher
+					</li>
+					<li>DTB Forward Migrator
+					</li>
+					<li>DTB Splitter/Merger
+					</li>
+					<li>DTBook Fix
+					</li>
+					<li>DTB Audio Encoder
+					</li>
+					<li>Image Converter
+					</li>
+				</ul>
+			</li>
+			<li>Validation (part of the new DAISY Validator integration)
+				<ul>
+					<li>DTBook Validator
+					</li>
+					<li>EpubCheck
+					</li>
+					<li>DAISY/NISO DTB Validator
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<p>
+			Note that the Narrator script is not listed here because it will be entirely redesigned by the dedicated TTS working group.
+		</p>
+		<h3 id="B.3_Deployment_Options">
+			B.3 Deployment Options
+		</h3>
+		<h4 id="B.3.1_Lightweight_GUI">
+			B.3.1 Lightweight GUI
+		</h4>
+		<p>
+			The development of the lightweight graphical user interface (GUI) will provide a user-friendly way to use the DAISY Pipeline 2 framework. The user interface must be simple and easy to use, consisting in a few configuration dialogs and progress and result reports. Additionally, it should be embeddable in a third-party application ("Save as DAISY"-plugins, DAISY authoring tools, etc.).
+		</p>
+		<h4>
+			<a name="B.3.2_Advanced_UIs" id="B.3.2_Advanced_UIs"></a>B.3.2 Advanced UI(s)
+		</h4>
+		<p>
+			In addition of the command line UI and the lightweight GUI, more advanced user interfaces can be developed to drive the Pipeline 2 functionality, including:
+		</p>
+		<ul>
+			<li>A Web UI: a user interface accessible from a standard web browser. The interface would allow the manipulation of a centralized Pipeline 2 installation, accessed either via the Java or WS API. It can be developed on the basis of the existing PipeOnline project.
+			</li>
+			<li>A Rich Client UI: a desktop application based on OS-native widgets. The interface could allow the manipulation of either a local installation (via the Java API) or centralized installation (via the WS API) of the Pipeline 2. It can be developed on the basis of the existing Pipeline GUI project.
+			</li>
+		</ul>
+		<p>
+			The details of this work item depends on the interest shown by the project stakeholders and will need to be refined with a charter renewal.
+		</p>
+		<h4 id="B.3.3_Advanced_Web_Service_API">
+			B.3.3 Advanced Web Service API
+		</h4>
+		<p>
+			The Web Service API developed in the first phase will be improved and finalized into a more comprehensive API. The final API must allow finer grain access to the Pipeline functionality, including on-the-fly notification of progress changes and messages (possibly via web service call backs).
+		</p>
+		<h4>
+			<a name="B.3.4_Non-Java_APIs" id="B.3.4_Non-Java_APIs"></a>B.3.4 Non-Java APIs (e.g. .Net API)
+		</h4>
+		<p>
+			In addition of the Java API and Web Service API, other wrapper APIs could be developed to allow native calls of the Pipeline 2 runtime from a foreign environment (such as .Net or Python).
+		</p>
+		<p>
+			The details of this work item depends on technical viability and the interest shown by the project stakeholders and will need to be refined with a charter renewal.
+		</p>
+		<h1 id="Team_Organization_and_Management">
+			Team Organization and Management
+		</h1>
+		<p>
+			The proposed project lead is Romain Deltour (DAISY Developer), reporting to Markus Gylling (DAISY CTO).
+		</p>
+		<p>
+			The project lead will supervise the core framework redesign and take special care of ensuring that the development of each separate processing function is harmonized with the overall architecture choices.
+		</p>
+		<p>
+			The development of processing functions will be handled by sub-groups with dedicated and optimized skill sets. Each group will have a group leader coordinating the work with the main project lead. The efficient management is based on close cooperation between the group leaders and the main project lead.
+		</p>
+		<p>
+			The development will follow an iterative plan, with each iteration adding refinements and new features to the software product. The objective is to deliver a usable application early in the development phase, which will the be frequently updated.
+		</p>
+		<p>
+			Conference calls will be scheduled weekly for the core developer group, and upon request for sub-groups members and external contributors.
+		</p>
+		<h1 id="Timeline">
+			Timeline
+		</h1>
+		<p>
+			The first and second phase of the project will be carried out successively during a 3-year time frame. A side objective is to coordinate the roadmap with the formal release of the ANSI/NISO DAISY Z39.86-2010 revision as a NISO standard in mid 2011.
+		</p>
+		<p>
+			The project will span over 42 months (3.5 years) and focus on delivering iterative releases on a regular schedule (every 6 months), with additional intermediary milestones for the finalization of each phases.
+		</p>
+		<p>
+			The following lists the major milestones:
+		</p>
+		<ul>
+			<li><strong>Project Launch - May 2010</strong>
+			</li>
+			<li><strong>Milestone 1 - December 2010</strong>
+				<ul>
+					<li>First usable release
+					</li>
+					<li>A.1.1, A.1.2, A.1.3, A.2.1 (partial), A.3.1, A.3.2, A.4 (working groups launched)
+					</li>
+				</ul>
+			</li>
+			<li><strong>Milestone 2 - June 2011</strong>
+				<ul>
+					<li>Completion of phase 1
+					</li>
+					<li>A.1.4 (architectural choices made), A.2.1, A.2.2, A.3.3, A.4 (objectives/roadmap are set)
+					</li>
+				</ul>
+			</li>
+			<li>
+				<i><strong>Milestone 3 - September 2011</strong></i>
+				<ul>
+					<li>Final report for phase 1
+					</li>
+				</ul>
+			</li>
+			<li><strong>Milestone 4 - December 2011</strong>
+				<ul>
+					<li>B.1, B.2.1 (alpha), B.2.2 (?), B.2.3 (partial), B.3.1 (beta), B.3.2 (beta)
+					</li>
+				</ul>
+			</li>
+			<li><strong>Milestone 5 - June 2012</strong>
+				<ul>
+					<li>B.2.1 (beta), B.2.2 (?), B.2.3 (partial), B.3.1, B.3.2
+					</li>
+				</ul>
+			</li>
+			<li><strong>Milestone 6 - December 2012</strong>
+				<ul>
+					<li>B.2.1, B.2.2 (?), B.2.3 (partial)
+					</li>
+				</ul>
+			</li>
+			<li><strong>Milestone 7 - June 2013</strong>
+				<ul>
+					<li>Completion of phase 2
+					</li>
+				</ul>
+			</li>
+			<li>
+				<i><strong>Milestone 8 - September 2013</strong></i>
+				<ul>
+					<li>Final report for phase 2
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<p>
+			Note that the budget presented in this charter only corresponds to Milestones 1 to 3. A call for support for the second phase is expected to be sent in Spring 2011, with the goal of being officially approved by the board in October 2011.
+		</p>
+		<h1>
+			<a name="Budget_Financial_summary" id="Budget_Financial_summary"></a>Budget / Financial summary
+		</h1>
+		<p>
+			This present charter describes only the budget for the first phase of the project (17 months). We cannot, at the time of this writing, establish an accurate estimated budget for the second phase as the scope of this latter will mostly depend on the decisions and preparatory work carried out in the first phase. Note that a charter extension and associated call for support are expected in 2011 to further secure the second phase of the project.
+		</p>
+		<p>
+			The budget hereafter detailed shows requirements for both developer resources (estimated in Man-Month) and direct costs (in USD).
+		</p>
+		<table>
+			<tr>
+				<td>
+					<strong>1. Developer resources</strong>
+				</td>
+				<td>
+					<strong>Cost in Man-Month</strong>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					A1. Fundamental Framework Redesign
+				</td>
+				<td>
+					30
+				</td>
+			</tr>
+			<tr>
+				<td>
+					A2. Processing Functions
+				</td>
+				<td>
+					25
+				</td>
+			</tr>
+			<tr>
+				<td>
+					A3. Deployment Options
+				</td>
+				<td>
+					6
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>TOTAL</strong>
+				</td>
+				<td>
+					<strong>61 MM</strong>
+				</td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td>
+					<strong>2. Direct Costs</strong>
+				</td>
+				<td>
+					<strong>Cost in USD</strong>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Hardware and Software
+				</td>
+				<td>
+					5k
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Outsourced Work (Technical Writing, Proof Reading, Documentation, Manuals, Testing etc.)
+				</td>
+				<td>
+					35k
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Project Management and Administration (600h - including preparation of phase 2, coordinating TTS WG and Braille in DAISY WG)
+				</td>
+				<td>
+					50k
+				</td>
+			</tr>
+			<tr>
+				<td>
+					F2F (2 meetings with 5 persons during 2 days each)
+				</td>
+				<td>
+					20k
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Communication and Marketing (preparation of presentations, attendance at conferences, other activities)
+				</td>
+				<td>
+					15k
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Training and Technical Support (webinars, production of a training video, etc.)
+				</td>
+				<td>
+					15k
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Miscellaneous
+				</td>
+				<td>
+					5k
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>TOTAL</strong>
+				</td>
+				<td>
+					<strong>145k USD</strong>
+				</td>
+			</tr>
+		</table>
+		<p>
+			The DAISY Consortium will contribute a total of 22 Man-Months for the 17 months of the first phase, distributed amongst two DAISY staff developers (Marisa DeMeglio and Romain Deltour).
+		</p>
+		<h1>
+			<a name="Strategic_political_issues_to_be_considered_in_the_project" id="Strategic_political_issues_to_be_considered_in_the_project"></a>Strategic/political issues to be considered in the project
+		</h1>
+		<h2 id="Licensing">
+			Licensing
+		</h2>
+		<p>
+			All the results of this project should be available royalty free and under a liberal licensing scheme that will encourage reuse of software components in other products (either commercial or open source).
+		</p>
+		<p>
+			As usual with open source developments, it must be noted that licensing decisions can have a strong impact on the the project. The reuse of existing open source libraries, to reduce the overall development cost, can only be viable if the licenses of these dependencies are compatible with the license chosen for the final deliverable. In an extreme scenario, the impossibility to use a library due to licensing incompatibilities can lead to major additional development costs which may jeopardize the budget and timeline defined in the present charter.
+		</p>
+		<p>
+			To minimize the risk of legal dead-end, the licensing decisions will be taken early in the project development phase and will require the input of both developers and legal professionals.
+		</p>
+		<h2 id="Role_of_the_DAISY_Consortium">
+			Role of the DAISY Consortium
+		</h2>
+		<p>
+			It is strategically important to underline the widely collaborative aspect of the DAISY Pipeline project. The DAISY Consortium is the umbrella organization that maintains and promote the project, but pieces of functionality are expected to be contributed by third-party organizations. In this context, it must be noted that while the DAISY Consortium will support the core framework it cannot systematically allocate resources to the maintenance and further development of organization-specific contributions. These tasks are rather considered as part of the commitments of the said organization.
+		</p>
+		<h2 id="Relationship_with_the_Pipeline_1">
+			Relationship with the Pipeline 1
+		</h2>
+		<p>
+			Because the Pipeline 2 includes a fundamental redesign of the Pipeline 1 framework, it is worth mentioning that both solution will co-exist for a significant amount of time. External contributions based on the new framework are expected to progressively increase and eventually outnumber the contributions to the Pipeline 1, but this duality will initially put high demand on the DAISY Consortium staff for technical maintenance and support.
+		</p>
+		<h2>
+			<a name="Enabling_Technologies_Framework_WIPO_project" id="Enabling_Technologies_Framework_WIPO_project"></a>"Enabling Technologies Framework" WIPO project
+		</h2>
+		<p>
+			The Enabling Technologies Framework is a three year project funded by WIPO and endorsed by the Stakeholders Platform of WIPO. Its general objective is to evolve mainstream publishing processes to enable the production of fully accessible digital content.
+		</p>
+		<p>
+			The DAISY Pipeline 2 will play a major role as one of the work package is entirely dedicated at extending the DAISY pipeline to support the requirements of publishers and conversion houses. This notably involve the participation of the publishing community in a requirements gathering phase.
+		</p>
+		<p>
+			The project will be jointly run by both the DAISY Consortium and EDItEUR (the international group coordinating development of the standards infrastructure for electronic commerce in the book and serials industries) over a three year time frame. While the project details are not fully available at the time of this writing, they are expected to smoothly integrate within the objectives and timeline described in this charter.
+		</p>
+		<h1 id="Risk_Management">
+			Risk Management
+		</h1>
+		<table>
+			<tr>
+				<td>
+					Threat
+				</td>
+				<td>
+					Probability
+				</td>
+				<td>
+					Strategy
+				</td>
+				<td>
+					Action
+				</td>
+			</tr>
+			<tr>
+				<td>
+					The license of a desired dependency is incompatible with the project license
+				</td>
+				<td>
+					Medium
+				</td>
+				<td>
+					Acceptance
+				</td>
+				<td>
+					Either decide to change the project license or integrate some additional development effort in the budget and timeline
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Resources are insufficient to achieve the project objectives
+				</td>
+				<td>
+					Medium
+				</td>
+				<td>
+					Mitigate
+				</td>
+				<td>
+					As the framework stabilizes during the 2010 project phase, we will have a better measure of what the development costs will be. The level of possible further development will depend on additional funding.
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Contributor withdrawal leads to discontinuation of certain functionality
+				</td>
+				<td>
+					Medium to High
+				</td>
+				<td>
+					Acceptance
+				</td>
+				<td>
+					Given the nature of the project as a framework/host for multiple transformation types, it is a natural risk that certain functionality is discontinued when and if there is no continued community support for it. Under normal circumstances, DC staff does not take on the task of maintaining functionality originally committed by other contributors. This general rule does not apply to functionality of extra high long term strategic importance, for which DC staff may step in to assure longevity and stability.
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Uptake in commercial sector does not meet expectations
+				</td>
+				<td>
+					Low
+				</td>
+				<td>
+					Mitigation
+				</td>
+				<td>
+					Uptake in commercial sector can be stimulated through dedicated outreach efforts.
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
