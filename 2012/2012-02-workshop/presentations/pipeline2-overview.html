@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>DAISY Pipeline 2: Objectives and Roadmap</title>
+	<meta name="author" content="Romain Deltour">
+    	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="deck.js/core/deck.core.css">
+	<link rel="stylesheet" href="deck.js/extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="deck.js/extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="deck.js/extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="deck.js/extensions/status/deck.status.css">
+	<link rel="stylesheet" href="deck.js/extensions/hash/deck.hash.css">
+	
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<link rel="stylesheet" href="deck.js/themes/style/swiss.css">
+	
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+	<link rel="stylesheet" href="deck.js/themes/transition/horizontal-slide.css">
+	
+	<script src="deck.js/modernizr.custom.js"></script>
+    <style>
+	.title {
+		text-align: center;
+	}
+	.title > h2 {
+		margin-top: 6em;
+	}
+	.slide li > p {
+		margin-bottom:0.5em;
+	}
+    </style>
+    
+</head>
+
+<body class="deck-container">
+
+<!-- Begin slides -->
+
+<section class="slide title">
+	<h2>DAISY Pipeline 2 Overview</h2>
+	<h3>Objectives and Roadmap</h3>
+</section>
+
+<section class="slide">
+	<h2>What is it ?</h2>
+	<blockquote cite="http://www.daisy.org/pipeline2/overview">
+	  <p>an open-source, cross-platform framework for the automated production and maintenance of accessible content, efficiently and economically</p>
+	</blockquote>
+</section>
+
+<section class="slide">
+	<h2>At the origins, a community</h2>
+	<p>DAISY: an international community</p>
+	<img src="images/members-map.png"/>
+	<ul>
+		<li>including a wide range of user groups</li>
+		<li>facing an increasing demand for content</li>
+		<li>in a variety of formats</li>
+		<li>for a variety of devices</li>
+	</ul>
+	<p></p>
+	
+</section>
+<!--
+
+Primary objectives
+
+-->
+<section class="slide">
+	<h2>Looking for great tooling</h2>
+	<ul>
+	<li><p><strong>efficiency</strong></p>
+		<p>↪ automated production of content</p>
+	</li>
+	<li><p><strong>versatility</strong></p>
+		<p>↪ production, publication and maintenance of XML-based document formats</p>
+		<p>↪ interoperability</p>
+		<p>↪ extensibility</p>
+	</li>
+	<li><p><strong>quality</strong></p>
+		<p>↪ good authoring and accessibility practices</p>
+		<p>↪ validation throughout the production chain</p>
+	</li>
+	<li><p><strong>low cost</strong></p>
+		<p>↪ reusability, no duplication of effort</p>
+		<p>↪ use of standards and open source code</p>
+	</li>
+	</ul>
+	
+</section>
+
+<section class="slide">
+	<h2>A tale of two Pipelines</h2>
+	<h3>DAISY Pipeline project</h3>
+		<ul>
+		<li>started in 2006</li>
+		<li>successful adoption</li>
+		<li>some star transformers: Narrator, DTBook Fix, validators</li>
+		<li>... but some techincal limitations, and increasing maintenance cost</li>
+		</ul>
+	<h3>DAISY Pipeline 2 project</h3>
+	<ul>
+	<li>a complete redesign</li>
+	<li>kicked-off in June 2010</li>
+	<li><p>chartered for 3 years</p>
+		<p>↪ <em>Phase 1</em>: June 2010 to September 2011</p>
+		<p>↪ <em>Phase 2</em>: October 2011 to September 2013</p>
+	</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Development model</h2>
+	<ul>
+		<li><p><strong>Open source</strong></p>
+		<p>↪ LGPL: weak copyleft license, commercial friendly</p>
+		</li>
+		<li><p><strong>Collaborative</strong></p>
+		<p>↪ developed and funded by DAISY member organizations (thanks!)</p>
+		</li>
+		<li><p><strong>Core team</strong> of 5 developers</p>
+		<p>↪ 3 from DAISY, 1 from NLB, 1 from SBS</p>
+		</li>
+		<li><p>+ <strong>Braille Working Group</strong></p>
+		<p>↪ approximately 10 active participants</p></li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Architecture</h2>
+	<ul>
+		<li>a framework and runtime engine</li>
+		<li>a set of processing modules ("scripts")</li>
+	</ul>
+	<!-- TODO add 10000 feet architecutral diagram -->
+</section>
+
+<section class="slide">
+	<h2>Feature highlights: Framework</h2>
+<ul>
+	<li><p>based on <strong>standard XML processing technologies</strong> (XProc, XSLT)</p>
+	<p>↪ open and platform-neutral</p>
+	<p>↪ reduces development and maintenance cost</p>
+	</li>
+	<li><p>designed with a <strong>modular architecture</strong></p>
+	<p>↪ based on a service-oriented, dynamic module system</p>
+	<p>↪ provides good scalability and extensibility</p>
+	</li>
+	<li><p>built-in <strong>interoperability</strong></p>
+	<p>↪ web service API as a primary entry point</p>
+	<p>↪ support the invocation of third-party executables and web services</p>
+	</li>
+</ul>
+</section>
+
+<section class="slide">
+	<h2>Feature highlights: Scripts</h2>
+	<ul>
+		<li>support the new <strong>DAISY/NISO Z39.98-2012 "Authoring and Interchange"</strong> standard (aka "Zed AI")</li>
+		<li>focus on accessible <strong>EPUB 3</strong> production</li>
+		<li>promote <strong>single-source publishing</strong></li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Roadmap: where we are</h2>
+	<h3>Phase 1 achievements</h3>
+	<ul>
+	<li>Framework foundation</li>
+	<li>Initial set of scripts</li>
+	<li>Web service API</li>
+	<li>Satelite working groups</li>
+	</ul>
+	<h3>Phase 2 achievements</h3>
+	<ul>
+	<li>Framework improvements</li>
+	<li>Refined web service API</li>
+	<li>Secured the web service API</li>
+	<li>experiments with cloud deployment</li>
+	</ul>
+</section>
+<section class="slide">
+	<h2>Roadmap: what's on the plate (1)</h2>
+	<ul>
+	<li>Framework
+		<ul>
+		<li>more internal polishing</li>
+		<li>persistence</li>
+		<li>performance</li>
+		<li>configurability</li>
+		<li>tooling</li>
+		</ul>
+	</li>
+	<li>Web Service API
+		<ul>
+		<li>notifications</li>
+		</ul>
+	</li>
+	<li>Web UI</li>
+	<li>Documentation</li>
+	</ul>
+	
+</section>
+<section class="slide">
+	<h2>Roadmap: what's on the plate (2)</h2>
+	<ul>
+	<li>Text-only production
+		<ul>
+		<li>Consolidation of existing EPUB 3 production</li>
+		<li>TTS-aware EPUB 3 production</li>
+		<li>HTML5 to EPUB 3 / EPUB 2 to EPUB 3</li>
+		</ul>
+	</li>
+	<li>Validation tools
+		<ul>
+		<li>DTBook, EPUB 3, DAISY AI</li>
+		</ul>
+	</li>
+	<li>TTS-based production
+		<ul>
+		<li>XML pre-processors</li>
+		<li>TTS adapters</li>
+		<li>EPUB 3 + MediaOverlays production</li>
+		</ul>
+	</li>
+	<li>Braille Production
+		<ul>
+		<li>assist the Braille WG</li>
+		<li>dvelopment fo pre-processing</li>
+		</ul>
+	</li></ul>
+	
+</section>
+
+<section class="slide">
+	<h2>Roadmap: what's hot</h2>
+	<ul>
+		<li>Framework consolidation</li>
+		<li>Web UI</li>
+		<li>EPUB 3 production</li>
+		<li>Validation prototypes</li>
+	</ul>
+</section>
+
+<section class="slide title">
+	<h2>Questions and comments?</h2>
+	<p><a href="http://daisy.org/pipeline2">http://daisy.org/pipeline2</a></p>
+	<p><a href="http://code.google.com/p/daisy-pipeline/">http://code.google.com/p/daisy-pipeline/</a></p>
+</section>
+
+<!-- End slides -->
+
+<!-- deck.js configuration -->
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+<!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+<script>window.jQuery || document.write('<script src="deck.js/jquery-1.7.min.js"><\/script>')</script>
+
+<!-- Deck Core and extensions -->
+<script src="deck.js/core/deck.core.js"></script>
+<script src="deck.js/extensions/hash/deck.hash.js"></script>
+<script src="deck.js/extensions/menu/deck.menu.js"></script>
+<script src="deck.js/extensions/goto/deck.goto.js"></script>
+<script src="deck.js/extensions/status/deck.status.js"></script>
+<script src="deck.js/extensions/navigation/deck.navigation.js"></script>
+
+<!-- Initialize the deck -->
+<script>
+$(function() {
+	$.deck('.slide');
+});
+
+</script>
+
+</body>
+</html>
