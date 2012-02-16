@@ -62,7 +62,7 @@
         <li>E.g. <code>AliceInWonderland.epub</code></li>
         <li>Self-contained and easy to distribute</li>
     </ul>
-    <img src="images/SingleFileDownload.png" alt="Cartoon showing a user downloading a .epub file from the Internet."/>
+    <img src="images/SingleFileDownload.png" alt="Cartoon showing a user downloading a .epub file from the Internet." style="margin-top: 3em"/>
 </section>
         
 
@@ -76,7 +76,7 @@
         <li>Media overlays</li>
     </ul>
     <p>To look at the files inside an EPUB, just rename it with a zip extension (e.g. <code>AliceInWonderland.zip</code>) and unzip.</p>
-    <img src="images/Fileset.png" alt="Generic fileset icon"/>
+    <img src="images/Fileset.png" alt="Generic fileset icon" style="margin-top: 3em"/>
     
 </section>
 
@@ -112,43 +112,6 @@
     </code></pre>
 </section>
 
-
-<section class="slide">
-    <h2>Content Document</h2>
-    <pre>Extension: <code>.xhtml</code></pre>
-    <ul>
-        <li>Main text documents of the publication are in this format.</li>
-        <li>XHTML 5 plus some restrictions and exceptions</li>
-        <li>Some accessibility features:
-            <ul>
-                <li>Semantic inflection</li>
-                <li>Speech Synthesis Markup Lanaguage (SSML)</li>
-                <li>Pronunciation Lexicon Specification (PLS)</li>
-            </ul>
-        </li>
-    </ul>
-    
-    <pre><code>
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xmlns:epub=&quot;http://www.idpf.org/2007/ops&quot;&gt;
-    &lt;head&gt;
-        &lt;title&gt;Moby-Dick&lt;/title&gt;
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;css/stylesheet.css&quot; type=&quot;text/css&quot;/&gt;
-        &lt;meta charset=&quot;utf-8&quot;/&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;section epub:type=&quot;bodymatter chapter&quot;&gt;
-        &lt;header&gt;
-            &lt;h1&gt;&lt;span id=&quot;c001s0000&quot;&gt;Chapter 1. Loomings.&lt;/span&gt;&lt;/h1&gt;
-        &lt;/header&gt;
-        &lt;p&gt;&lt;span id=&quot;c001s0001&quot;&gt;Call me Ishmael.&lt;/span&gt;
-        ...
-    &lt;/body&gt;
-&lt;html&gt;
-</code></pre>
-    
-</section>    
-        
 <section class="slide">
     <h2>Navigation</h2>
     <pre>Extension: <code>.xhtml</code></pre>
@@ -186,6 +149,127 @@
 </code></pre>
     
 </section>
+
+<section class="slide">
+    <h2>Content Document</h2>
+    <pre>Extension: <code>.xhtml</code></pre>
+    <ul>
+        <li>Main text documents of the publication are in this format.</li>
+        <li>XHTML 5 plus some restrictions and exceptions</li>
+        <li>Accessibility features include:
+            <ul>
+                <li>Semantic inflection</li>
+                <li>Speech Synthesis Markup Lanaguage (SSML)</li>
+                <li>Pronunciation Lexicon Specification (PLS)</li>
+            </ul>
+        </li>
+    </ul>
+    
+    <pre><code>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xmlns:epub=&quot;http://www.idpf.org/2007/ops&quot;&gt;
+    &lt;head&gt;
+        &lt;title&gt;Moby-Dick&lt;/title&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;css/stylesheet.css&quot; type=&quot;text/css&quot;/&gt;
+        &lt;meta charset=&quot;utf-8&quot;/&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;section epub:type=&quot;bodymatter chapter&quot;&gt;
+        &lt;header&gt;
+            &lt;h1&gt;&lt;span id=&quot;c001s0000&quot;&gt;Chapter 1. Loomings.&lt;/span&gt;&lt;/h1&gt;
+        &lt;/header&gt;
+        &lt;p&gt;&lt;span id=&quot;c001s0001&quot;&gt;Call me Ishmael.&lt;/span&gt;
+        ...
+    &lt;/body&gt;
+&lt;html&gt;
+</code></pre>
+    
+</section>    
+<section class="slide">
+    <h2>Semantic Inflection</h2>
+    
+    <p>Used in Content Documents and Media Overlays</p>
+    <p>Assign machine-readable semantics to document structures and enable reading systems to provide a better user experience.</p>
+    <p>The default vocabulary is the EPUB 3 Structural Semantics Vocabulary</p>
+    
+    <h3>Examples</h3>
+    <p>Include page numbers:</p>
+    <pre><code>
+&lt;span epub:type=&quot;pagebreak&quot; title=&quot;234&quot;/&gt;
+    </code></pre>
+
+    <p>Identify structures such as glossaries:</p>
+    <pre><code>
+&lt;dl epub:type=&quot;glossary&quot;&gt;
+ &hellip;    
+&lt;/dl&gt; 
+    </code></pre>  
+    
+    <p>Use in Media Overlays:</p>
+    <pre><code>
+&lt;seq id=&quot;id1&quot; epub:textref=&quot;chapter_001.xhtml&quot; <span>epub:type=&quot;bodymatter chapter&quot;</span>&gt;
+    </code></pre>
+
+</section>    
+
+
+<section class="slide">
+    <h2>PLS</h2>
+    <ul>
+        <li>Application-specific lexicons to extend internal capabilities of TTS engines.</li>
+        <li>Linked inside the content document <code>head</code> and fed to the TTS engine.</li>
+    </ul>
+    <pre><code>
+&lt;head&gt;
+    &hellip;
+    &lt;link rel=&quot;pronunciation&quot; type=&quot;application/pls+xml&quot; hreflang=&quot;zh&quot; href=&quot;zh.pls&quot;/&gt;
+    &lt;link rel=&quot;pronunciation&quot; type=&quot;application/pls+xml&quot; hreflang=&quot;mn&quot; href=&quot;mn.pls&quot;/&gt;
+&lt;/head&gt;        
+    </code></pre>
+</section>    
+
+<section class="slide">
+    <h2>SSML</h2>
+
+    <ul>
+        <li>W3C standard; part of Voice Browser WG.</li>
+        <li>EPUB 3 uses some attributes from SSML for phonetic pronunciation:
+            <ul>
+                <li><code>ssml:alphabet</code> attribute</li>
+                <li><code>ssml:ph</code> attribute</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p>For example, to correctly pronounce &quot;La Vita e Bella&quot;</p>
+
+    <pre><code>
+&lt;p&gt;Have you seen &lt;span ssml:alphabet=&quot;ipa&quot; ssml:ph=<span>&quot;&#x2C8;l&#x251; &#x2C8;vi&#x2D0;&#x27E;&#x259; &#x2C8;&#x294;e&#x26A; &#x2C8;b&#x25B;l&#x259;&quot;</span>&gt;&quot;La vita &egrave; bella&quot;&lt;/span&gt;?&lt;/p&gt;
+    </code></pre>    
+    
+    <p style="margin-top: 4em">In the case of overlap, these <code>ssml:</code> attributes take precedence over the pronunciation lexicon.</p> 
+    
+</section>    
+
+<section class="slide">
+    <h2>CSS Speech</h2>
+    <ul>
+        <li>W3C standard; part of Voice Browser WG.</li>
+        <li>Specify voice properties and cues</li>
+    </ul>
+    
+    <pre><code>
+        h1, h2, h3, h4, h5, h6
+        {
+          voice-family: paul;
+          voice-stress: moderate;
+          cue-before: url(../audio/ping.wav);
+          voice-volume: medium 6dB;
+        }
+    </code></pre>
+    
+</section>    
+        
 
 <section class="slide">
     <h2>Media Overlays</h2>
@@ -237,7 +321,6 @@
     <p>Media Overlay metadata goes in the Package Document.</p>
     <pre><code>
 &lt;meta property=&quot;media:duration&quot; refines=&quot;#chapter_001_overlay&quot;&gt;0:14:43&lt;/meta&gt;
-&lt;meta property=&quot;media:duration&quot; refines=&quot;#chapter_002_overlay&quot;&gt;0:09:03&lt;/meta&gt;
 &lt;meta property=&quot;media:duration&quot;&gt;0:23:46&lt;/meta&gt;
 &lt;meta property=&quot;media:narrator&quot;&gt;Stuart Wills&lt;/meta&gt;
     </code></pre>
@@ -274,76 +357,6 @@
     </code></pre>
 </section>
 
-<section class="slide">
-    <h2>Semantic Inflection</h2>
-    
-    <p>Used in Content Documents and Media Overlays</p>
-    <p>Assign machine-readable semantics to document structures and enable reading systems to provide a better user experience.</p>
-    <p>The default vocabulary is the EPUB 3 Structural Semantics Vocabulary</p>
-    
-    <h3>Examples</h3>
-    <p>Include page numbers:</p>
-    <pre><code>
-&lt;span epub:type=&quot;pagebreak&quot; title=&quot;234&quot;/&gt;
-    </code></pre>
-
-    <p>Identify structures such as glossaries:</p>
-    <pre><code>
-&lt;dl epub:type=&quot;glossary&quot;&gt;
- &hellip;    
-&lt;/dl&gt; 
-    </code></pre>  
-    
-    <p>Use in Media Overlays:</p>
-    <pre><code>
-&lt;seq id=&quot;id1&quot; epub:textref=&quot;chapter_001.xhtml&quot; <span>epub:type=&quot;bodymatter chapter&quot;</span>&gt;
-    </code></pre>
-
-</section>    
-
-
-<section class="slide">
-    <h2>PLS</h2>
-    <p>Used in Content Documents.</p>
-    <p>Linked inside the content document <code>head</code> and fed to the TTS engine.</p>
-    <pre><code>
-&lt;head&gt;
-    &hellip;
-    &lt;link rel=&quot;pronunciation&quot; type=&quot;application/pls+xml&quot; hreflang=&quot;zh&quot; href=&quot;zh.pls&quot;/&gt;
-    &lt;link rel=&quot;pronunciation&quot; type=&quot;application/pls+xml&quot; hreflang=&quot;mn&quot; href=&quot;mn.pls&quot;/&gt;
-&lt;/head&gt;        
-    </code></pre>
-</section>    
-
-<section class="slide">
-    <h2>SSML</h2>
-
-    <ul>
-        <li>W3C standard; part of Voice Browser WG.</li>
-        <li>EPUB 3 uses some attributes from SSML for phonetic pronunciation:
-            <ul>
-                <li><code>ssml:alphabet</code> attribute</li>
-                <li><code>ssml:ph</code> attribute</li>
-            </ul>
-        </li>
-    </ul>
-    
-<pre><code>
-&lt;p&gt;The &lt;span ssml:ph=&quot;g@l&amp;quot;Qp@g@Uz&quot; ssml:alphabet=&quot;x-SAMPA&quot;&gt;Galapagos&lt;/span&gt; marine iguana.&lt;/p&gt;                   
-</code></pre>    
-    
-    <p style="margin-top: 4em">In the case of overlap, these attributes take precedence over the pronunciation lexicon.</p> 
-    
-</section>    
-
-<section class="slide">
-    <h2>CSS Speech</h2>
-    <ul>
-        <li>W3C standard</li>
-        <li>Part of Voice Browser WG.</li>
-    </li>
-    TODO
-</section>    
 
 <section class="slide">
     <h2>Related Tools</h2>
