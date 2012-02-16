@@ -1,0 +1,52 @@
+= Pipeline Working Group: Braille Production =
+
+This document describes the Braille Production Working Group, which is one of the two sub-working groups proposed in the charter for the first phase of the Pipeline 2 project  [http://code.google.com/p/daisy-pipeline/wiki/ProjectCharter#A.4.1_Braille_in_DAISY_working_group].
+
+== Scope ==
+
+The DAISY Pipeline is essentially a community-driven, component-based project. The Pipeline 2 project adopts a two-phase approach: the first phase consists in the redesign of the core Pipeline framework and the development of a suite of components of XML-based documents, while the second phase will include the development of advanced framework features and processing functionality. The common technical framework and underlying utility layers are the responsibility of the core development team, but advanced functionality can only be driven forward with further participation of DAISY Consortium members. 
+
+Because some components are particularly demanded in the community and are considered strategically important for the Pipeline 2 project, the charter proposes the creation of dedicated working groups early on in the project timeframe. The intent is to foster the collaboration of like-minded individuals interested in a well-scoped topic, while paving the way for the development of the advanced processing functions planned in the 2nd phase. The group proposed in the present document will work on a Braille production system based on the Pipeline 2 framework.
+
+With the increasing use of DAISY XML (DTBook, and hopefully ZedAI next) as a single-source master format, many organizations want to integrate both Braille and DAISY production in the same tool chain. Several organizations have already made significant progress in this context, but the various initiatives are quite isolated and do not have an homogeneous approach. 
+
+As an umbrella organization, the DAISY Consortium is willing to provide the opportunity to gather the driving forces with the creation of a "Braille Production" working group, supported by the DAISY Board as part of the Pipeline 2 project. The working group would notably help defining a unified "Braille in DAISY" strategy, taking into account the political implications as well as the heterogeneous technical solutions.
+
+== Objectives ==
+
+It is expected that the "Braille Production" Working Group will:
+
+  * identify the interested parties and a Working Group lead
+  * develop an overall "Braille in DAISY" strategy through the identification of shared concerns and patterns
+  * take care of the political aspects, notably in relation with the Braille embosser manufacturers
+  * define functional requirements for an automated Braille production system
+  * prepare the development of a Braille production system  (in the 2nd phase of the Pipeline 2), either as a comprehensive solution or as a set of reusable independent components
+    * review existing solutions
+    * sketch interesting Braille production workflow(s)
+    * identify the required processing steps and induced technical challenges
+    * potentially, integrate LibLouis (Braille translation) as a Pipeline 2 step
+    * potentially, sketch prototype ports of Pipeline 1 PEF-related transformers to the Pipeline 2
+    * potentially, sketch an XSL-FO based Braille renderer
+    * potentially, collaborate with RNIB and/or Duxbury to integrate the DBT v11 API as a Pipeline 2 step
+  * coordinate with the core team for architectural considerations
+
+== Duration ==
+
+The Working Group activity will span over the entire first phase of Pipeline 2, from May 2010 to September 2011.
+
+== Participation ==
+
+Participants are expected to dedicate a minimum of 2 hours per week to the Working Group.
+
+Additionally, a real working lead for this group appears to be absolutely necessary. The group lead will be the main driving force and is expected to handle a significant workload. The lead will not be part of the DAISY staff but will collaborate closely with the Pipeline 2 lead.
+
+The Working Group is expected to held a 1-hour conference call every 2 weeks.
+
+For all written discussions, the Working Group is expected to use the Pipeline Developers Google Group.
+ * mail address: daisy-pipeline-dev@googlegroups.com
+ * web interface: http://groups.google.com/group/daisy-pipeline-dev/
+
+The Working Group is also welcome to use the Pipeline Google Code project facility, notably:
+ * the wiki: http://code.google.com/p/daisy-pipeline/wiki
+ * the code repository: http://code.google.com/p/daisy-pipeline/source
+ * the issue tracker: http://code.google.com/p/daisy-pipeline/issues

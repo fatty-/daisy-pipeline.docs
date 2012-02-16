@@ -1,0 +1,52 @@
+= Pipeline Working Group: TTS-based Production =
+
+This document describes the TTS-based Production Working Group, which is one of the two sub-working groups proposed in the charter for the first phase of the Pipeline 2 project [http://code.google.com/p/daisy-pipeline/wiki/ProjectCharter#A.4.2_TTS_Production_working_group].
+
+== Scope ==
+
+The DAISY Pipeline is essentially a community-driven, component-based project. The Pipeline 2 project adopts a two-phase approach: the first phase consists in the redesign of the core Pipeline framework and the development of a suite of components of XML-based documents, while the second phase will include the development of advanced framework features and processing functionality. The common technical framework and underlying utility layers are the responsibility of the core development team, but advanced functionality can only be driven forward with further participation of DAISY Consortium members. 
+
+Because some components are particularly demanded in the community and are considered strategically important for the Pipeline 2 project, the charter proposes the creation of dedicated working groups early on in the project timeframe. The intent is to foster the collaboration of like-minded individuals interested in a well-scoped topic, while paving the way for the development of the advanced processing functions planned in the 2nd phase. The group proposed in the present document will work on a new TTS-based DTB production system based on the Pipeline 2 framework.
+
+TTS-based production of DAISY books is probably the most popular feature of the Pipeline. The Pipeline 1 functionality allows to convert DTBook documents into full-text full-audio DAISY 3 and DAISY 2.02 books. Although it has been successfully adopted by the community, it suffers from limitations in terms of easy extensibility to new input and output formats and also to advanced use cases (integration with SSML instructions, call of TTS Web Services, etc). We believe the Pipeline 2 project is the right opportunity to redesign the TTS production system to better meet the users needs (notably with built-in support for DAISY 4) and integrate with recent standards (notably SSML and PLS).
+
+Finally, TTS-based production is also considered an ideal testbed for the advanced redesign of the Pipeline 2 core framework. It includes many of the technical challenges foreseen in the Pipeline 2: manipulation of complex file sets, calling of external services (TTS as a local process or as a web service), use of intermediary dedicated XML grammars (SSML), etc.
+
+	
+== Objectives ==
+
+It is expected that the "TTS-based Production" Working Group will:
+
+  * identify the interested parties in the DAISY Consortium membership
+  * define functional requirements for a TTS-based DTB production system
+  * review the Pipeline 1 functionality and identify reusable patterns and potential improvements
+  * prepare the development of the new production system (in the 2nd phase of the Pipeline 2)
+    * sketch the general workflow
+    * identify the required processing steps and induced technical challenges
+    * propose the integration of established standards (notably SSML and PLS from the W3C)
+    * include support of ZedAI input (DAISY 4 "Authoring and Interchange"), including the "SSML Integration" feature (speech synthesizer instructions directly within ZedAI documents).
+    * include support for remote TTS calls
+    * include support for parallel processing
+  * collaborate with the core developers on item A.1.4 (Preparatory work for advanced framework extensions), notably through the development of:
+    * prototype XProc processor-specific steps for TTS processing
+    * prototype XProc steps calling a Web Service
+    * prototype XProc steps for complex file sets manipulations
+
+== Duration ==
+
+The Working Group activity will span over the entire first phase of Pipeline 2, from May 2010 to September 2011.
+
+== Participation ==
+
+Participants are expected to dedicate a minimum of 2 hours per week to the Working Group. Because of the central role of the Working Group in the preparation of the core framework redesign, it is proposed to be led by the DAISY Consortium.
+
+The Working Group is expected to held a 1-hour conference call every 2 weeks.
+
+For all written discussions, the Working Group is expected to use the Pipeline Developers Google Group.
+ * mail address: daisy-pipeline-dev@googlegroups.com
+ * web interface: http://groups.google.com/group/daisy-pipeline-dev/
+
+The Working Group is also welcome to use the Pipeline Google Code project facility, notably:
+ * the wiki: http://code.google.com/p/daisy-pipeline/wiki
+ * the code repository: http://code.google.com/p/daisy-pipeline/source
+ * the issue tracker: http://code.google.com/p/daisy-pipeline/issues

@@ -1,0 +1,54 @@
+= DAISY Pipeline Progress Report, October 2011 to December 2011 =
+
+= Executive summary =
+
+The second development phase officially started, the project charter has been approved by the DAISY Board at the São Paulo meeting in November 2011.
+
+The developers team had a successful face-to-face meeting where several strategical and technical decisions have been taken, notably about the web service and web application development.
+
+A release is planned in early 2012 consisting mostly in consolidation of the back-end framework and the addition of the DTBook to EPUB 3 conversion.
+
+= Report =
+
+== Milestones since October 2010  ==
+
+ * October 3: 1.0 released
+ * October 13: 1.0.1 released
+ * November 2: Phase 2 Charter approved by the DAISY Board
+ * November 21-24: F2F meeting in Nancy, France
+
+== Status ==
+
+=== 1.0 release ===
+
+The 1.0 version was released on October 3. A 1.0.1 version was released soon after to fixed an issue that was occurring only under very special circumstances (on Japanese Windows versions).
+
+A [http://www.daisy.org/forums/pipeline2 discussion forum] for handling user feedback and requests for support has been created. Several threads have been started and support has been taken care of by the developers team. 
+
+=== F2F Meeting ===
+
+The developers had a successful 4 days face-to-face meeting in Nancy (France), hosted by Romain Deltour for the DAISY Consortium. The agenda focused primarily on the web application and online deployment use cases.
+
+=== Web Service ===
+
+It has been decided that the Web Service API will be made the primary and recommended entry point to the framework. Work has started to refactor the command line interface as a local client to the Web Service.
+
+Functional requirements for the support of batch job processing have been identified.
+
+=== Web UI ===
+
+Different web application frameworks have been experimented and it was decided to adopt the Java-based Play! Framework for web UI development.
+
+Cloud-based deployment was experimented on Amazon's Elastic Cloud Computing (EC2) platform.
+
+=== Processing modules ===
+
+Work has started on the DTBook to EPUB 3 conversion. The next developments will focus on improved EPUB 3 support, notably on the HTML to EPUB 3 conversion and on the identification of functional requirements for producing TTS-ready EPUBs.
+
+=== Adoption ===
+
+_The following  figures have been gathered from Google Analytics or built-in Google Code download counters_
+
+From October 1st to December 8th:
+ * 1,601 visits / 553 unique visitors (24% new visits) on the Google Code development site
+ * 209 downloads of versions 1.0 and 1.0.1

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>DAISY Pipeline 2: Objectives and Roadmap</title>
+	<meta name="author" content="Romain Deltour">
+    	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="deck.js/core/deck.core.css">
+	<link rel="stylesheet" href="deck.js/extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="deck.js/extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="deck.js/extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="deck.js/extensions/status/deck.status.css">
+	<link rel="stylesheet" href="deck.js/extensions/hash/deck.hash.css">
+	
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<link rel="stylesheet" href="deck.js/themes/style/swiss.css">
+	
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+	<link rel="stylesheet" href="deck.js/themes/transition/horizontal-slide.css">
+	
+	<script src="deck.js/modernizr.custom.js"></script>
+    <style>
+	.title {
+		text-align: center;
+	}
+	.title > h2 {
+		margin-top: 6em;
+	}
+	.slide li > p {
+		margin-bottom:0.5em;
+	}
+    </style>
+    
+</head>
+
+<body class="deck-container">
+	
+
+<!-- Begin slides -->
+
+<!--
+TODO add a slide on the content of the spec working area (spec, catalogs, vocabularies)
+TODO add more author-oriented slides:
+  * detail the profile catalog
+  * detail the feature catalog
+  * explore the book profile
+-->
+
+<section class="slide title">
+	<h2>DAISY Authoring and Interchange</h2>
+	<h3>NISO Z39.98-2012: Authoring and Interchange Framework for Adaptive XML Publishing Specification</h3>
+</section>
+
+<section class="slide">
+	<h2>History</h2>
+	<ul>
+	<li><p><strong>DAISY 2.02 DTB</strong></p>
+	<p>↪ HTML + SMIL + NCC.HTML</p>
+	</li>
+	<li><p><strong>DAISY 3 DTB - NISO Z39.86-2002 and Z30.86-2005</strong></p>
+	<p>↪ XML focus: DTBook XML, NCX, SMIL</p>
+	<p>↪ DTBook also used as an authoring format</p>
+	</li>
+	<li><p><strong>DAISY 4</strong></p>
+	<p>↪ Part A. Authoring and Interchange</p>
+	<p>↪ Part B. Distribution =&gt; EPUB 3</p>
+	</li>
+	</ul>
+	<!-- Note:  audience: producers and providers of accessible content, not end users -->
+</section>
+
+<section class="slide">
+	<h2>What is it ?</h2>
+	<blockquote cite="http://www.daisy.org/z3998/2012/z3998-2012.html">
+	<p> a framework in which to develop XML markup languages to represent different kinds of information resources, with the intent of producing documents suitable for transformation into different universally accessible formats</p>
+	</blockquote>
+</section>
+
+<section class="slide">
+	<h2>Key Points</h2>
+	<ul>
+	<li><p><strong>Framework vs Language</strong></p>
+	<p>↪ books,newspapers, magazines, consumer medical info, conference proceedings, etc</p>
+	<li><p><strong>modularity and extensibility</strong></p>
+	<p>↪ adapt quickly to new kinds of use, core layer of reusable modules</p>
+	</li>
+	<li><p><strong>Semantics</strong></p>
+	<p>↪ semantic inflections</p>
+	<p>↪ self-describing</p>
+	</li>
+	<li><p><strong>data repurposing</strong></p>
+	<p>↪ single source publishing</p>
+	<p>↪ converted into DAISY DTBs, EPUB, Braille, Large Print, HTML</p>
+	</li>
+	</ul>
+</section>
+
+
+<section class="slide">
+	<h2>Example: Minimal Document</h2>
+<!-- 
+   * default namespace
+   * profile identifier
+   * RDFa initial context
+   * reauired document-level metadata
+   * document content
+ -->
+</section>
+
+<section class="slide">
+	<h2>Abstract Document Model</h2>
+	<ul>
+	<li>Document foundation</li>
+	<li><p>4 structure layers</p>
+		<ol>
+		<li>section</li>
+		<li>block</li>
+		<li>phrase</li>
+		<li>text</li>
+		</ol>
+	</li>
+	<li>global attributes and metadata attributes</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Modules</h2>
+	<ul>
+	<li>high-level cohesive building blocks</li>
+	<li>pre-defined core modules or custom modules</li>
+	<li>practically: schema files</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Profiles</h2>
+	<blockquote cite="http://www.daisy.org/z3998/2012/z3998-2012.html">
+	<p>the collection of resources that together define the rules and requirements for marking up an information resource</p>
+	</blockquote>
+	<ul>
+	<li>Schema(s), + prose, vocabulary, etc</li>
+	<li>identified by a URI</li>
+	<li>resource directory</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Features</h2>
+	<ul>
+	<li>Specialized requirements, often with limited scope</li>
+	<li>note complete markup languages but optional add-ons to profiles</li>
+	<li>Example: math equations</li>
+	<li>Like profiles: markup model, identified by URI, resource directory</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Metadata</h2>
+	<ul>
+	<li><p><strong>document-level metadata</strong></p>
+	<p>↪ required: identifier, publisher, date</p>
+	</li>
+	<li>metadata resources</li>
+	<li>inline metadata as RDFa</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Semantic Inflections</h2>
+	<ul>
+	<li><p>via the <code>role</code> attribute</p>
+	</li>
+	<li><p>terms defined in RDF vocabularies</p>
+	<p>↪ declared in the &quot;initial context&quot;</p>
+	<p>↪ or declared with the <code>prefix</code> attribute</li></p>
+	</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Example: Complex Document</h2>
+<!-- 
+   * core modules + other modules
+   * features
+   * semantic inflections</pre>
+ -->
+</section>
+
+<section class="slide">
+	<h2>What to know for authors of Book Profile</h2>
+	<h3>Useful resources</h3>
+	<ul>
+	<li><a href="http://www.daisy.org/z3998/2012/auth/profiles/"><strong>profile catalog</strong></a>
+	</li>
+	<li>schema documentation
+	</li>
+	</ul>
+	<h3>Tooling</h3>
+	<ul>
+	<li><a href="http://www.daisy.org/zw/ZedAI_XML_Editors"><strong>editors</strong></a>
+	</li>
+	<li><p><strong>validation</strong></p>
+	<p>↪ for now, schema-based. soon, Pipeline 2 validator</p>
+	</li>
+	<li><strong>automated production</strong>: Pipeline 2 !</li>
+	</ul>
+	<h3>Key points</h3>
+	<ul>
+	<li>how to declare a profile + feature</li>
+	<li>how to add metadata</li>
+	<li>how to add semantic inflection</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>What to know for profile developers</h2>
+	<ul>
+	<li>follow the <a href="http://www.daisy.org/z3998/2012/z3998-2012.html">specification</a></li>
+	<li>reuse the <a href="http://www.daisy.org/z3998/2012/auth/cm/">core modules</a> and <a href="http://www.daisy.org/z3998/2012/auth/features/" title="Z39.98-2012 Authoring and Interchange Feature Catalog">features</a></li>
+	<li>it is OK to reuse the ZedAI namespace</li>
+	<li>consider contributing to the community, contact the Standard Committee via daisy.org/contact</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Pointers</h2>
+	<ul><li><a href="http://www.daisy.org/z3998/2012/" title="Z39.98-2012 Specification Document Working area">DAISY AI web space</a></li>
+	<li><a href="http://code.google.com/p/zednext/issues/list" title="Issues -  zednext - Development area for the ANSI/NISO Z3986 2008-2011 revision - Google Project Hosting">bugs or feature requests</a></li>
+	<li><a href="http://www.daisy.org/forums/zedai" title="DAISY Authoring and Interchange | DAISY Consortium">discussion forums</a></li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Questions ?</h2>
+</section>
+
+<!-- 
+Simple document:
+
+<document xmlns="http://www.daisy.org/ns/z3998/authoring/" xml:lang="en">
+  <head>
+    <meta rel="z3998:profile" 
+          resource="http://www.daisy.org/z3998/2012/auth/profiles/genericdocument/1.0/">
+        <meta property="z3998:name" content="genericdocument"/>
+        <meta property="z3998:version" content="1.0"/>
+    </meta>
+    <meta rel="z3998:rdfa-context" resource="http://www.daisy.org/z3998/2012/vocab/context/default/"/>
+    <meta property="dc:identifier" content="daisy-z2011-exemplar-01" />
+    <meta property="dc:publisher" content="DAISY Consortium" />
+    <meta property="dc:date" content="2011-07-27T18:50:05Z" />
+  </head>
+  <body>
+    <h>Hello, world.</h>
+  </body>
+</document>
+
+ -->
+<!-- 
+Advanced example:
+ * all layers
+ * namespaces
+ * semantic inflections with @role, + vocabulary prefix
+ * features
+ * metadata + external resources
+
+<head>
+  <meta rel="z3998:profile" resource="http://example.org/z3998/2012/auth/profiles/sciencejournal/1.0/">
+    <meta property="z3998:name" content="sciencejournal" />
+    <meta property="z3998:version" content="1.0" />
+    
+    <meta rel="z3998:feature" resource="http://example.org/z3998/2012/auth/features/physics/3.0/">
+      <meta property="name" content="physics" />
+      <meta property="version" content="3.0" />
+    </meta>
+    
+    <meta rel="z3998:feature" resource="http://example.org/z3998/2012/auth/features/chemistry/1.1/">
+      <meta property="name" content="chemistry" />
+      <meta property="version" content="1.1" />
+    </meta>
+  </meta>
+</head>
+
+
+<document xmlns="http://www.daisy.org/ns/z3998/authoring/"
+          xmlns:its="http://www.w3.org/2005/11/its" xml:lang="en">
+  <head>
+    <meta rel="z3998:profile" resource="http://www.daisy.org/z3998/2012/auth/profiles/book/1.0/">
+        <meta property="z3998:name" content="book"/>
+        <meta property="z3998:version" content="1.0"/>
+    </meta>
+    <meta rel="z3998:rdfa-context" resource="http://www.daisy.org/z3998/2012/vocab/context/default/"/>
+    <meta property="dc:identifier" content="daisy-z2011-book-001" />
+    <meta property="dc:publisher" content="DAISY Consortium" />
+    <meta property="dc:date" content="2011-07-27T18:50:05Z" />
+  </head>
+  <body>
+    <frontmatter>
+      <section>
+        <h property="dcterms:title">Ulysses: the condensed edition</h>
+        <pagebreak xml:id="pR1" value="i" />
+      </section>
+      <toc>
+        <h>Table of contents</h>
+        <entry>
+          Chapter 1
+          <ref ref="p1">1</ref>
+        </entry>
+        <entry>
+          Chapter 2
+          <ref ref="p3">3</ref>
+        </entry>
+        <pagebreak xml:id="pR2" value="ii" />
+      </toc>
+    </frontmatter>
+    <bodymatter>
+      <section>
+        <pagebreak xml:id="p1" value="1" />
+        <h>Chapter 1</h>
+        <p> Stately, plump Buck Mulligan came from the stairhead, bearing a
+          bowl of lather on which a mirror and a razor lay crossed. He held
+          the bowl aloft and intoned: 
+          <quote xml:lang="la" its:translate="no">INTROIBO AD ALTARE DEI.</quote>
+        </p>
+        <pagebreak value="2" />
+      </section>
+      <section>
+        <pagebreak xml:id="p3" value="3" />
+        <h>Chapter 2</h>
+        <p> Yes I said yes I will Yes. </p>
+      </section>
+    </bodymatter>
+  </body>
+</document>
+ -->
+
+<!-- End slides -->
+
+<!-- General Footer -->
+<!-- TODO style footer -->
+<!-- <footer>
+	<p>Copyright DAISY Consortium</p>
+</footer> -->
+
+<!-- deck.js configuration -->
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+<!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+<script>window.jQuery || document.write('<script src="deck.js/jquery-1.7.min.js"><\/script>')</script>
+
+<!-- Deck Core and extensions -->
+<script src="deck.js/core/deck.core.js"></script>
+<script src="deck.js/extensions/hash/deck.hash.js"></script>
+<script src="deck.js/extensions/menu/deck.menu.js"></script>
+<script src="deck.js/extensions/goto/deck.goto.js"></script>
+<script src="deck.js/extensions/status/deck.status.js"></script>
+<script src="deck.js/extensions/navigation/deck.navigation.js"></script>
+
+<!-- Initialize the deck -->
+<script>
+$(function() {
+	$.deck('.slide');
+});
+
+</script>
+
+</body>
+</html>

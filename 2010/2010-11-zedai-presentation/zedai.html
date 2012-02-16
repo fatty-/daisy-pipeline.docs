@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>
+			ZedAI Primer
+		</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="copyright" content="Copyright © 2010 DAISY Consortium" />
+		<link rel="stylesheet" type="text/css" media="screen, projection, print" href="slidy/slidy.css" />
+		<link rel="stylesheet" type="text/css" media="screen, projection, print" href="slidy/slidy-daisy.css" />
+		<script src="slidy/slidy.js" charset="utf-8" type="text/javascript">
+</script>
+
+<!-- Include required JS files -->
+<script type="text/javascript" src="slidy/syntaxhighlighter/scripts/shCore.js"></script>
+ 
+<!--
+    At least one brush, here we choose JS. You need to include a brush for every 
+    language you want to highlight
+-->
+<script type="text/javascript" src="slidy/syntaxhighlighter/scripts/shBrushXML.js"></script>
+ 
+<!-- Include *at least* the core style and default theme -->
+<link href="slidy/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+<link href="slidy/syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+ 
+ 
+<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+<script type="text/javascript">
+     SyntaxHighlighter.all()
+</script>
+	</head>
+	<body>
+		<div class="slide cover">
+			<img id="daisy-logo-cover" alt="Logo DAISY" src="images/daisy-logo.png" />
+			<h1>
+				ZedAI Primer
+			</h1>
+			<h2>
+				Z39.86-2011 PART A "Authoring and Interchange Framework"
+			</h2>
+			<p>
+				Romain&nbsp;Deltour, &lt;rdeltour@gmail.com&gt;
+			</p>
+			<p>
+				DAISY&nbsp;Pipeline&nbsp;F2F, Zurich - November&nbsp;2010
+			</p>
+		</div>
+		<div class="slide">
+			<h1>
+				History
+			</h1>
+			<ul>
+				<li>DAISY 2.02 (2001)
+					<ul>
+						<li>XHTML content
+						</li>
+						<li>ncc.html
+						</li>
+						<li>SMIL
+						</li>
+					</ul>
+				</li>
+				<li>DAISY 3
+					<ul>
+						<li>Shift toward XML
+							<ul>
+								<li>XHTML content
+								</li>
+								<li>DAISY XML = DTBook
+								</li>
+								<li>NCX, OPF
+								</li>
+								<li>SMIL
+								</li>
+							</ul>
+						</li>
+						<li>standardized as the "ANSI/NISO Z39.86 Specifications for the Digital Talking Book"
+						</li>
+						<li>revised (minor) as Z39.86-2005
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="slide">
+			<h1>
+				DAISY 4
+			</h1>
+			<p>
+				DAISY 4 = ZedNext
+			</p>
+			<p>
+				Major revision of Z39.86, in two parts:
+			</p>
+			<ul>
+				<li>ZedAI = Authoring and Interchange Framework
+				</li>
+				<li>ZedDist = Distribution, most probably replaced by EPUB 3
+				</li>
+			</ul>
+		</div>
+		<div class="slide">
+			<h1>
+				Timeline
+			</h1>
+			<p>
+				<strong>January 2011</strong>: Final Draft for Trial Use (aligned with EPUB)
+			</p>
+			<p>
+				<strong>April 2011</strong>: Final release
+			</p>
+		</div>
+		<div class="slide">
+			<h1>
+				Key points
+			</h1>
+			<p>
+				ZedAI = XML-based Framework
+			</p>
+			<ul>
+				<li>Adaptability
+				</li>
+				<li>Modularity
+				</li>
+				<li>Self-describing
+				</li>
+				<li>Data repurposing
+				</li>
+			</ul>
+		</div>
+		<div class="slide">
+			<h1>
+				Minimal Document
+			</h1>
+			<pre>
+&lt;document xmlns="http://www.daisy.org/ns/z3986/authoring/"
+          xmlns:decl="http://www.daisy.org/z3986/2011/vocab/decl/#"
+          xmlns:dcterms="http://purl.org/dc/terms/" xml:lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta rel="decl:profile" resource="http://www.daisy.org/z3986/2011/auth/profiles/genericdocument/1.0/" /&gt;
+    &lt;meta property="dcterms:identifier" content="daisy-z2011-exemplar-01" /&gt;
+    &lt;meta property="dcterms:publisher" content="DAISY Consortium" /&gt;
+    &lt;meta property="dcterms:date" content="2011-07-27T13:50:05-05:00" /&gt;        
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h&gt;Hello, world.&lt;/h&gt;
+  &lt;/body&gt;
+&lt;/document&gt;
+</pre>
+		</div>
+		<div class="slide">
+			<h1>
+				Abstract Document Model
+			</h1>
+			<ul>
+				<li>Document foundation
+				</li>
+				<li>Document structure layers
+					<ul>
+						<li>Section
+						</li>
+						<li>Block
+						</li>
+						<li>Phrase
+						</li>
+						<li>Text
+						</li>
+					</ul>
+				</li>
+				<li>Document attribute collections
+					<ul>
+						<li>metadata attributes
+						</li>
+						<li>global attributes
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="slide">
+			<h1>
+				Profiles
+			</h1>
+			<ul>
+				<li>Profile = XML grammar based on the ZedAI framework
+				</li>
+				<li>made of schema modules
+				</li>
+				<li>and optional features
+				</li>
+				<li>all defined in a resource directory
+				</li>
+			</ul>
+		</div>
+		<div class="slide">
+			<h1>
+				Semantic Inflections
+			</h1>
+			<ul>
+				<li>role attribute
+					<ul>
+						<li>values are CURIEs
+						</li>
+						<li>vacabularies defined in RDF
+						</li>
+					</ul>
+				</li>
+				<li>inline RDF metadata
+				</li>
+			</ul>
+		</div>
+		<div class="slide">
+			<h1>
+				Metadata
+			</h1>
+			<p>
+				Externalized
+			</p>
+			<pre>
+&lt;head&gt;
+  …
+  &lt;meta rel="decl:meta-record" resource="daisy-z2011-exemplar-01-mods.xml"&gt;
+    &lt;meta property="decl:meta-record-type" about="daisy-z2011-exemplar-01-mods.xml" content="decl:mods" /&gt;
+    &lt;meta property="decl:meta-record-version" about="daisy-z2011-exemplar-01-mods.xml" content="3.3" /&gt;
+  &lt;/meta&gt;   
+  …    
+&lt;/head&gt;
+</pre>
+		</div>
+		<div class="slide">
+			<h1>
+				Metadata (2)
+			</h1>
+			<p>
+				Inline using RDFa
+			</p>
+			<pre>
+&lt;document xmlns="http://www.daisy.org/ns/z3986/authoring/"
+          xmlns:decl="http://www.daisy.org/z3986/2011/vocab/decl/#"
+          xmlns:dcterms="http://purl.org/dc/terms/" xml:lang="en-GB"&gt;
+  &lt;head&gt; 
+    … 
+    &lt;meta rel="decl:meta-record" resource="."&gt;
+      &lt;meta property="decl:meta-record-type" about="." content="decl:dcterms-rdfa" /&gt;
+    &lt;/meta&gt; 
+    … 
+  &lt;/head&gt;
+  &lt;body&gt; 
+    … 
+    &lt;frontmatter&gt;
+      &lt;section role="titlepage"&gt;
+        &lt;h property="dcterms:title"&gt;
+            On the Origin of Species by Means of Natural Selection or the 
+            Preservation of Favoured races in the struggle for life.&lt;/h&gt;
+        &lt;block&gt;
+          By &lt;name property="dcterms:creator"&gt;Charles Darwin&lt;/name&gt;, M.A., Fellow of the
+          royal, geological, linnœan, etc., societies; author of 'journal of researches
+          during h.m.s. Beagle's voyage round the world.' 
+        &lt;/block&gt;
+      &lt;/section&gt; 
+      … 
+    &lt;/frontmatter&gt;
+  &lt;/body&gt;
+&lt;/document&gt;
+</pre>
+		</div>
+		<div class="slide">
+			<h1>
+				Features
+			</h1>
+			<p>
+				specialized content
+			</p>
+			<ul>
+				<li>reusability
+				</li>
+				<li>modularity
+				</li>
+				<li>processing support
+				</li>
+			</ul>
+		</div>
+		<div class="slide">
+			<h1>
+				Example: MathML feature
+			</h1>
+			<pre>
+&lt;document xmlns="http://www.daisy.org/ns/z3986/authoring/"
+          xmlns:m="http://www.w3.org/1998/Math/MathML"
+          xmlns:dcterms="http://purl.org/dc/terms/"
+          xmlns:decl="http://www.daisy.org/z3986/2011/vocab/decl/#" xml:lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta rel="decl:profile" resource="http://www.daisy.org/z3986/2011/auth/profiles/book/1.0/"&gt;
+      &lt;meta rel="decl:feature" resource="http://www.daisy.org/z3986/2011/auth/features/mathml/1.0/" /&gt;
+    &lt;/meta&gt;
+    &lt;meta property="dcterms:identifier" content="daisy-z2011-pythagorean-001" /&gt;
+    &lt;meta property="dcterms:publisher" content="DAISY Consortium" /&gt;
+    &lt;meta property="dcterms:date" content="2005-07-27T13:50:05-05:00" /&gt;        
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;frontmatter&gt;
+      &lt;section&gt;
+        &lt;h&gt;The Pythagorean Theorum&lt;/h&gt;
+      &lt;/section&gt;
+    &lt;/frontmatter&gt;
+    &lt;bodymatter&gt;
+      &lt;section&gt;
+        &lt;h&gt;The Pythagorean Theorum&lt;/h&gt;
+        &lt;p&gt;Pythagoras stated: 
+          &lt;m:math&gt;
+            &lt;m:mi&gt;c&lt;/m:mi&gt;
+            &lt;m:mo&gt;=&lt;/m:mo&gt;
+            &lt;m:msqrt&gt;
+              &lt;m:msup&gt;
+                &lt;m:mi&gt;a&lt;/m:mi&gt;
+                &lt;m:mn&gt;2&lt;/m:mn&gt;
+              &lt;/m:msup&gt;
+              &lt;m:mo&gt;+&lt;/m:mo&gt;
+              &lt;m:msup&gt;
+                &lt;m:mi&gt;b&lt;/m:mi&gt;
+                &lt;m:mn&gt;2&lt;/m:mn&gt;
+              &lt;/m:msup&gt;
+            &lt;/m:msqrt&gt;
+          &lt;/m:math&gt;
+        &lt;/p&gt;
+      &lt;/section&gt;
+    &lt;/bodymatter&gt;    
+  &lt;/body&gt;
+&lt;/document&gt;
+</pre>
+		</div>
+		<div class="slide">
+			<h1>
+				Practically
+			</h1>
+			<ul>
+				<li>Profile resource directory
+				</li>
+				<li>Schema documention
+				</li>
+				<li>RDF Vocabularies
+				</li>
+			</ul>
+		</div>
+		<div class="slide">
+			<h1>
+				Links
+			</h1>
+			<ul>
+				<li>Public drafts: <a href="http://www.daisy.org/z3986/2011/">http://www.daisy.org/z3986/2011/</a>
+				</li>
+				<li>Wiki: <a href="http://www.daisy.org/zw/ZedAI">http://www.daisy.org/zw/ZedAI</a>
+				</li>
+				<li>User Portal: <a href="http://www.daisy.org/zw/ZedAI_UserDocumentation">http://www.daisy.org/zw/ZedAI_UserDocumentation</a>
+				</li>
+				<li>Development Area: <a href="http://code.google.com/p/zednext/">http://code.google.com/p/zednext/</a>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>
