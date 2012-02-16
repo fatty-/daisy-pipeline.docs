@@ -165,3 +165,34 @@
 .deck-container.deck-menu .deck-current, .no-touch .deck-container.deck-menu .slide:hover {
   background: #ddf;
 }
+
+/* additions */
+.title {
+	text-align: center;
+}
+.title > h2 {
+	margin-top: 6em;
+}
+.slide li > p {
+	margin-bottom:0.5em;
+}
+.deck-container .slide h2 {
+	color: #333399;
+}
+ul.aerated  li {
+	margin-bottom: 2em;
+	margin-top: 1.5em;
+}
+
+#daisy-footer {
+  position: absolute;
+  bottom: 10px;
+  left:43%;
+  color: #888;
+  z-index: 3;
+  margin: 0;
+}
+
+body.deck-container #daisy-footer {
+  position: fixed;
+}
