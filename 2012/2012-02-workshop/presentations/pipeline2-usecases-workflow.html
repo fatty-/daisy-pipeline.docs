@@ -19,22 +19,16 @@
 	<link rel="stylesheet" href="deck.js/extensions/hash/deck.hash.css">
 	
 	<!-- Style theme. More available in /themes/style/ or create your own. -->
-	<link rel="stylesheet" href="deck.js/themes/style/swiss.css">
+	<link rel="stylesheet" href="deck.js/themes/style/daisy.css">
 	
 	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
 	<link rel="stylesheet" href="deck.js/themes/transition/horizontal-slide.css">
 	
 	<script src="deck.js/modernizr.custom.js"></script>
     <style>
-	.title {
-		text-align: center;
-	}
-	.title > h2 {
-		margin-top: 6em;
-	}
-	.slide li > p {
-		margin-bottom:0.5em;
-	}
+.slide.squeezed.deck-current, .slide.squeezed.deck-previous, .slide.squeezed.deck-before  {
+	width:50%;
+}
     </style>
     
 </head>
@@ -43,10 +37,11 @@
 
 <!-- Begin slides -->
 
-
-<section class="slide title">
-	<h2>DAISY Pipeline 2 Overview</h2>
+<section class="slide title">	
+	<h2 style="margin-top: 4em">DAISY Pipeline 2 Overview</h2>
 	<h3>Use cases and workflows</h3>
+	<img width="210" height="200" style="margin-top:4em; margin-bottom:2em" src="images/DAISY-logo.png" alt="DAISY Consortium logo" />
+	<p>February 16, 2011 - Romain Deltour</p>
 </section>
 
 <section class="slide title">
@@ -55,47 +50,64 @@
 
 <section class="slide">
 	<h2>Remote vs Local</h2>
-	<h3>local installation</h3>
-	<h3>organization-wide deployment</h3>
-	<h3>public service</h3>
+	<section class="slide">
+		<h3>Local installation</h3>
+		<img style="width:30%" src="images/local-installation.png" alt="local deployment">
+	</section>
+	<section class="slide">
+		<h3>Organization-wide deployment</h3>
+		<img style="width:30%" src="images/organization-service.png" alt="local deployment">
+	</section>
+	<section class="slide">
+		<h3>Public service</h3>
+		<img style="width:30%" src="images/public-service.png" alt="local deployment">
+	</section>
 </section>
 
 <section class="slide">
-	<h2>CLI</h2>
-	<ul>
-		<li>based on a subcommand syntax</li>
-		<li>usable as a local or remote client</li>
-		<li>execution of one-shot jobs</li>
-		<li>batch processing</li>
+	<h2>Command-line interface (CLI)</h2>
+	<img style="width: 20%; float: right" src="images/cli.png" alt="">
+	<ul class="aerated">
+		<li>Based on a subcommand syntax</li>
+		<li>Usable as a local or remote client</li>
+		<li>Execution of one-shot jobs</li>
+		<li>Batch processing</li>
 	</ul>
 	<p>see <a href="http://code.google.com/p/daisy-pipeline/wiki/CommandLine">http://code.google.com/p/daisy-pipeline/wiki/CommandLine</a></p>
 </section>
 
 <section class="slide">
-	<h2>Web UI</h2>
-	<ul>
-		<li>local UI</li>
-		<li>intranet shared installation</li>
-		<li>public service</li>
+	<h2>Web user interface</h2>
+	<ul class="aerated">
+		<li>Local UI</li>
+		<li>Intranet shared installation</li>
+		<li>Public service</li>
 	</ul>
 	<p>see <a href="http://code.google.com/p/daisy-pipeline/wiki/WebUIFunctionalRequirements">http://code.google.com/p/daisy-pipeline/wiki/WebUIFunctionalRequirements</a></p>
 </section>
 
 <section class="slide">
-	<h2>Minimalist GUI</h2>
-	<ul>
-		<li>dialog-based, minialist interface</li>
-		<li>job configuration dialog + progress bar</li>
+	<h2>Minimalist graphical user interface (GUI)</h2>
+	<img style="width: 50%; float: right; clear:right" src="images/pipeline-lite-1.png" alt"pipeline lite screenshot">
+	<img style="width: 50%; float: right; clear:right" src="images/pipeline-lite-2.png" alt"pipeline lite screenshot">
+	<img style="width: 50%; float: right; clear:right" src="images/pipeline-lite-3.png" alt"pipeline lite screenshot">
+	<ul class="aerated">
+		<li>Dialog-based, minialist interface</li>
+		<li>Job configuration dialog</li>
+		<li>Easily embeddable in other applications</li>
 	</ul>
 </section>
 
 <section class="slide">
 	<h2>Embeddable Software Component</h2>
-	<ul>
-		<li>Based on the web service API</li>
-		<li>The Pipeline 2 is launched as daemon process</li>
-		<li>Supports local or remote setups</li>
-		<li>Can provide a native facade API</li>
+	<ul class="aerated">
+		<li class="slide">Based on the web service API</li>
+		<li class="slide">The Pipeline 2 is launched as daemon process</li>
+		<li class="slide">Supports local or remote setups</li>
+		<li class="slide">Can provide a native facade API
+			<img style="height: 15%;" src="images/local-api.png" alt"native API to a local pipeline">
+			<img style="height: 15%;" src="images/remote-api.png" alt"native API to a remote pipeline">
+			</li>
 	</ul>
 </section>
 
@@ -104,99 +116,146 @@
 </section>
 
 <section class="slide">
-<h2>Feature highlights: Processing</h2>
-	<ul>
-		<li>XSLT processing</li>
-		<li>XQuery processing</li>
-		<li>Third-party executable</li>
-		<li>Atomic XML manipulation</li>
-	</ul>
+	<h2>Feature highlights: Processing</h2>
+	<section class = "slide">
+		<h3>Non-linear workflows</h3>
+		<ul>
+			<li><em>Example</em>: if-then-else</li>
+			<li>Built in XProc</li>
+		</ul>
+	</section>
+	<section class = "slide">	
+		<h3>XSLT processing</h3>
+		<ul>
+			<li><em>Example</em>: DTBook to ZedAI</li>
+			<li>Set of modular XSLTs</li>
+			<li>XSLT 1.0 or XSLT 2.0</li>
+			<li>Built in XProc</li>
+		</ul>
+	</section>	
+	<section class = "slide">
+		<h3>Third-party executable</h3>
+		<ul>
+			<li><em>Example</em>: epubcheck</li>
+			<li>Output is converted as XML</li>
+			<li>Some integration limitations</li>
+		</ul>
+	</section>	
+	<section class = "slide">
+		<h3>Web service calls</h3>
+		<ul>
+			<li><em>Example</em>: invoke a remote lexicon API</li>
+			<li>Built in XProc, via HTTP</li>
+			<li>Allow distributed computing</li>
+		</ul>
+	</section>
 </section>
 
 <section class="slide">
 	<h2>Feature highlights: File manipulations</h2>
-	<h3>File set manipulation</h3>
-	<ul>
-		<li>populate</li>
-		<li>augment</li>
-		<li>union/intersection/difference</li>
-		<li>copy to the file system</li>
-	</ul>
-	<h3>File system operations</h3>
-	<ul>
-		<li>usual operations: move, copy, delete, create directories, etc</li>
-	</ul>
-	<h3>ZIP manipulation</h3>
-	<ul>
-		<li>zip</li>
-		<li>unzip</li>
-	</ul>
+	<section class="slide">
+		<h3>File set manipulation</h3>
+		<ul>
+			<li>populate</li>
+			<li>augment</li>
+			<li>union/intersection/difference</li>
+			<li>copy to the file system</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h3>File system operations</h3>
+		<ul>
+			<li>usual operations: move, copy, delete, create directories, etc</li>
+		</ul>
+	</section>	
+	<section class="slide">	
+		<h3>ZIP manipulation</h3>
+		<ul>
+			<li>zip</li>
+			<li>unzip</li>
+		</ul>
+	</section>
 </section>
 
 <section class="slide">
 	<h2>Feature highlights: Validation</h2>
-	<ul>
-		<li><p>schema-based</p>
-			<ul>
-				<li>example: DTBook - RelaxNG validation</li>
-				<li>example: ZedAI - RelaxNG + Schematron validation</li>
-			</ul>
-		</li>
-		<li><p>relying on third-party tools</p>
-			<ul>
-				<li>ZedVal</li>
-				<li>epubcheck</li>
-			</ul>
-		</li>
-	</ul>
+	<section class="slide">
+		<h3>Schema-based validation</h3>
+		<ul>
+		<li>RelaxNG, XML Schema, NVDL, Schematron, (DTD)</li>
+		<li><em>Example</em>: DTBook &rarr; RelaxNG validation</li>
+		<li><em>Example</em>: ZedAI - RelaxNG + Schematron validation</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h3>Via third-party tools</h3>
+		<ul>
+		<li><em>Example</em>: ZedVal, epubcheck</li>
+		<li>again, remote or local calls</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h3>Custom validators</h3>
+		<ul>
+		<li>Using XProc logic</li>
+		<li>Requires more development</li>
+		</ul>
+	</section>
 </section>
 
 <section class="slide">
 	<h2>Example: DTBook to ZedAI</h2>
- <!-- 
- * sequence of documents
- * fileset + in-memory dtbook
- * upgrade the seq of dtbooks
- * merge the dtbooks
- * validate the merged dtbook
- * transform to zedai =&gt; sequence of XSLT steps (normalization + conversion)
- * genereate MODS, Oby, 
- * compile the result fileset
- * store the fileset
--->
+	<section>
+		<img style="height:80%" src="images/dtbook-to-zedai.png" alt="DTBook to ZedAI workflow"/>
+	</section>
 </section>
 
 <section class="slide">
 	<h2>Example: TTS-aware EPUB 3 production</h2>
-<!--
-DAISY AI -&gt; Markup Enhancement -&gt; DAISY AI -&gt; zedai-to-epub -&gt; EPUB 3 + SSML
-                                                     |
-                                                   lexicon
--->
+	<img style="height:80%; float:right;" src="images/tts-wf.png" alt="TTS-annotation workflow"/>
+	<section class="slide squeezed">
+		<h3>DAISY AI</h3>
+<pre><code>&lt;p&gt;Have you seen the movie <strong style="background-color:yellow;">&quot;La vita e bella&quot;</strong> ?&lt;/p&gt;</code></pre>
+	</section>	
+	<section class="slide squeezed">	
+		<h3>Rich DAISY AI</h3>
+<pre><code>&lt;p&gt;Have you seen the movie <span style="background-color:yellow;"><strong>&lt;name&gt;&quot;</strong>La vita e bella&quot;<strong style="background-color:yellow;">&lt;/name&gt;</strong></span> ?&lt;/p&gt;</code></pre>
+	</section>	
+	<section class="slide squeezed">
+		<h3>TTS-annotated HTML</h3>
+<pre><code>&lt;p&gt;Have you seen the movie &lt;span <strong style="background-color:yellow;">ssml:alphabet="ipa"</strong><strong style="background-color:yellow;">ssml:ph="ˈlɑ ˈviːɾə ˈʔeɪ ˈbɛlə"</strong>&gt;&quot;La vita e bella&quot;&lt;/span&gt; ?&lt;/p&gt;</code></pre>
+	</section>	
 </section>
 
 <section class="slide">
 	<h2>Example: Interactive Workflow</h2>
-	<p>
-		Use case from the Braille WG: identify apostrophes vs. single quotes
-	</p>
-<!--
-RTF -&gt; DAISY AI
-Markup Enhancement =&gt; identify single quotes amd apostrophes =&gt; marked-up DAISY AI
-UI =&gt; highlights ambiguous cases
-User decides to mark it up =&gt; changes the markup
-marked-up DAISY AI -&gt; resolved DAISY AI
-accurate Braille processing
--->
+	<p style="text-align: center"><em>Use case from the Braille WG: identify apostrophes vs. single quotes</em></p>
+	<img style="height:80%; float:right;" src="images/interactive-wf.png" alt="TTS-annotation workflow"/>
+	<section class="slide squeezed">
+		<h3>DAISY AI</h3>
+		<pre><code>&lt;p&gt;don<strong style="background-color:yellow;">'</strong>t do <strong style="background-color:yellow;">'</strong>that<strong style="background-color:yellow;">'</strong>&lt;/p&gt;</code></pre>
+	</section>
+	<section class="slide squeezed">	
+		<h3>DAISY AI annotated</h3>
+		<pre><code>&lt;p&gt;don<strong style="background-color:yellow;">&lt;char type="quote-or-apos"&gt;'&lt;/char&gt;</strong>t do &lt;char <strong style="background-color:yellow;">type="quote-or-apos"</strong>&gt;'&lt;/char&gt;that&lt;char <strong style="background-color:yellow;">type="quote-or-apos"</strong>&gt;'&lt;/char&gt;&lt;/p&gt;</code></pre>
+	</section>	
+	<section class="slide squeezed">
+		<h3>DAISY AI resolved</h3>
+		<pre><code>&lt;p&gt;don<strong style="background-color:yellow;">&lt;char type="apos"&gt;'&lt;/char&gt;</strong>t do &lt;char <strong style="background-color:yellow;">type="left-quote"</strong>&gt;'&lt;/char&gt;that&lt;char <strong style="background-color:yellow;">type="rigth-quote"</strong>&gt;'&lt;/char&gt;&lt;/p&gt;</code></pre>
+	</section>	
 </section>
 
 <section class="slide title">
-	<h2>Questions and comments?</h2>
+	<h2>Questions ?</h2>
 	<p><a href="http://daisy.org/pipeline2">http://daisy.org/pipeline2</a></p>
 	<p><a href="http://code.google.com/p/daisy-pipeline/">http://code.google.com/p/daisy-pipeline/</a></p>
 </section>
 
 <!-- End slides -->
+
+<footer id="daisy-footer">
+	<p>&copy; DAISY Consortium 2012</p>
+</footer>
 
 <!-- deck.js configuration -->
 
