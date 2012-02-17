@@ -1,0 +1,10 @@
+<component xmlns="http://www.osgi.org/xmlns/scr/v1.1.0" name="job-lister">
+   <implementation class="org.daisy.pipeline.script.XProcScriptService"/>
+   <service>
+         <provide interface="org.daisy.pipeline.script.XProcScriptService"/>
+   </service>
+      <!-- TODO: complete the script metadata -->
+      <property name="script.name" type="String" value=""/>
+      <property name="script.description" type="String" value=""/>
+      <property name="script.url" type="String" value=""/>
+</component>
