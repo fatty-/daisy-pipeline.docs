@@ -1,0 +1,2 @@
+#!/bin/sh
+zip -ur ../org.daisy.pipeline.modules.job-lister.jar META-INF/MANIFEST.MF *
