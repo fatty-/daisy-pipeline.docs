@@ -19,22 +19,16 @@
 	<link rel="stylesheet" href="deck.js/extensions/hash/deck.hash.css">
 	
 	<!-- Style theme. More available in /themes/style/ or create your own. -->
-	<link rel="stylesheet" href="deck.js/themes/style/swiss.css">
+	<link rel="stylesheet" href="deck.js/themes/style/daisy.css">
 	
 	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
 	<link rel="stylesheet" href="deck.js/themes/transition/horizontal-slide.css">
 	
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+	<link rel="stylesheet" href="highlight.js/styles/github.css">
+	
 	<script src="deck.js/modernizr.custom.js"></script>
     <style>
-	.title {
-		text-align: center;
-	}
-	.title > h2 {
-		margin-top: 6em;
-	}
-	.slide li > p {
-		margin-bottom:0.5em;
-	}
     </style>
     
 </head>
@@ -52,27 +46,31 @@ TODO add more author-oriented slides:
   * explore the book profile
 -->
 
-<section class="slide title">
+<section class="slide title">	
 	<h2>DAISY Authoring and Interchange</h2>
 	<h3>NISO Z39.98-2012: Authoring and Interchange Framework for Adaptive XML Publishing Specification</h3>
+	<img width="210" height="200" style="margin-top:4em; margin-bottom:2em" src="images/DAISY-logo.png" alt="DAISY Consortium logo" />
+	<p>February 17, 2011 - Romain Deltour</p>
 </section>
+
 
 <section class="slide">
 	<h2>History</h2>
-	<ul>
-	<li><p><strong>DAISY 2.02 DTB</strong></p>
-	<p>↪ HTML + SMIL + NCC.HTML</p>
-	</li>
-	<li><p><strong>DAISY 3 DTB - NISO Z39.86-2002 and Z30.86-2005</strong></p>
-	<p>↪ XML focus: DTBook XML, NCX, SMIL</p>
-	<p>↪ DTBook also used as an authoring format</p>
-	</li>
-	<li><p><strong>DAISY 4</strong></p>
-	<p>↪ Part A. Authoring and Interchange</p>
-	<p>↪ Part B. Distribution =&gt; EPUB 3</p>
-	</li>
-	</ul>
-	<!-- Note:  audience: producers and providers of accessible content, not end users -->
+	<section class="slide">
+		<h3>DAISY 2.02 DTB</h3>
+		<p>↪ HTML + SMIL + NCC.HTML</p>
+	</section>
+	<section class="slide">
+		<h3>DAISY 3 DTB - NISO Z39.86-2002 and Z30.86-2005</h3>
+		<p>↪ XML focus: DTBook XML, NCX, SMIL</p>
+		<p>↪ covers both distribution (Digital Talking Books) and authoring (DTBook XML)</p>
+	</section>
+	<section class="slide">
+		<h3>DAISY "4" aka "ZedNext"</h3>
+		<!-- Note:  audience: producers and providers of accessible content, not end users -->
+		<p>↪ Part A. Authoring and Interchange</p>
+		<p>↪ <strike>Part B. Distribution</strike> (&rarr; EPUB 3)</p>
+	</section>
 </section>
 
 <section class="slide">
@@ -85,36 +83,76 @@ TODO add more author-oriented slides:
 <section class="slide">
 	<h2>Key Points</h2>
 	<ul>
-	<li><p><strong>Framework vs Language</strong></p>
-	<p>↪ books,newspapers, magazines, consumer medical info, conference proceedings, etc</p>
-	<li><p><strong>modularity and extensibility</strong></p>
+	<li class="slide"><p><strong>Framework vs Language</strong></p>
+	<p>↪ 1 "meta specification" + several instances (called "<em>profiles</em>")</p>
+	<p>↪ books, newspapers, magazines, consumer medical info, conference proceedings, etc</p>
+	<li class="slide"><p><strong>Modularity and extensibility</strong></p>
 	<p>↪ adapt quickly to new kinds of use, core layer of reusable modules</p>
 	</li>
-	<li><p><strong>Semantics</strong></p>
+	<li class="slide"><p><strong>Semantics</strong></p>
 	<p>↪ semantic inflections</p>
-	<p>↪ self-describing</p>
+	<p>↪ self-describing, based on RDFa</p>
 	</li>
-	<li><p><strong>data repurposing</strong></p>
+	<li class="slide"><p><strong>Data repurposing</strong></p>
 	<p>↪ single source publishing</p>
 	<p>↪ converted into DAISY DTBs, EPUB, Braille, Large Print, HTML</p>
 	</li>
 	</ul>
 </section>
 
+<section class="slide">
+	<h2>Working with DAISY AI</h2>
+	<section class="slide">
+		<h3>Audience</h3>
+		<ul>
+			<li><strong>authors</strong> of XML masters</li>
+			<li><strong>developers</strong> of new profiles</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h3>Documentation</h3>
+		<ul>
+			<li><p>DAISY AI specification (&rarr; for profile developers)</p>
+				<p>↪ <a href="http://www.daisy.org/z3998/2012/">http://www.daisy.org/z3998/2012/</a></p>
+			</li>
+			<li><p>Catalog of profiles (&rarr; for markup authors)</p>
+				<p>↪ <a href="http://www.daisy.org/z3998/2012/auth/profiles/">http://www.daisy.org/z3998/2012/auth/profiles/</a></p>
+				<p><ul>
+					<li>Generic profile</li>
+					<li>Book profile</li>
+					<li>News profile</li>
+					<li>DIAGRAM profile</li>
+					<li><em>your custom</em> profiles</li>
+				</ul></p>
+			</li>
+		</ul>
+	</section>
+</section>
+
 
 <section class="slide">
 	<h2>Example: Minimal Document</h2>
-<!-- 
-   * default namespace
-   * profile identifier
-   * RDFa initial context
-   * reauired document-level metadata
-   * document content
- -->
+
+<pre><code class="no-highlight">&lt;document <span class="highlight">xmlns=&quot;http://www.daisy.org/ns/z3998/authoring/&quot;</span> xml:lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    <span class="highlight">&lt;meta rel=&quot;z3998:profile&quot; resource=&quot;http://www.daisy.org/z3998/2012/auth/profiles/genericdocument/1.0/&quot;&gt;
+      &lt;meta property=&quot;z3998:name&quot; content=&quot;genericdocument&quot;/&gt;
+      &lt;meta property=&quot;z3998:version&quot; content=&quot;1.0&quot;/&gt;
+    &lt;/meta&gt;</span>
+    <span class="highlight">&lt;meta rel=&quot;z3998:rdfa-context&quot; resource=&quot;http://www.daisy.org/z3998/2012/vocab/context/default/&quot;/&gt;</span>
+    <span class="highlight">&lt;meta property=&quot;dc:identifier&quot; content=&quot;daisy-z2011-exemplar-01&quot; /&gt;
+    &lt;meta property=&quot;dc:publisher&quot; content=&quot;DAISY Consortium&quot; /&gt;
+    &lt;meta property=&quot;dc:date&quot; content=&quot;2011-07-27T18:50:05Z&quot; /&gt;</span>
+  &lt;/head&gt;
+  <span class="highlight">&lt;body&gt;
+    &lt;h&gt;Hello, world.&lt;/h&gt;
+  &lt;/body&gt;</span>
+&lt;/document&gt;</code></pre>
 </section>
 
 <section class="slide">
 	<h2>Abstract Document Model</h2>
+	<h3>What modules have in common</h3>
 	<ul>
 	<li>Document foundation</li>
 	<li><p>4 structure layers</p>
@@ -127,225 +165,226 @@ TODO add more author-oriented slides:
 	</li>
 	<li>global attributes and metadata attributes</li>
 	</ul>
-</section>
-
-<section class="slide">
-	<h2>Modules</h2>
-	<ul>
-	<li>high-level cohesive building blocks</li>
-	<li>pre-defined core modules or custom modules</li>
-	<li>practically: schema files</li>
-	</ul>
+	<p><img style="width:70%" src="images/zedai-adm.png" alt="DAISY AI abstract document model"/></p>
 </section>
 
 <section class="slide">
 	<h2>Profiles</h2>
-	<blockquote cite="http://www.daisy.org/z3998/2012/z3998-2012.html">
+	<blockquote class="slide" cite="http://www.daisy.org/z3998/2012/z3998-2012.html">
 	<p>the collection of resources that together define the rules and requirements for marking up an information resource</p>
 	</blockquote>
+	<img src="images/zedai-profile.png" alt="DAISY AI profile" style="float:right; height:50%;">
 	<ul>
-	<li>Schema(s), + prose, vocabulary, etc</li>
-	<li>identified by a URI</li>
-	<li>resource directory</li>
+	<li style="background: none" class="slide">identified by a URI</li>
+	<li style="background: none" class="slide"><p>resource directory</p>
+		<ul>
+			<li>Prose</li>
+			<li>Metadata (e.g. <em>normative</em> name)</li>
+			<li>Schema(s)</li>
+			<li>Vocabularies</li>
+		</ul>
+	</li>
 	</ul>
 </section>
+
 
 <section class="slide">
 	<h2>Features</h2>
+	<img src="images/zedai-feature.png" alt="DAISY AI profile" style="float:right; width:40%;">
 	<ul>
+	<li><strong>Optional add-ons</strong> to profiles (not complete markup languages)</li>
 	<li>Specialized requirements, often with limited scope</li>
-	<li>note complete markup languages but optional add-ons to profiles</li>
 	<li>Example: math equations</li>
-	<li>Like profiles: markup model, identified by URI, resource directory</li>
+	<li><p>Like profiles:</p>
+		<ul>
+			<li>Identified by URI</li>
+			<li>Resource directory</li>
+		</ul></li>
 	</ul>
 </section>
 
+
 <section class="slide">
-	<h2>Metadata</h2>
-	<ul>
-	<li><p><strong>document-level metadata</strong></p>
-	<p>↪ required: identifier, publisher, date</p>
-	</li>
-	<li>metadata resources</li>
-	<li>inline metadata as RDFa</li>
+	<h2>Under the hood: Modules</h2>
+	<img src="images/zedai-modules.png" alt="DAISY AI profile" style="float:right; width:40%;">
+	<ul class="aerated">
+	<li>High-level cohesive building blocks</li>
+	<li>Pre-defined core modules or custom modules</li>
+	<li>Practically: markup schemas</li>
 	</ul>
+</section>
+
+
+<section class="slide">
+	<h2>Metadata (1)</h2>
+	<section>
+		<h3>Doducument-level metadata</h3>
+		<p>↪ required: identifier, publisher, date</p>
+<pre><code class="xml">&lt;head&gt;
+  &hellip;
+  &lt;meta property=&quot;dc:identifier&quot; content=&quot;daisy-z2012-exemplar-01&quot; /&gt;
+  &lt;meta property=&quot;dc:publisher&quot; content=&quot;DAISY Consortium&quot; /&gt;
+  &lt;meta property=&quot;dc:date&quot; content=&quot;2012-07-27T18:50:05Z&quot;/&gt;
+  &hellip;
+&lt;/head&gt;</code></pre>
+	</section>
+</section>
+
+<section class="slide">
+	<h2>Metadata (2)</h2>
+	<section>
+		<h3>External metadata resources</h3>
+<pre><code class="xml">&lt;head&gt;
+  &hellip;
+  &lt;meta rel=&quot;z3998:meta-record&quot; resource=&quot;http://www.example.com/meta/generator?rec=exemplar-01&amp;amp;format=marc21&quot;&gt;
+    &lt;meta property=&quot;z3998:meta-record-type&quot; content=&quot;z3998:marc21-xml&quot; /&gt;
+  &lt;/meta&gt;
+  &hellip;
+&lt;/head&gt;</code></pre>
+	</section>
+</section>
+
+<section class="slide">
+	<h2>Metadata (3)</h2>
+	<section>
+		<h3>Inline metadata</h3>
+		<p>↪ defined with RDFa attributes</p>
+<pre><code class="xml">&lt;section&gt;
+  &lt;h property=&quot;dcterms:title&quot;&gt;Ulysses: the condensed edition&lt;/h&gt;
+   &hellip;
+&lt;/section&gt;</code></pre>
+	</section>
 </section>
 
 <section class="slide">
 	<h2>Semantic Inflections</h2>
 	<ul>
-	<li><p>via the <code>role</code> attribute</p>
+	<li class="slide"><p>Via the <code>role</code> attribute</p>
+<pre><code>&lt;section role=&quot;chapter&quot;&gt;&hellip;&lt;/section&gt;</code></pre>
 	</li>
-	<li><p>terms defined in RDF vocabularies</p>
+	<li class="slide"><p>Terms defined in RDF vocabularies</p>
 	<p>↪ declared in the &quot;initial context&quot;</p>
-	<p>↪ or declared with the <code>prefix</code> attribute</li></p>
+<pre><code>&lt;head&gt;
+    &lt;meta rel=&quot;z3998:rdfa-context&quot; resource=&quot;http://www.daisy.org/z3998/2012/vocab/context/default/&quot;/&gt;
+&lt;/head&gt;</code></pre>
+	<p>↪ or declared with the <code>prefix</code> attribute</p>
+<pre><code>&lt;document xml:lang=&quot;en&quot; prefix=&quot;foaf: http://xmlns.com/foaf/0.1/&quot;&gt;
+  &hellip;
+&lt;/document&gt;</code></pre>
 	</li>
 	</ul>
 </section>
 
 <section class="slide">
 	<h2>Example: Complex Document</h2>
-<!-- 
-   * core modules + other modules
-   * features
-   * semantic inflections</pre>
- -->
+<pre><code class="no-highlight">&lt;document <span class="highlight">xmlns=&quot;http://www.daisy.org/ns/z3998/authoring/&quot;</span>
+          <span class="highlight">xmlns:its=&quot;http://www.w3.org/2005/11/its&quot;</span> xml:lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    <span class="highlight">&lt;meta rel=&quot;z3998:profile&quot; resource=&quot;http://www.daisy.org/z3998/2012/auth/profiles/book/1.0/&quot;&gt;
+        &lt;meta property=&quot;z3998:name&quot; content=&quot;book&quot;/&gt;
+        &lt;meta property=&quot;z3998:version&quot; content=&quot;1.0&quot;/&gt;
+    &lt;/meta&gt;</span>
+    <span class="highlight">&lt;meta rel=&quot;z3998:feature&quot; resource=&quot;http://example.org/z3998/2012/auth/features/ssml/1.0/&quot;&gt;
+      &lt;meta property=&quot;name&quot; content=&quot;ssml&quot; /&gt;
+      &lt;meta property=&quot;version&quot; content=&quot;1.0&quot; /&gt;
+    &lt;/meta&gt;</span>
+    <span class="highlight">&lt;meta rel=&quot;z3998:rdfa-context&quot; resource=&quot;http://www.daisy.org/z3998/2012/vocab/context/default/&quot;/&gt;</span>
+    <span class="highlight">&lt;meta property=&quot;dc:identifier&quot; content=&quot;daisy-z2011-book-001&quot; /&gt;
+    &lt;meta property=&quot;dc:publisher&quot; content=&quot;DAISY Consortium&quot; /&gt;
+    &lt;meta property=&quot;dc:date&quot; content=&quot;2011-07-27T18:50:05Z&quot; /&gt;</span>
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;frontmatter&gt;
+      &lt;section&gt;
+        &lt;h <span class="highlight">property=&quot;dcterms:title&quot;</span>&gt;Ulysses: the condensed edition&lt;/h&gt;
+        &lt;pagebreak xml:id=&quot;pR1&quot; value=&quot;i&quot; /&gt;
+      &lt;/section&gt;
+      <span class="highlight">&lt;toc&gt;
+        &lt;h&gt;Table of contents&lt;/h&gt;
+        &lt;entry&gt;
+          Chapter 1 &lt;ref ref=&quot;p1&quot;&gt;1&lt;/ref&gt;
+        &lt;/entry&gt;
+        &hellip;
+        &lt;pagebreak xml:id=&quot;pR2&quot; value=&quot;ii&quot; /&gt;
+      &lt;/toc&gt;</span>
+    &lt;/frontmatter&gt;
+    &lt;bodymatter&gt;
+      &lt;section <span class="highlight">role=&quot;chapter&quot;&gt;</span>
+        &lt;pagebreak xml:id=&quot;p1&quot; value=&quot;1&quot; /&gt;
+        &lt;h&gt;Chapter 1&lt;/h&gt;
+        &lt;p&gt; Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed. He held the bowl aloft and intoned: 
+          &lt;quote xml:lang=&quot;la&quot; <span class="highlight">its:translate=&quot;no&quot;</span> <span class="highlight">ssml:ph=&quot;&hellip;&quot;</span>&gt;INTROIBO AD ALTARE DEI.&lt;/quote&gt;
+        &lt;/p&gt;
+        &lt;pagebreak value=&quot;2&quot; /&gt;
+      &lt;/section&gt;
+      &hellip;
+    &lt;/bodymatter&gt;
+  &lt;/body&gt;
+&lt;/document&gt;</code></pre>
 </section>
 
 <section class="slide">
-	<h2>What to know for authors of Book Profile</h2>
-	<h3>Useful resources</h3>
-	<ul>
-	<li><a href="http://www.daisy.org/z3998/2012/auth/profiles/"><strong>profile catalog</strong></a>
-	</li>
-	<li>schema documentation
-	</li>
-	</ul>
-	<h3>Tooling</h3>
-	<ul>
-	<li><a href="http://www.daisy.org/zw/ZedAI_XML_Editors"><strong>editors</strong></a>
-	</li>
-	<li><p><strong>validation</strong></p>
-	<p>↪ for now, schema-based. soon, Pipeline 2 validator</p>
-	</li>
-	<li><strong>automated production</strong>: Pipeline 2 !</li>
-	</ul>
-	<h3>Key points</h3>
-	<ul>
-	<li>how to declare a profile + feature</li>
-	<li>how to add metadata</li>
-	<li>how to add semantic inflection</li>
-	</ul>
+	<h2>What to know for markup authors</h2>
+	<section class="slide">
+		<h3>Useful resources</h3>
+		<ul>
+		<li><a href="http://www.daisy.org/z3998/2012/auth/profiles/"><strong>profile catalog</strong></a>
+		</li>
+		<li>schema documentation
+		</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h3>Tooling</h3>
+		<ul>
+		<li><a href="http://www.daisy.org/zw/ZedAI_XML_Editors"><strong>editors</strong></a>
+		</li>
+		<li><p><strong>validation</strong></p>
+		<p>↪ schema-based only at the moment</p>
+		</li>
+		<li><strong>automated production</strong>: Pipeline 2 !</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h3>Key knowledge</h3>
+		<ul>
+		<li>how to declare a profile + feature</li>
+		<li>how to add metadata</li>
+		<li>how to add semantic inflection</li>
+		</ul>
+	</section>
 </section>
 
 <section class="slide">
 	<h2>What to know for profile developers</h2>
 	<ul>
-	<li>follow the <a href="http://www.daisy.org/z3998/2012/z3998-2012.html">specification</a></li>
-	<li>reuse the <a href="http://www.daisy.org/z3998/2012/auth/cm/">core modules</a> and <a href="http://www.daisy.org/z3998/2012/auth/features/" title="Z39.98-2012 Authoring and Interchange Feature Catalog">features</a></li>
-	<li>it is OK to reuse the ZedAI namespace</li>
-	<li>consider contributing to the community, contact the Standard Committee via daisy.org/contact</li>
+	<li class="slide">Follow the <a href="http://www.daisy.org/z3998/2012/z3998-2012.html">specification</a></li>
+	<li class="slide">Reuse the <a href="http://www.daisy.org/z3998/2012/auth/cm/">core modules</a> and <a href="http://www.daisy.org/z3998/2012/auth/features/" title="Z39.98-2012 Authoring and Interchange Feature Catalog">features</a></li>
+	<li class="slide">It is OK to reuse the ZedAI namespace!</li>
+	<li class="slide">Consider contributing to the community...</li>
 	</ul>
 </section>
 
 <section class="slide">
 	<h2>Pointers</h2>
-	<ul><li><a href="http://www.daisy.org/z3998/2012/" title="Z39.98-2012 Specification Document Working area">DAISY AI web space</a></li>
-	<li><a href="http://code.google.com/p/zednext/issues/list" title="Issues -  zednext - Development area for the ANSI/NISO Z3986 2008-2011 revision - Google Project Hosting">bugs or feature requests</a></li>
-	<li><a href="http://www.daisy.org/forums/zedai" title="DAISY Authoring and Interchange | DAISY Consortium">discussion forums</a></li>
+	<ul class="aerated">
+		<li><a href="http://www.daisy.org/z3998/2012/" title="Z39.98-2012 Specification Document Working area">DAISY AI specification area</a></li>
+		<li><a href="http://code.google.com/p/zednext/issues/list" title="DAISY AI Issue Tracker">Bug reports or feature requests</a></li>
+		<li><a href="http://www.daisy.org/forums/zedai" title="DAISY AI Forums">Discussion forums</a></li>
 	</ul>
 </section>
 
-<section class="slide">
+<section class="slide title">
 	<h2>Questions ?</h2>
+	<p><a href="http://www.daisy.org/z3998/2012/">http://www.daisy.org/z3998/2012/</a></p>
 </section>
 
-<!-- 
-Simple document:
-
-<document xmlns="http://www.daisy.org/ns/z3998/authoring/" xml:lang="en">
-  <head>
-    <meta rel="z3998:profile" 
-          resource="http://www.daisy.org/z3998/2012/auth/profiles/genericdocument/1.0/">
-        <meta property="z3998:name" content="genericdocument"/>
-        <meta property="z3998:version" content="1.0"/>
-    </meta>
-    <meta rel="z3998:rdfa-context" resource="http://www.daisy.org/z3998/2012/vocab/context/default/"/>
-    <meta property="dc:identifier" content="daisy-z2011-exemplar-01" />
-    <meta property="dc:publisher" content="DAISY Consortium" />
-    <meta property="dc:date" content="2011-07-27T18:50:05Z" />
-  </head>
-  <body>
-    <h>Hello, world.</h>
-  </body>
-</document>
-
- -->
-<!-- 
-Advanced example:
- * all layers
- * namespaces
- * semantic inflections with @role, + vocabulary prefix
- * features
- * metadata + external resources
-
-<head>
-  <meta rel="z3998:profile" resource="http://example.org/z3998/2012/auth/profiles/sciencejournal/1.0/">
-    <meta property="z3998:name" content="sciencejournal" />
-    <meta property="z3998:version" content="1.0" />
-    
-    <meta rel="z3998:feature" resource="http://example.org/z3998/2012/auth/features/physics/3.0/">
-      <meta property="name" content="physics" />
-      <meta property="version" content="3.0" />
-    </meta>
-    
-    <meta rel="z3998:feature" resource="http://example.org/z3998/2012/auth/features/chemistry/1.1/">
-      <meta property="name" content="chemistry" />
-      <meta property="version" content="1.1" />
-    </meta>
-  </meta>
-</head>
-
-
-<document xmlns="http://www.daisy.org/ns/z3998/authoring/"
-          xmlns:its="http://www.w3.org/2005/11/its" xml:lang="en">
-  <head>
-    <meta rel="z3998:profile" resource="http://www.daisy.org/z3998/2012/auth/profiles/book/1.0/">
-        <meta property="z3998:name" content="book"/>
-        <meta property="z3998:version" content="1.0"/>
-    </meta>
-    <meta rel="z3998:rdfa-context" resource="http://www.daisy.org/z3998/2012/vocab/context/default/"/>
-    <meta property="dc:identifier" content="daisy-z2011-book-001" />
-    <meta property="dc:publisher" content="DAISY Consortium" />
-    <meta property="dc:date" content="2011-07-27T18:50:05Z" />
-  </head>
-  <body>
-    <frontmatter>
-      <section>
-        <h property="dcterms:title">Ulysses: the condensed edition</h>
-        <pagebreak xml:id="pR1" value="i" />
-      </section>
-      <toc>
-        <h>Table of contents</h>
-        <entry>
-          Chapter 1
-          <ref ref="p1">1</ref>
-        </entry>
-        <entry>
-          Chapter 2
-          <ref ref="p3">3</ref>
-        </entry>
-        <pagebreak xml:id="pR2" value="ii" />
-      </toc>
-    </frontmatter>
-    <bodymatter>
-      <section>
-        <pagebreak xml:id="p1" value="1" />
-        <h>Chapter 1</h>
-        <p> Stately, plump Buck Mulligan came from the stairhead, bearing a
-          bowl of lather on which a mirror and a razor lay crossed. He held
-          the bowl aloft and intoned: 
-          <quote xml:lang="la" its:translate="no">INTROIBO AD ALTARE DEI.</quote>
-        </p>
-        <pagebreak value="2" />
-      </section>
-      <section>
-        <pagebreak xml:id="p3" value="3" />
-        <h>Chapter 2</h>
-        <p> Yes I said yes I will Yes. </p>
-      </section>
-    </bodymatter>
-  </body>
-</document>
- -->
 
 <!-- End slides -->
 
-<!-- General Footer -->
-<!-- TODO style footer -->
-<!-- <footer>
-	<p>Copyright DAISY Consortium</p>
-</footer> -->
+<footer id="daisy-footer">
+	<p>&copy; DAISY Consortium 2012</p>
+</footer>
 
 <!-- deck.js configuration -->
 
@@ -382,14 +421,31 @@ Advanced example:
 <script src="deck.js/extensions/goto/deck.goto.js"></script>
 <script src="deck.js/extensions/status/deck.status.js"></script>
 <script src="deck.js/extensions/navigation/deck.navigation.js"></script>
-
 <!-- Initialize the deck -->
 <script>
 $(function() {
 	$.deck('.slide');
 });
 
+// Mouse-over code highlight
+$(document).ready(function() {
+    $('code span.highlight').mouseover(function() {
+       $(this).css("color", "red"); 
+    });
+    
+    $('code span.highlight').mouseout(function() {
+       $(this).css("color", "inherit"); 
+    });
+});
 </script>
+
+<!-- Code Hightlighting -->
+<script src="highlight.js/highlight.pack.js"></script>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+</script>
+
+
 
 </body>
 </html>
