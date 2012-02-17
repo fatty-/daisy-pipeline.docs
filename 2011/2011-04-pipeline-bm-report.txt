@@ -1,0 +1,93 @@
+= Pipeline 2 Progress Report, October 2010 to April 2011 =
+
+= Core Developments =
+
+== Team Organization ==
+
+The core Pipeline 2 team is composed of 5 developers:
+ * Bernhard Wagner (SBS, 30% FTE)
+ * Javier Asensio Cubero (Dedicon, 50% FTE)
+ * Jostein Austvik Jacobsen (NLB, 60% FTE)
+ * Marisa !DeMeglio (DAISY, 60% FTE)
+ * Romain Deltour (DAISY, 70% FTE, project lead).
+
+*Note*: Dedicon will end its participation in late April due to an internal reorganization impacting their R&D department.
+
+The team is collaborating remotely via a [http://groups.google.com/group/daisy-pipeline-dev mailing list] (hosted on Google Groups) and project [http://code.google.com/p/daisy-pipeline/ web space] (hosted on Google Code) and is having a conference call every two weeks (see the [http://code.google.com/p/daisy-pipeline/w/list?q=Type%3DMinutes+WG%3DCore meeting minutes]).
+
+
+== Progress ==
+
+=== Milestones since October 2010  ===
+
+ * November 2010: Face-to-face meeting in Zurich (hosted by SBS)
+   * First developers meeting
+   * Good progress in 3 days
+ * December 2010: alpha preview release, including demos of:
+   * a DAISY 3 XML (DTbook) to DAISY 4 XML (ZedAI book profile) converter
+   * a DAISY 4 XML (ZedAI book profile) to EPUB 2.0 converter
+   * a tool to generate the developer documentation of XProc+XSLT Pipeline 2 modules
+   * a command-line-driven modular runtime framework (based on OSGi)
+
+=== a) Development of the runtime framework: ===
+
+The developments on the runtime framework have been focusing on:
+ * the modularization layer
+ * the command line interface
+ * a build environment
+ * a testing framework
+
+The next few months will be dedicated to:
+ * APIs (Java and Web Service)
+ * the messaging layer
+ * configurability
+
+*Note*: the underlying third-party XProc engine is subject to change ; the final decision depends both on licensing considerations and the progress of third-party developments (open source projects). The XProc engine is technically interchangeable at reasonably low cost.
+
+=== b) Development of processing modules ===
+
+ * DAISY 3 XML (DTBook) to DAISY 4 XML (ZedAI book profile) - almost complete
+ * DAISY 4 XML (ZedAI) to EPUB 3 - prototype available
+ * DAISY 4 XML (ZedAI) to HTML (the XHTML5 flavor used in EPUB) - under development
+ * DAISY 2.02 to EPUB 3 - prototype available
+ * DAISY 3 to EPUB 3 - development has not started yet
+
+*Note*: In agreement with the DAISY technical management, it has been decided to postpone the development of a few modules originally chartered (notably the ZedAI to DTBook converter) in favor of modules enabling the production of EPUB3 content.
+
+== Roadmap ==
+
+ * April 2011: F2F meeting in Zurich (hosted by SBS).
+ * Late June 2011: first beta release.
+ * Early September 2011: final public release.
+
+*Note*: Following the forthcoming team reorganization and slight change of objectives (processing modules), it has been decided to postpone the final public release to the end of the summer. This shall not dramatically impact the overall project roadmap.
+
+
+== Conclusion ==
+
+Some late reorganization in the team and slight change of focus for the processing modules (EPUB 3) will be mitigated by a minor but necessary adaptation of the project roadmap.
+The overall progress is nevertheless satisfying and some appealing conversion modules are being developed. They will eventually allow the DAISY community to smoothly adapt to the new DAISY4 and EPUB3 specifications developed and endorsed by the Consortium.
+
+= TTS Production WG =
+
+Chair: Romain Deltour (DAISY)
+
+The group is collaborating via a [http://groups.google.com/group/daisy-pipeline-tts mailing list] (hosted on Google Groups) and is having a conference call every three weeks (see the [http://code.google.com/p/daisy-pipeline/w/list?q=Type%3DMinutes+WG%3DTTS meeting minutes]).)
+
+The functional requirements have been published (on the [http://code.google.com/p/daisy-pipeline/wiki/TTSProductionRequirements wiki]) and amended with the feedback received during an external review phase. The working group is now working on the design of the processing workflow, according to the objectives.
+
+*Note*: The number of participants to the conference calls is quite low (about 5 regular attendees). It is expected to get even lower with a focus put more and more on technical developments and Dedicon's unsure continued participation. The overall progress is nevertheless satisfying and abides by the stated objectives (preparation for phase 2).
+
+= Braille Production WG =
+
+Chairs:
+ * Peter Osborne (RNIB) - responsible for strategical / political direction
+ * Christian Egli (SBS) - responsible for technical direction
+
+The group is collaborating via a [http://groups.google.com/group/daisy-pipeline-braille mailing list] (hosted on Google Groups) and is having a conference call every three weeks (see the [http://code.google.com/p/daisy-pipeline/w/list?q=Type%3DMinutes+WG%3DBraille meeting minutes]).)
+
+The WG has agreed on a list of objectives and has carried on with an analysis of the existing productions systems and workflows used by the participating organizations. It will now focus on the definition of functional requirements, starting with a review of the expectations of each participant to this initiative.
+
+Although some significant progress is being made, the WG is sometimes hindered by the difficulty to cope with a highly heterogeneous group (distant timezones, different Braille codes, different production tools).
+
+The WG intends to present its results and catch some momentum at the [http://www.braille21.net Braille21 conference] (September 2011, Leipzig). A face-to-face meeting will probably be arranged around the conference.

@@ -1,0 +1,1150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>
+      ProjectCharterPhase2
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <style type="text/css">
+	/* CSS last edit rd 20110407, kk 20070125, mg 20030905 */ 
+	body {font-style: normal; font-weight: normal; font-family: arial, verdana, sans-serif; margin-right: 15%; margin-left: 10%;}
+	body {background-image: url("http://www.daisy.org/images-site2/logos/daisy_small.jpg"); background-repeat: no-repeat; background-position: 85% 2.5em;}
+	h6 {font-weight: bold; font-size:  75%; color: #000099; margin-top: 1.2em; margin-bottom: 0.2em;}
+	h5 {font-weight: bold; font-size:  80%; color: #000099; margin-top: 1.2em; margin-bottom: 0.2em;}
+	h4 {font-weight: bold; font-size:  88%; color: #000099; margin-top: 2.0em; margin-bottom: 0.4em;}
+	h3 {font-weight: bold; font-size: 100%; color: #000099; margin-top: 2.0em; margin-bottom: 0.5em; letter-spacing: 0.04em;}
+	h2 {font-weight: bold; font-size: 115%; color: #000099; margin-top: 2.5em; margin-bottom: 0.5em; letter-spacing: 0.15em;}
+	h1 {font-weight: bold; font-size: 130%; color: #000099; margin-top: 3.0em; margin-bottom: 0.5em; letter-spacing: 0.20em;}
+	h1:first-child {margin-right: 20%;}
+	ul.linklist {list-style: none; margin-left: 0em;}
+	ul.linklist ul {list-style: none; margin-left: 2em;}
+	.top {font-size: 80%; display: block;}
+	img {border:inherit none; float: right}
+	*.box {font-size:95%; border: 1px solid rgb(100,100,100); padding:0.3em}
+	*.author {color:#000099; font-size:80%;}
+	*.comment {color:#000099; font-size:80%;}
+	*.alert {border: 1px solid red; padding: 0.2em; font-size:95%; font-weight:bold;}
+	*.action {color: rgb(0,0,153); font-size:90%; border: 1px solid rgb(0,0,50); padding: 0.2em; background-color: rgb(240,240,240); font-weight:bold;}
+	span.bullet {font-family:"Courier New", sans-serif;}
+	span.padding {font:.3em "Courier New", sans-serif;}
+	span.indent {margin-left:1em;text-indent:-1em;}
+	span.indent2 {text-indent:1.5em;}
+	ol.indent3 {margin-top:0em;}
+	dt {font-weight:bold;}
+	pre {margin-left:10px;}
+	code {font: 80% "Courier New", sans-serif;}
+	.edit-delete {text-decoration: line-through; background: #CCCCCC; }
+	td {border:1px solid #ccc; padding: 0.5em;}
+    table {width: 100%;margin-top:2em;margin-bottom:2em;}
+	</style>
+   </head>
+   <body>
+      <h1 id="d1e11">
+      DAISY Pipeline 2 Project Charter: Phase 2
+    </h1>
+      <div id="toc" class="toc">
+         <h1 id="toctitle">Table of Contents</h1>
+         <ul>
+            <li>
+               <a href="#d1e15">
+      Overview
+    </a>
+            </li>
+            <li>
+               <a href="#d1e25">
+      Project Development Cycle
+    </a>
+            </li>
+            <li>
+               <a href="#d1e45">
+      Project Scope and Project Phases
+    </a>
+               <ul>
+                  <li>
+                     <a href="#d1e56">
+      A. First Phase: Results
+    </a>
+                  </li>
+                  <li>
+                     <a href="#d1e106">
+      B. Second Phase: September 2011 to September 2013
+    </a>
+                     <ul>
+                        <li>
+                           <a href="#d1e115">
+      B.1 Framework and Deployment Options
+    </a>
+                           <ul>
+                              <li>
+                                 <a href="#d1e117">
+      B.1.1 Framework Internals
+    </a>
+                              </li>
+                              <li>
+                                 <a href="#d1e144">
+      B.1.2 Web Service API
+    </a>
+                              </li>
+                              <li>
+                                 <a href="#d1e165">
+      B.1.3 Developer Documentation
+    </a>
+                              </li>
+                              <li>
+                                 <a href="#d1e185">
+      B.1.4 User Interface
+    </a>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <a href="#d1e200">
+      B.2 Processing Modules
+    </a>
+                           <ul>
+                              <li>
+                                 <a href="#d1e202">
+      B.2.1 EPUB 3 and Other Text-Only Production
+    </a>
+                              </li>
+                              <li>
+                                 <a href="#d1e278">
+      B.2.2 Validation Tools
+    </a>
+                              </li>
+                              <li>
+                                 <a href="#d1e300">
+      B.2.3 TTS-based Production
+    </a>
+                              </li>
+                              <li>
+                                 <a href="#d1e341">
+      B.2.4 Braille Production
+    </a>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <a href="#d1e360">
+      Team Organization and Management
+    </a>
+            </li>
+            <li>
+               <a href="#d1e371">
+      Timeline
+    </a>
+            </li>
+            <li>
+               <a href="#d1e474">
+      Budget / Financial Summary
+    </a>
+            </li>
+            <li>
+               <a href="#d1e660">
+      Strategic/Political Issues To Be Considered in the Project
+    </a>
+               <ul>
+                  <li>
+                     <a href="#d1e662">
+      Licensing
+    </a>
+                  </li>
+                  <li>
+                     <a href="#d1e670">
+      Role of the DAISY Consortium
+    </a>
+                  </li>
+                  <li>
+                     <a href="#d1e674">
+      Relationship with the Pipeline 1
+    </a>
+                  </li>
+                  <li>
+                     <a href="#d1e678">
+      "Enabling Technologies Framework" Project
+    </a>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <a href="#d1e717">
+      Risk Management
+    </a>
+            </li>
+            <li>
+               <a href="#d1e765">
+      Appendix: Optional Objectives
+    </a>
+               <ul>
+                  <li>
+                     <a href="#d1e769">
+      Framework and APIs
+    </a>
+                  </li>
+                  <li>
+                     <a href="#d1e782">
+      User Interface
+    </a>
+                  </li>
+                  <li>
+                     <a href="#d1e806">
+      Text-Only Production
+    </a>
+                  </li>
+                  <li>
+                     <a href="#d1e834">
+      Validation
+    </a>
+                  </li>
+                  <li>
+                     <a href="#d1e853">
+      TTS-based Production
+    </a>
+                  </li>
+                  <li>
+                     <a href="#d1e871">
+      Port of Pipeline 1 Functionality
+    </a>
+                  </li>
+               </ul>
+            </li>
+         </ul>
+      </div>
+      <h1 id="d1e15">
+      Overview
+    </h1>
+      <p>
+      DAISY Consortium members and content producers have to keep up with an ever increasing set of digital content formats, all the more with the new revision of the DAISY standards and the rapid growth of EPUB usage in the consumer market. The demand for economic and efficient automated production tools is still very high.
+    </p>
+      <p>
+      The DAISY Pipeline 2 project, launched in June 2010, introduced a fundamental redesign of the original Pipeline 1 solution, enabling a more robust development of new functionality. It is a long term investment to achieve an enterprise-grade production system for accessible content.
+    </p>
+      <p>
+      After a first phase focusing on laying the foundations of the framework redesign and developing a first set of processing modules (with initial support for the new EPUB3 and DAISY Z39.86-201x "ZedAI" standard revisions), the present charter describes the second phase of the project. The development effort will now focus on consolidation of the first phase achievements, advanced framework functionality and deployment options, along with a new range of processing modules. It will notably enable TTS-based production of accessible content and coordinate with the Braille in DAISY initiative.
+    </p>
+      <p>
+      The outcome will benefit all DAISY Consortium members involved in automated content production, as well as commercial companies wishing to take advantage of the open source and liberally licensed deliverables.
+    </p>
+      <h1 id="d1e25">
+      Project Development Cycle
+    </h1>
+      <p>
+      Based on the Board's decision that new core projects will not be started before the financing is secured, the Board of Directors of the DAISY Consortium decided in Seoul (June 2009) to follow a standardized Project Development Cycle for major projects and which consists of the following steps (see Minutes of the Board Meeting in Seoul, Items 9, 10, 49a, and 49b):
+    </p>
+      <ol>
+         <li>Outline of a Project submitted by the management and approval by the Board for further development of the Project;
+      </li>
+         <li>Call for Participation (the members are invited to participate in the development of the corresponding Project Charter);
+      </li>
+         <li>Together with the finalized draft Charter a Call for Support is sent out to the membership; it asks for human and/or financial commitments;
+      </li>
+         <li>Submission of the final charter to the Board for final approval; it includes the budget and the agreements between the DAISY Consortium and the organizations regarding their commitments
+      </li>
+      </ol>
+      <p>
+      The Outline for the Pipeline 2 project was approved by the Board at its meeting in Seoul in February 2009 (see Minutes of the Board Meeting in Seoul, Items 20 and 49f). The charter for the first phase of the project was approved by the Board at its meeting in Zurich in May 2010 (see Minutes of the Board Meeting in Zurich, Item 23 and Decision 06).
+    </p>
+      <p>
+      The present charter was edited by Romain Deltour integrating comments from Markus Gylling, Bernhard Heinser and George Kersher.
+    </p>
+      <p>
+      A call for support for the second phase was sent in Spring 2011. The present charter has been revised in October 2011 with the goal of being formally approved by the board in early November 2011.
+    </p>
+      <h1 id="d1e45">
+      Project Scope and Project Phases
+    </h1>
+      <p>
+      This DAISY Pipeline 2 project essentially consists of two main tasks:
+    </p>
+      <ol>
+         <li>the development of a core framework and runtime engine
+      </li>
+         <li>the development of several processing modules for automated production of accessible content
+      </li>
+      </ol>
+      <p>
+      Note: because one of the main objectives of the project is to create an open framework for the creation of modular processing functions, the charter cannot obviously list all the future contributions explicitly. This charter only mentions the items primarily developed by the DAISY Consortium staff or of particular strategical importance.
+    </p>
+      <h2 id="d1e56">
+      A. First Phase: Results
+    </h2>
+      <p>
+      The first phase of the project, covered by the previous charter, started in June 2010 and ended in September 2011. It encompassed the fundamental objectives towards a first usable release, focusing on the minimal framework redesign required to achieve a first reference implementation of the DAISY standard revision. It also includes the preparatory work required to plan the second phase, such as the creation of dedicated working groups for the development of Braille or TTS-based production.
+    </p>
+      <p>
+      The main deliverable of the first phase is the first public release of the Pipeline 2 project, version 1.0, and includes:
+    </p>
+      <ul>
+         <li>
+            <strong>The foundations of the redesigned framework</strong>
+         </li>
+         <li style="list-style: none">
+            <ul>
+               <li>based on third-party open source XProc and XSLT engines
+          </li>
+               <li>designed with a modular architecture
+          </li>
+               <li>promoting the use of testing toolkits and a common build infrastructure
+          </li>
+               <li>executable via a command line interface
+          </li>
+               <li>accessible by software applications via a Java API or an interoperable RESTful API (web service)
+          </li>
+            </ul>
+         </li>
+         <li>
+            <strong>A set of processing modules</strong> based on standard and platform neutral XML processing technologies (XProc, XSLT, XPath)
+      </li>
+         <li style="list-style: none">
+            <ul>
+               <li>DAISY 3 XML (DTBook) to DAISY 4 XML (ZedAI book profile)
+          </li>
+               <li>DAISY 3 XML (DTBook) utility for upgrading to DTBook 2005-3
+          </li>
+               <li>DAISY 3 XML (DTBook) utility for merging two or more files
+          </li>
+               <li>DAISY 2.02 to EPUB 3
+          </li>
+               <li>DAISY 4 XML (ZedAI) to EPUB 3
+          </li>
+               <li>DAISY 4 XML (ZedAI) to HTML (the XHTML5 flavor used in EPUB) - not exposed in the user interface
+          </li>
+            </ul>
+         </li>
+      </ul>
+      <p>
+      The first phase results also include preparatory work carried out by the two independent TTS and Braille working groups.
+    </p>
+      <h2 id="d1e106">
+      B. Second Phase: September 2011 to September 2013
+    </h2>
+      <p>
+      The second phase hereby chartered focuses on the consolidation of the first phase results, on the finalization of the framework redesign and on the development of new deployment options and new processing modules.
+    </p>
+      <p>
+      The following sections describe the objectives that can be reasonably achieved given the secured resources. An informative set of optional objectives are listed in an <a href="#Appendix:_Optional_Objectives" shape="rect">appendix</a> as hints of what could be further developed with additional resources.
+    </p>
+      <h3 id="d1e115">
+      B.1 Framework and Deployment Options
+    </h3>
+      <h4 id="d1e117">
+      B.1.1 Framework Internals
+    </h4>
+      <p>
+      The DAISY Pipeline 2 core framework is the common basis for all the processing functions. It must be both complete and extensible enough to facilitate the implementation of all the planned and future developments.
+    </p>
+      <p>
+      The objectives are:
+    </p>
+      <ol>
+         <li>
+            <strong>Finalization of the component model for processing modules</strong>: a component model for the processing modules has been implemented in the first phase, although most of the modules can be run with vanilla XProc and XSLT engines. The overall objective is to facilitate the reuse of common components in several processing modules, for an increased flexibility and lower development cost. The component model will be further refined and consolidated in the second phase.
+      </li>
+         <li>
+            <strong>Extension of the service-oriented approach within the framework</strong>: using OSGi (the de facto standard for a dynamic and service-oriented module system for Java) in the framework underpinnings increases modularity and maintainability. The service-oriented approach already implemented in the first phase will be further developed, notably for providing extension hooks to the underlying XProc, XSLT and XPath engines.
+      </li>
+         <li>
+            <strong>Improvement of the configurability and maintainability of the framework</strong>: the framework developed in the first phase contains ancillary features like message logging, module management, etc. It will be ensured that a Pipeline 2 installation is easy to configure and maintain and update, possibly via the development of an administrative layer or the reuse of off-the-shelf tooling.
+      </li>
+         <li>
+            <strong>Improvement of testing tools</strong>: tests must be easy to develop and execute and if possible automatically run by the build system. A solution for testing XProc pipelines must be adopted. The ongoing development of open source XProc and XSLT testing frameworks (XSPec, UTF-X) will be closely watched.
+      </li>
+      </ol>
+      <h4 id="d1e144">
+      B.1.2 Web Service API
+    </h4>
+      <p>
+      The development of a true interoperability layer is of utmost importance to the Pipeline 2 project. A first version of a Web Service API has been developed in the first phase. It provides a standard, platform-neutral way to access the DAISY Pipeline 2 functionality, allowing its use in distributed applications or its integration in broader systems. The second phase will gradually improve and refine the web service API.
+    </p>
+      <ol>
+         <li>
+            <strong>Refinement of the web service API</strong>: depending on user feedback and integration requirements, the web service API will be improved and finalized into a more comprehensive API. The final API may provide advanced features like on-the-fly event notifications, manipulation of the administrative layer, etc.
+      </li>
+         <li>
+            <strong>Development of a security layer</strong>: security techniques such as authentication mechanisms must be added to the API in order to allow trusted calls to a remotely deployed Pipeline 2 service.
+      </li>
+         <li>
+            <strong>Preparation for cloud deployment</strong>: the Pipeline 2 web service must be technically deployable on at least one public cloud facility (e.g. Amazon EC2, VMWare CloudFoundry, etc).
+      </li>
+      </ol>
+      <h4 id="d1e165">
+      B.1.3 Developer Documentation
+    </h4>
+      <p>
+      A comprehensive documentation is absolutely necessary to promote the adoption of the Pipeline 2 project and lower the learning curve for new developers.
+    </p>
+      <ol>
+         <li>
+            <strong>Write a comprehensive framework documentation</strong>: including architectural overviews, description of extensibility hooks, detailed API documentation, etc.
+      </li>
+         <li>
+            <strong>Write developer guides</strong>: including setup documentation, various how-to guides, tips, best practices, etc.
+      </li>
+         <li>
+            <strong>Write a developer charter</strong>: it shall provide general guidelines on how to be a good citizen in the Pipeline 2 developers community.
+      </li>
+      </ol>
+      <h4 id="d1e185">
+      B.1.4 User Interface
+    </h4>
+      <p>
+      The 1.0 release of the project only featured a command-line-based user interface. The second phase will start to move the focus towards ease of use with the development of alternative user interface options.
+    </p>
+      <ul>
+         <li>
+            <strong>Development of a lightweight web-based UI</strong>: it must at the minimum provide a straightforward way to execute unique Pipeline jobs, and get the results and message reports. It can be seen as the equivalent of the lightweight GUI but as a web-based application. The web interface will allow for reduced admin and deployment costs in a centralized implementation.
+      </li>
+         <li>
+            <strong>Development of a lightweight graphical user interface (GUI)</strong>: the user interface must be simple and easy to use, consisting in a few configuration dialogs, progress status and result reports. Additionally, it should be easily embeddable in a third-party application ("Save as DAISY"-plugins, DAISY authoring tools, etc.).
+      </li>
+      </ul>
+      <h3 id="d1e200">
+      B.2 Processing Modules
+    </h3>
+      <h4 id="d1e202">
+      B.2.1 EPUB 3 and Other Text-Only Production
+    </h4>
+      <p>
+      Fully endorsed by the DAISY Consortium, EPUB 3 is set to become the leading format for accessible digital content. The production of quality and accessible EPUB 3 documents has become a primary objective of the Pipeline 2 project. The second phase will focus on:
+    </p>
+      <ul>
+         <li>
+            <strong>Consolidation of EPUB 3 production modules</strong>: the modules developed in the first phase will be consolidated and gradually improved, in order to provide a rock-solid and versatile EPUB 3 production system. The modules that will be gradually improved are:
+      </li>
+         <li style="list-style: none">
+            <ul>
+               <li>EPUB 3 utilities
+          </li>
+               <li>ZedAI to XHTML5
+          </li>
+               <li>ZedAI to EPUB 3
+          </li>
+               <li>DAISY 2.02 to EPUB 3
+          </li>
+            </ul>
+         </li>
+         <li>
+            <strong>EPUB 3 production for TTS-enabled reading systems</strong>: modules that add SSML pronunciation hints and PLS lexicons to EPUB 3 publications will be developed based on the utility modules developed for <a href="#B.2.3_TTS-based_Production" shape="rect">TTS-based production</a>.
+      </li>
+         <li>
+            <strong>Development of new EPUB 3 production modules</strong>:
+      </li>
+         <li style="list-style: none">
+            <ul>
+               <li>
+                  <strong>DTBook to EPUB 3</strong>: conversion from an DAISY 3 (ANSI/NISO Z39.86) XML document (DTBook) into an EPUB 3 publication
+          </li>
+               <li>
+                  <strong>DAISY 3 to EPUB 3</strong>: conversion from a DAISY 3 (ANSI/NISO Z39.86) text-only or full-text/full-audio DTB into an EPUB 3 publication (with audio optionally converted as Media Overlays).
+          </li>
+               <li>
+                  <strong>EPUB 2 to EPUB 3</strong>: conversion of EPUB 2 publications into EPUB 3 publications. Depending on the quality of the source EPUB 2, the conversion may not always be successful.
+          </li>
+               <li>
+                  <strong>HTML 5 to EPUB 3</strong>: conversion of well-structured HTML documents into EPUB 3 publications. Depending on the quality of the source HTML document, the conversion may not always be successful.
+          </li>
+               <li>
+                  <strong>EPUB 3 utilities</strong>: development of a set of utilities not provided in the first phase (e.g. generation of landmarks navigation, extraction/insertion of metadata, etc).
+          </li>
+            </ul>
+         </li>
+         <li>
+            <strong>Development of other text-only production modules</strong>:
+      </li>
+         <li style="list-style: none">
+            <ul>
+               <li>DTBook to HTML5: conversion of a DTBook document into a (set of) HTML 5 documents.
+          </li>
+            </ul>
+         </li>
+      </ul>
+      <h4 id="d1e278">
+      B.2.2 Validation Tools
+    </h4>
+      <p>
+      Validation is critical to assess the quality of produced content. Third-party validation tools and XML grammar schemas can be integrated as Pipeline 2 modules to offer a unified access to the validation functionality.
+    </p>
+      <p>
+      The following modules will be provided:
+    </p>
+      <ul>
+         <li>
+            <strong>DTBook validation</strong>: development of a schema-based DTBook validation module.
+      </li>
+         <li>
+            <strong>EPUB 3 validation</strong>: integration of epubcheck3 (under development at the time of writing) as a Pipeline 2 module
+      </li>
+         <li>
+            <strong>ZedAI validation</strong>: development of a schema-based ZedAI validation module.
+      </li>
+      </ul>
+      <h4 id="d1e300">
+      B.2.3 TTS-based Production
+    </h4>
+      <p>
+      One of the stated objective of the Pipeline 2 project is to develop a redesigned facility to better meet the popular need for TTS-based production of accessible content. A set of new modules will be developed following the preparatory work achieved by the dedicated TTS WG in the first phase of the project.
+    </p>
+      <p>
+      The common utility modules include:
+    </p>
+      <ul>
+         <li>
+            <strong>a set of XML pre-processors</strong>: covering tasks like enhancement of the input XML markup, text normalization, etc.
+      </li>
+         <li>
+            <strong>a set of TTS adapters</strong>: enabling the use of a wide range of commercial and open source TTS engines, via several communication channels (SAPI5, web services, command line tools).
+      </li>
+         <li>
+            <strong>a set of components for audio processing</strong>: covering tasks like audio file merging, transcoding, etc.
+      </li>
+      </ul>
+      <p>
+      Building on the above modules, the production functionality will include:
+    </p>
+      <ul>
+         <li>
+            <strong>ZedAI to EPUB3 + Media Overlays</strong>: conversion of a DAISY 4 XML document (Z39.86-201X "ZedAI", at least the book profile) to an EPUB3 publication with audio content as Media Overlays.
+      </li>
+         <li>
+            <strong>DTBook to EPUB3 + Media Overlays</strong>: conversion of a DAISY 3 XML document (DTBook) to an EPUB3 publication with audio content as Media Overlays.
+      </li>
+      </ul>
+      <p>
+      Note: the utility modules will also be used to enhance EPUB 3 content (SSML annotations, PLS lexicons) for use with TTS-enable reading systems, as specified in the <a href="#B.2.1_EPUB_3_and_Other_Text-Only_Production" shape="rect">B.2.1 section</a>.
+    </p>
+      <h4 id="d1e341">
+      B.2.4 Braille Production
+    </h4>
+      <p>
+      A working group has been created in the first phase to work towards obtaining Braille as a result of the production workflow. The collaborative DAISY Pipeline project offers a great opportunity for this group to integrate the driving forces and lead a pragmatic approach to Braille production.
+    </p>
+      <p>
+      Given the heterogeneity of technical requirements (notably due to locale specificities) and existing production tools, it would not make sense to focus on a single technical solution. Instead, the Braille Working Group will keep on supporting different approaches while maintaining a good level of synchronization and collaboration.
+    </p>
+      <p>
+      The Braille WG will initially work on a set of end-to-end prototype Braille production workflows integrated in the Pipeline 2. These prototypes should be supported by some Braille WG members on a volunteering basis. In this context, the objectives of the core Pipeline 2 developers team will be:
+    </p>
+      <ul>
+         <li>
+            <strong>Development of pre-processing modules</strong>: covering tasks like enhancement of the input XML markup, text normalization, etc. Some of these modules will be the same as the modules developed in the context of TTS-based production.
+      </li>
+         <li>
+            <strong>Assist the Braille WG members with the integration of third-party Braille production tools</strong>: whenever possible, the team will assist with the development of the XProc or any other glue code that could be required to develop Pipeline 2 modules.
+      </li>
+      </ul>
+      <h1 id="d1e360">
+      Team Organization and Management
+    </h1>
+      <p>
+      The proposed project lead is Romain Deltour (DAISY Developer), reporting to Markus Gylling (DAISY CTO).
+    </p>
+      <p>
+      The project lead will supervise the core framework development and take special care of ensuring that the development of each separate processing function is harmonized with the overall architecture choices.
+    </p>
+      <p>
+      The development of processing functions will be handled by sub-groups with dedicated and optimized skill sets. Each group will have a group leader coordinating the work with the main project lead. The efficient management is based on close cooperation between the group leaders and the main project lead.
+    </p>
+      <p>
+      Conference calls will be scheduled bi-weekly for the core developer group, and upon request for sub-groups members and external contributors.
+    </p>
+      <h1 id="d1e371">
+      Timeline
+    </h1>
+      <p>
+      The second phase of the project will span over 24 months (2 years) and focus on delivering iterative releases on a regular schedule (every 6 months), with additional intermediary milestones for the finalization of each phase.
+    </p>
+      <p>
+      The following lists the major milestones. The detailed content of these milestones is informative only.
+    </p>
+      <ul>
+         <li>
+            <strong>December 2011</strong>
+         </li>
+         <li style="list-style: none">
+            <ul>
+               <li>B.1.1 (partial)
+          </li>
+               <li>B.1.2 (security layer, cloud experiments)
+          </li>
+               <li>B.1.4 (Web UI prototype)
+          </li>
+               <li>B.2.1 (DTBook to EPUB 3, first phase consolidated)
+          </li>
+               <li>B.2.2 (prototype)
+          </li>
+            </ul>
+         </li>
+         <li>
+            <strong>June 2012</strong>
+         </li>
+         <li style="list-style: none">
+            <ul>
+               <li>B.1.1 (complete)
+          </li>
+               <li>B.1.2 (complete)
+          </li>
+               <li>B.1.3 (complete)
+          </li>
+               <li>B.1.4 (Web UI complete)
+          </li>
+               <li>B.2.1 (DAISY 3 to EPUB 3, EPUB 2 to EPUB 3, HTML 5 to EPUB 3)
+          </li>
+               <li>B.2.2 (complete)
+          </li>
+               <li>B.2.3 (XML pre-processors)
+          </li>
+            </ul>
+         </li>
+         <li>
+            <strong>October 2012</strong>
+         </li>
+         <li style="list-style: none">
+            <ul>
+               <li>Mid-term report for phase 2
+          </li>
+            </ul>
+         </li>
+         <li>
+            <strong>December 2012</strong>
+         </li>
+         <li style="list-style: none">
+            <ul>
+               <li>B.1.4 (GUI prototype)
+          </li>
+               <li>B.2.1 (DTBook to XHTML5)
+          </li>
+               <li>B.2.3 (TTS adapters prototype)
+          </li>
+            </ul>
+         </li>
+         <li>
+            <strong>June 2013</strong>
+         </li>
+         <li style="list-style: none">
+            <ul>
+               <li>B.1.4 (GUI complete)
+          </li>
+               <li>B.2.3 (complete)
+          </li>
+            </ul>
+         </li>
+         <li>
+            <i>
+               <strong>September 2013</strong>
+            </i>
+         </li>
+         <li style="list-style: none">
+            <ul>
+               <li>Final report for phase 2
+          </li>
+            </ul>
+         </li>
+      </ul>
+      <p>
+      Note: milestones will iteratively add new functionality on the basis of the phase 1 release. The mapping of work tasks to the milestones as shown above may be subject to change.
+    </p>
+      <h1 id="d1e474">
+      Budget / Financial Summary
+    </h1>
+      <p>
+      The budget hereafter detailed shows requirements for both developer resources (estimated in man-months) and direct costs (in USD) for the second phase of the project (24 months).
+    </p>
+      <table>
+         <tr>
+            <td colspan="2" rowspan="1">
+               <strong>1. Human Resources</strong> (in man-months)
+        </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1">
+          B1. Framework and deployment options
+        </td>
+            <td colspan="1" rowspan="1">
+          28.5
+        </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1">
+          B2. Processing modules
+        </td>
+            <td colspan="1" rowspan="1">
+          44
+        </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1">
+          Project Management and Administration
+        </td>
+            <td colspan="1" rowspan="1">
+           2
+        </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1">
+               <strong>TOTAL</strong>
+            </td>
+            <td colspan="1" rowspan="1">
+               <strong>74.5 MM</strong>
+            </td>
+         </tr>
+      </table>
+      <table>
+         <tr>
+            <td colspan="4" rowspan="1">
+               <strong>2. Direct Costs</strong> (in kUSD)
+        </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1">
+          Item
+        </td>
+            <td rowspan="1" colspan="1">
+           2012
+        </td>
+            <td rowspan="1" colspan="1">
+           2013
+        </td>
+            <td colspan="1" rowspan="1">
+           Total
+        </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1">
+          Hardware and Software
+        </td>
+            <td rowspan="1" colspan="1">
+          1
+        </td>
+            <td rowspan="1" colspan="1">
+          1
+        </td>
+            <td colspan="1" rowspan="1">
+          2
+        </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1">
+          Outsourced Work (Technical Writing, Proof Reading, Documentation, Manuals, Testing etc.)
+        </td>
+            <td rowspan="1" colspan="1">
+          3
+        </td>
+            <td rowspan="1" colspan="1">
+          10
+        </td>
+            <td colspan="1" rowspan="1">
+          13
+        </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1">
+          F2F (3 meetings with 5 persons during 2 days each)
+        </td>
+            <td rowspan="1" colspan="1">
+          15
+        </td>
+            <td rowspan="1" colspan="1">
+          7.5
+        </td>
+            <td colspan="1" rowspan="1">
+          22.5
+        </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1">
+          Miscellaneous
+        </td>
+            <td rowspan="1" colspan="1">
+          1
+        </td>
+            <td rowspan="1" colspan="1">
+          1.5
+        </td>
+            <td colspan="1" rowspan="1">
+           2.5
+        </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1">
+               <strong>TOTAL</strong>
+            </td>
+            <td rowspan="1" colspan="1">
+          20
+        </td>
+            <td rowspan="1" colspan="1">
+          20
+        </td>
+            <td colspan="1" rowspan="1">
+               <strong>40</strong>
+            </td>
+         </tr>
+      </table>
+      <p>
+      Note: Communication and Marketing (preparation of presentations, attendance at conferences, other activities) and Training and Technical Support (webinars, production of a training video, etc.) are carried out by DAISY Consortium staff members through their normal activities.
+    </p>
+      <p>
+      The following table shows the human resource secured at the time of writing this charter, based on the assumption of a continued participation of the parties involved in the first phase.
+    </p>
+      <table>
+         <tr>
+            <td colspan="2" rowspan="1">
+               <strong>3. Secured Human Resources</strong>
+            </td>
+         </tr>
+         <tr>
+            <td colspan="2" rowspan="1">
+           <strong>3.1 DAISY Staff (confirmed)</strong>
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1">
+          Marisa DeMeglio (90% FTE)
+        </td>
+            <td colspan="1" rowspan="1">
+           21.6
+        </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1">
+          Romain Deltour (90% FTE)
+        </td>
+            <td colspan="1" rowspan="1">
+           21.6
+        </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1">
+          Javier Ascensio Cubero (40% FTE)
+        </td>
+            <td colspan="1" rowspan="1">
+           9.6
+        </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1">
+               <i>Sub-Total</i>
+            </td>
+            <td colspan="1" rowspan="1">
+               <i>52.8</i>
+            </td>
+         </tr>
+         <tr>
+            <td colspan="2" rowspan="1">
+           <strong>3.2 Anticipated contributors (to be confirmed)</strong>
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1">
+          Bernhard Wagner (SBS, 30% FTE)
+        </td>
+            <td colspan="1" rowspan="1">
+          7.2
+        </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1">
+          Jostein Austvik Jacobsen (NLB, 60% FTE)
+        </td>
+            <td colspan="1" rowspan="1">
+          14.4
+        </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1">
+               <i>Sub-Total</i>
+            </td>
+            <td colspan="1" rowspan="1">
+               <i>21.6</i>
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1">
+               <strong>TOTAL</strong>
+            </td>
+            <td colspan="1" rowspan="1">
+               <strong>74.4</strong>
+            </td>
+         </tr>
+      </table>
+      <h1 id="d1e660">
+      Strategic/Political Issues To Be Considered in the Project
+    </h1>
+      <h2 id="d1e662">
+      Licensing
+    </h2>
+      <p>
+      All the results of this project should be available royalty free and under a liberal licensing scheme that will encourage reuse of software components in other products (either commercial or open source).
+    </p>
+      <p>
+      As usual with open source developments, it must be noted that licensing decisions can have a strong impact on the the project. The reuse of existing open source libraries, to reduce the overall development cost, can only be viable if the licenses of these dependencies are compatible with the license chosen for the final deliverable. In an extreme scenario, the impossibility to use a library due to licensing incompatibilities can lead to major additional development costs which may jeopardize the budget and timeline defined in the present charter.
+    </p>
+      <p>
+      To minimize the risk of legal dead-end, the licensing decisions will be taken early in the project development phase and will require the input of both developers and legal professionals.
+    </p>
+      <h2 id="d1e670">
+      Role of the DAISY Consortium
+    </h2>
+      <p>
+      It is strategically important to underline the widely collaborative aspect of the DAISY Pipeline project. The DAISY Consortium is the umbrella organization that maintains and promotes the project, but pieces of functionality are expected to be contributed by third-party organizations. In this context, it must be noted that while the DAISY Consortium will support the core framework it cannot systematically allocate resources to the maintenance and further development of organization-specific contributions. These tasks are rather considered part of the commitments of said organization.
+    </p>
+      <h2 id="d1e674">
+      Relationship with the Pipeline 1
+    </h2>
+      <p>
+      Because the Pipeline 2 includes a fundamental redesign of the Pipeline 1 framework, it is worth mentioning that both solutions will co-exist for a significant amount of time. External contributions based on the new framework are expected to progressively increase and eventually outnumber the contributions to the Pipeline 1, but until then this duality puts high demand on the DAISY Consortium staff for technical maintenance and support.
+    </p>
+      <h2 id="d1e678">
+      "Enabling Technologies Framework" Project
+    </h2>
+      <p>
+      The Enabling Technologies Framework is a three year project funded by the World Intellectual Property Organization (<a href="http://www.wipo.int/" shape="rect">WIPO</a>) and endorsed by the Stakeholders Platform of WIPO. It is a joint project involving both <a href="http://www.editeur.org" shape="rect">EDItEUR</a> and the <a href="http://www.editeur.org/" shape="rect">DAISY Consortium</a>. Its general objective is to evolve mainstream publishing processes to enable the production of fully accessible digital content.
+    </p>
+      <p>
+      The DAISY Pipeline 2 plays a major role as one of the work packages is entirely dedicated at extending the DAISY pipeline to support the requirements of publishers and conversion houses. This notably involves the participation of the publishing community in a requirements gathering phase.
+    </p>
+      <p>
+      The project's second year deliverables covered by this charter include:
+    </p>
+      <ul>
+         <li>Project plans, developed in collaboration with WIPO technical staff, for the implementation of the DAISY Pipeline 2 software within WIPO.
+      </li>
+         <li>DAISY Pipeline 2 software and its tool sets mounted and operational on the WIPO web site. To be scheduled in concert with WIPO (probably for the 1st quarter 2012).
+      </li>
+         <li>Statistical information on the downloads or usage of Pipeline 2 software from the DAISY website.
+      </li>
+         <li>Additional services:
+      </li>
+         <li style="list-style: none">
+            <ul>
+               <li>Three days on-site assistance to the technical staff of WIPO.
+          </li>
+               <li>Creation of a web-based forum for Pipeline 2 software questions and answers.
+          </li>
+               <li>EMail technical support to WIPO
+          </li>
+               <li>Limited telephone or Skype support to WIPO
+          </li>
+            </ul>
+         </li>
+      </ul>
+      <h1 id="d1e717">
+      Risk Management
+    </h1>
+      <table>
+         <tr>
+            <td rowspan="1" colspan="1">
+          Threat
+        </td>
+            <td rowspan="1" colspan="1">
+          Probability
+        </td>
+            <td rowspan="1" colspan="1">
+          Strategy
+        </td>
+            <td colspan="1" rowspan="1">
+          Action
+        </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1">
+          The license of a desired dependency is incompatible with the project license
+        </td>
+            <td rowspan="1" colspan="1">
+          Medium
+        </td>
+            <td rowspan="1" colspan="1">
+          Acceptance
+        </td>
+            <td colspan="1" rowspan="1">
+          Either decide to change the project license or integrate some additional development effort in the budget and timeline
+        </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1">
+          Resources are insufficient to achieve the project objectives
+        </td>
+            <td rowspan="1" colspan="1">
+          Medium
+        </td>
+            <td rowspan="1" colspan="1">
+          Mitigation
+        </td>
+            <td colspan="1" rowspan="1">
+          As the framework stabilizes we have a better measure of what the development costs can be. The level of possible further development will depend on additional funding.
+        </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1">
+          Contributor withdrawal leads to discontinuation of certain functionality
+        </td>
+            <td rowspan="1" colspan="1">
+          Medium to High
+        </td>
+            <td rowspan="1" colspan="1">
+          Acceptance
+        </td>
+            <td colspan="1" rowspan="1">
+          Given the nature of the project as a framework/host for multiple transformation types, it is a natural risk that certain functionality is discontinued when and if there is no continued community support for it. Under normal circumstances, DC staff does not take on the task of maintaining functionality originally committed by other contributors. This general rule does not apply to functionality of extra high long term strategic importance, for which DC staff may step in to assure longevity and stability.
+        </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1">
+          Uptake in commercial sector does not meet expectations
+        </td>
+            <td rowspan="1" colspan="1">
+          Low
+        </td>
+            <td rowspan="1" colspan="1">
+          Mitigation
+        </td>
+            <td colspan="1" rowspan="1">
+          Uptake in commercial sector can be stimulated through dedicated outreach efforts.
+        </td>
+         </tr>
+      </table>
+      <h1 id="d1e765">
+      Appendix: Optional Objectives
+    </h1>
+      <p>
+      This section is informative: the objectives hereafter described cannot be reasonably achieved without further resource contributions ; they are not part of the expected deliverables of the second phase of the Pipeline 2 project. Most of them can be seen as buckets for extended developments, which can be refined and chartered as satellite sub-projects depending on the interest of the additional contributors.
+    </p>
+      <h2 id="d1e769">
+      Framework and APIs
+    </h2>
+      <ol>
+         <li>
+            <strong>Development tools</strong>: tools can be developed to help developers with both tedious one-time tasks and day-to-day chores, including test drivers (possibly for the IDE), scripts for quickly setting up skeleton code for the development of a new module (rapid application development), etc.
+      </li>
+         <li>
+            <strong>Sample code using the Pipeline web service API</strong>: in order to lower the cost of integrating the Pipeline in a broader system, a few applications can be developed and demo how to call the Pipeline from different contexts (e.g. a .Net application calling the Web Service API, a Java application calling the Java API, etc.).
+      </li>
+      </ol>
+      <h2 id="d1e782">
+      User Interface
+    </h2>
+      <ul>
+         <li>
+            <strong>Graphical user interfaces for the admin and configuration layer</strong>: as a separate application or integrated into another GUI, it would provide the user interfaces for handling all the admin tasks (e.g. installing a new processing module) and internal configuration options (e.g. customizing the TTS voices configuration, editing an acronym lexicon).
+      </li>
+         <li>
+            <strong>Rich graphical user interface (GUI)</strong>: the interface could allow the manipulation of either a local installation (via the Java API) or centralized installation (via the WS API) of the Pipeline 2. It could be developed on the basis of the existing Pipeline GUI project or be totally redesigned.
+      </li>
+         <li>
+            <strong>Web-based UI for the admin and configuration layer</strong>: it would provide the user interfaces for handling all the admin tasks (e.g. installing a new processing module) and internal configuration options (e.g. customizing the TTS voices configuration, editing an acronym lexicon).
+      </li>
+         <li>
+            <strong>Fully featured web application</strong>: it would enable more complex use cases, including the management of user accounts, a storage area, use of email services, etc. It could be developed on the basis of the existing PipeOnline project or as a new application.
+      </li>
+      </ul>
+      <h2 id="d1e806">
+      Text-Only Production
+    </h2>
+      <ul>
+         <li>
+            <strong>Advanced EPUB utilities</strong>: e.g. resource/font obfuscation, XML digital signature, etc.
+      </li>
+         <li>
+            <strong>ZedAI to RTF</strong>: conversion of a DAISY 4 XML document (Z39.86-201X "ZedAI") to Microsoft Rich Text Format.
+      </li>
+         <li>
+            <strong>Large-pring production</strong>: conversion of a DAISY 4 XML document (Z39.86-201X "ZedAI") to large-pring (e.g. via LaTeX, or via HTML+CSS).
+      </li>
+         <li>
+            <strong>DocBook from/to ZedAI</strong>: bi-directional conversion of a !DocBook5 document to a DAISY 4 XML document (Z39.86-201X "ZedAI").
+      </li>
+         <li>
+            <strong>ZedAI to DTBook</strong>: conversion of a DAISY 4 XML document (Z39.86-201X "ZedAI") to a DAISY 3 XML (DTBook) document.
+      </li>
+      </ul>
+      <h2 id="d1e834">
+      Validation
+    </h2>
+      <ul>
+         <li>
+            <strong>DAISY 3 validation</strong>: integration of <a href="ZedVal.html" shape="rect">ZedVal</a> as a Pipeline 2 module, after a cleanup of <a href="ZedVal.html" shape="rect">ZedVal</a> library dependencies
+      </li>
+         <li>
+            <strong>DAISY 2.02 validation</strong>: port of the Pipeline 1 DAISY 2.02 light validator
+      </li>
+      </ul>
+      <h2 id="d1e853">
+      TTS-based Production
+    </h2>
+      <ul>
+         <li>
+            <strong>EPUB3 to EPUB3/Audio</strong>: conversion of a text-only EPUB3 publication to an EPUB3 publication with audio content as Media Overlays.
+      </li>
+         <li>
+            <strong>ZedAI to DAISY 3</strong>: conversion of a DAISY 4 XML document (Z39.86-201X "ZedAI", at least the book profile) to a DAISY 3 (Z39.86-2005) full-text full-audio DTB.
+      </li>
+         <li>
+            <strong>ZedAI to DAISY 2.02</strong>: conversion of a DAISY 4 XML document (Z39.86-201X "ZedAI", at least the book profile) to a DAISY 2.02 full-text full-audio DTB.
+      </li>
+      </ul>
+      <h2 id="d1e871">
+      Port of Pipeline 1 Functionality
+    </h2>
+      <p>
+      It may be relevant to port proven and widely used Pipeline 1 functionality to the new framework, so that it can be more easily integrated in Pipeline 2 workflows. Although it can appear an additional work to achieve an already existing functionality, the long term benefit in terms of reuse and maintenance cost would outweighs the initial development effort.
+    </p>
+      <p>
+      The scripts that could ultimately be ported are:
+    </p>
+      <ul>
+         <li>Production
+      </li>
+         <li style="list-style: none">
+            <ul>
+               <li>Audacity Save-as-DAISY
+          </li>
+               <li>Daisy 2.02 DTB Light Validator (see the #Validation section)
+          </li>
+               <li>Daisy 2.02 to Z3986-2005
+          </li>
+               <li>DTBook Migrator
+          </li>
+               <li>DTBook to LaTeX
+          </li>
+               <li>DTBook to RTF
+          </li>
+               <li>DTBook to XHTML
+          </li>
+               <li>ODT to DTBook
+          </li>
+               <li>RTF to DTBook
+          </li>
+               <li>RTF to XHTML
+          </li>
+               <li>XHTML to DTBook
+          </li>
+            </ul>
+         </li>
+         <li>Manipulation
+      </li>
+         <li style="list-style: none">
+            <ul>
+               <li>Audio Tagger
+          </li>
+               <li>Charset Switcher
+          </li>
+               <li>DTB Forward Migrator
+          </li>
+               <li>DTB Splitter/Merger
+          </li>
+               <li>DTBook Fix
+          </li>
+               <li>DTB Audio Encoder
+          </li>
+               <li>Image Converter
+          </li>
+            </ul>
+         </li>
+      </ul>
+   </body>
+</html>

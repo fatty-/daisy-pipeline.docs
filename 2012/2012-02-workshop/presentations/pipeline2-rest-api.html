@@ -1,0 +1,559 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>The REST approach to Web Services and the Pipeline 2 API</title>
+	<meta name="author" content="Marisa DeMeglio">
+    	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="deck.js/core/deck.core.css">
+	<link rel="stylesheet" href="deck.js/extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="deck.js/extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="deck.js/extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="deck.js/extensions/status/deck.status.css">
+	<link rel="stylesheet" href="deck.js/extensions/hash/deck.hash.css">
+	
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<link rel="stylesheet" href="deck.js/themes/style/web-2.0.css">
+	
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+	<link rel="stylesheet" href="deck.js/themes/transition/horizontal-slide.css">
+	
+	<script src="deck.js/modernizr.custom.js"></script>
+    <style>
+    
+    .slide img {
+        margin-top: 6em;
+    }
+    
+    dt {
+        font-weight: bolder !important;
+    }
+    dd {
+        margin-bottom: 2em !important;
+    }
+    .actions em {
+        font-weight: bold;
+        font-style: normal;
+    }
+    
+    </style>
+    
+</head>
+
+<body class="deck-container">
+
+<!-- Begin slides -->
+<section class="slide">
+    <h1>The REST approach to Web Services and the Pipeline 2 API</h1>
+</section>
+
+<section class="slide">
+    <h2>What are web services?</h2>
+    <p>A web service is a method of communication between two electronic devices over the web.</p>
+    <p>The cilent submits requests, and the server responds with data.</p>
+    <img src="images/ClientServerBasic.png" alt="Cartoon: Client sends request and server responds with data."/>
+</section>
+        
+<section class="slide">
+    <h2>The pipeline as a web service</h2>
+    <ul>
+        <li>Service to transform documents.</li>
+        <li>Gets installed on a server.</li>
+        <li>Accepts requests from clients, who submit document(s) and indicate which transformation to apply.</li>
+    </ul>
+    
+    <img src="images/ClientServerTransform.png" alt="Cartoon: Client requests a DAISY 2.02 to EPUB transform and the server replies with the result.">
+    
+</section>
+
+
+<section class="slide">
+    <h2>Communication</h2>
+    
+    <p>In order to successfully communicate with each other, the server and client need to understand each other.</p>
+    
+    <p>Clients must send <em>requests</em> in a format the server understands.</p>
+    
+    <p>Servers must send <em>responses</em> to those requests using a format the client is designed to understand.</p>
+    
+    <img src="images/ClientServerCommonLang.png" alt="Cartoon. Server: I speak XML and HTTP.  Client: Me too!."/>
+    
+</section>    
+  
+ 
+<section class="slide">
+    <h2>Different approaches to web services</h2>
+    
+    <p>Servers will support one or more styles of web service, and clients will conform accordingly.</p>
+    
+    <dl>
+        <dt>REST</dt>
+        <dd>Architectural style rather than a standard.  Works with the pre-existing architecture of the Web (HTTP). Comparatively lightweight. Language-agnostic.</dd>
+        
+        <dt>SOAP</dt>
+        <dd>W3C standard for an XML-based messaging framework.  Relatively complex and multi-layered.  Language-agnostic.</p>
+            
+        <dt>RPC</dt>
+        <dd>Uses methods, not resources, to communicate. Often language-specific.</p>
+    </dl> 
+    
+    
+</section>
+  
+<section class="slide">
+    <h2>REST: What is it?</h2>
+    <ul>
+        <li>An architectural style rather than a standard.</li>
+        <li>Describes a system in terms of its resources</li>
+        <li>Identifies resources using URIs</li>
+        <li>Uses HTTP methods, which are already fundamental pieces of the Web</li>
+        <li>Encourages discoverability: a resource links to related resources.</li>
+    </ul>
+</section>
+   
+<section class="slide">
+    <h2>REST: Why we chose it</h2>
+    <ul>
+        <li>It's easy to write REST clients! (You'll write one tomorrow)</li>
+        <li>Adding a REST layer fit well with our underlying Pipeline framework.</li>
+        <li>The only client requirements are XML and HTTP support, which are met by all modern programming languages.</li>
+        <li>Scales well to meet our needs as the system grows.</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>REST Principles: Describing a system in terms of its resources</h2>
+    
+    <p>Resources are things; e.g. nouns rather than verbs.</p>
+    
+    <div class="slide">
+        <h3>Example: A social network</h3>
+        <p>If your system is a social network, then your <em>resources</em> are:</p>
+        <ul>
+            <li>Person</li>
+            <li>Friends</li>
+            <li>Posts</li>
+        </ul>
+    </div>
+    
+    <div class="slide">
+        <h3>Example: The Pipeline</h3>
+        <p>And, if your system is the Pipeline, then your <em>resources</em> are:</p>
+        <dl>
+            <dt>Scripts</dt>
+            <dd>XProc code to perform document transformations</dd>
+            
+            <dt>Jobs</dt>
+            <dd>Use scripts with specific inputs and outputs.</dd>
+        </dl>
+    </div>
+</section>
+ 
+<section class="slide">
+    <h2>REST Principles: Discoverability</h2>
+    
+    <p>Resource descriptions may include links to other related resources.</p>
+    
+    <div class="slide">
+        <h3>Example: A social network</h3>
+        <ul>
+            <li>Who are this person's friends?</li>
+            <li>What are this person's favorite things?</li>
+            <li>What are some photos of this person?</li>
+        </ul>
+    </div>
+    
+    <div class="slide">
+        <h3>Example: The Pipeline</h3>
+        <ul>
+            <li>Get more detailed information about a particular script or job</li>
+            <li>Is my job done yet?</li>
+            <li>Get job result and log file</li>
+        </ul>
+    </div>
+    
+</section>
+
+ 
+<section class="slide">
+    <h1>Pipeline 2 API</h1>
+</section>
+ 
+<section class="slide">
+    <h2>Bringing all the parts together</h2>
+    <p>The Pipeline is composed of <em>resources</em>: scripts and jobs.</p>
+    <p>Client applications must be able to:</p>
+    <ul class="actions">
+        <li><em>Get</em> a list of available <em>scripts</em></li>
+        <li><em>Get</em> detailed information for a single <em>script</em></li>
+        <li><em>Post</em> new <em>job</em> requests</li>
+        <li><em>Get</em> a job's <em>status</em></li>
+        <li><em>Get</em> a job's <em>result</em>.</li>
+    </ul>
+    <p>Notice the boldface words above, which emphasize the action (get/post) and resource (script/job/status/result).</p>
+</section>
+<section class="slide">
+    <h2>URL: Uniform Resource Locator</h2>
+    <p>URLs identify resources in the system.</p>
+    <img style="text-align: left; display: inline; margin-top: 2em" src="images/URL.png" alt="URL http://example.org/page.html, highlighting 'page.html' as the resource part.">
+    
+    <p>Clients send requests using URLs to identify the resource they want.</p>
+    
+    <div class="slide">
+        <p>Primary resources in the Pipeline:</p>
+        <ul>
+            <li>Scripts</li>
+            <li>Jobs</li>
+        </ul>
+    </div>
+    
+    <div class="slide">
+        <p>Corresponding URLs:</p>
+        <ul>
+            <li><code>http://example.org/scripts</code></li>
+            <li><code>http://example.org/jobs</code></li>
+            <li><code>http://example.org/scripts/dtbook-to-zedai</code></li>
+            <li><code>http://example.org/jobs/4A8E3-C93D0-1FD3B</code></li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>HTTP Methods</h2>
+    
+    <p>Clients send requests using HTTP methods to identify the action they want to perform.</p>
+    
+    <dl>
+        <dt>GET</dt>
+        <dd>Requests a representation of the specified resource.</dd>
+        
+        <dt>POST</dt>
+        <dd>Submits data to be processed to the identified resource.  We use POST to add a new resource to a collection.</dd>
+        
+        <dt>PUT</dt>
+        <dd>Uploads a representation of the specified resource.  We use PUT to modify a pre-existing resource.</dd>
+        
+        <dt>DELETE</dt>
+        <dd>Deletes the specified resource.</dd>
+    </ul>
+    
+</section>
+
+<section class="slide">
+    <h2>Getting a list of scripts</h2>
+    
+    <p>Client: May I have a list of all the available scripts?</p>
+    <p>Server: Why of course.  Here is a list of all my available scripts.  Let me know if you need anything else. </p>
+    
+    <div class="slide">
+    <h3>What it really looks like</h3>
+    <p>Client request: <code>GET http://example.org/scripts</code></p>
+    <p>Server response: 
+<pre><code>
+HTTP 200 OK
+<span>       
+&lt;scripts href=&quot;http://example.org/scripts&quot;&gt;</span><span>
+   &lt;script id=&quot;zedai-to-epub3&quot; href=&quot;http://example.org/scripts/zedai-to-epub3&quot;&gt;
+       &lt;nicename&gt;ZedAI to EPUB3&lt;/nicename&gt;
+       &lt;description&gt;Transforms a ZedAI (DAISY 4 XML) document into an EPUB 3
+           publication.&lt;/description&gt;
+   &lt;/script&gt;</span><span>
+   &lt;script id=&quot;dtbook-to-zedai&quot; href=&quot;http://example.org/scripts/dtbook-to-zedai&quot;&gt;
+       &lt;nicename&gt;DTBook to ZedAI&lt;/nicename&gt;
+       &lt;description&gt;Transforms DTBook XML into ZedAI XML.&lt;/description&gt;
+   &lt;/script&gt;</span><span>
+   &lt;script id=&quot;daisy202-to-epub3&quot; href=&quot;http://example.org/scripts/daisy202-to-epub3&quot;&gt;
+       &lt;nicename&gt;DAISY 2.02 to EPUB3&lt;/nicename&gt;
+       &lt;description&gt;Transforms a DAISY 2.02-book into an EPUB3-book.&lt;/description&gt;
+   &lt;/script&gt;</span>
+&lt;/scripts&gt;
+</code></pre>    
+    </p>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Getting details about a script</h2>
+    
+    <p>Client: I'd like to know more about the DTBook to ZedAI script.</p>
+    <p>Server: Here is all the information you need to execute this script.</p>
+    
+    <div class="slide">
+        <h3>What it really looks like</h3>
+        <p>Client request: <code>GET http://example.org/scripts/dtbook-to-zedai</code></p>
+        <p>Server response:
+<pre><code>
+HTTP 200 OK
+<span>
+&lt;script xmlns=&quot;http://www.daisy.org/ns/pipeline/data&quot;
+    id=&quot;dtbook-to-zedai&quot;
+    href=&quot;http://example.org/scripts/dtbook-to-zedai&quot;&gt;</span><span>
+    &lt;nicename&gt;DTBook to ZedAI&lt;/nicename&gt;
+    &lt;description&gt;Transforms DTBook XML into ZedAI XML.&lt;/description&gt;
+    &lt;homepage&gt;http://code.google.com/p/daisy-pipeline/wiki/DTBookToZedAI&lt;/homepage&gt;</span><span>
+    &lt;input desc=&quot;One or more DTBook files to be transformed. In the case of multiple files, a merge will be performed.&quot; 
+        mediaType=&quot;application/x-dtbook+xml&quot; 
+        name=&quot;source&quot; 
+        sequenceAllowed=&quot;true&quot;/&gt;</span><span>
+    &lt;option desc=&quot;Filename for the generated MODS file&quot; mediaType=&quot;&quot; name=&quot;opt-mods-filename&quot; required=&quot;false&quot; type=&quot;string&quot;/&gt;</span><span>
+    &lt;option desc=&quot;Filename for the generated CSS file&quot; mediaType=&quot;&quot; name=&quot;opt-css-filename&quot; required=&quot;false&quot; type=&quot;string&quot;/&gt;</span><span>
+    &lt;option desc=&quot;Filename for the generated ZedAI file&quot; mediaType=&quot;&quot; name=&quot;opt-zedai-filename&quot; required=&quot;false&quot; type=&quot;string&quot;/&gt;</span>
+&lt;/script&gt;
+</pre></code>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Submitting a job</h2>
+    
+    <p>Client: Please transform this DTBook file to ZedAI</p>
+    <p>Server: Thank you.  Here is information about your new job.</p>
+    
+    <div class="slide">
+        <h3>What it really looks like</h3>
+        <p>Client request: 
+            <code><pre>
+POST http://example.org/jobs
+
+&lt;jobRequest&gt;
+    ...
+&lt;/jobRequest&gt;
+            </code></pre>
+        </p>
+        <p>We'll look at the details of the request body XML in the next slide.</p>
+        <p>Server response:
+            <code><pre>
+HTTP 201 Created
+<span>
+&lt;job id=&quot;job-id-01&quot; href=&quot;http://example.org/jobs/job-id-01&quot; status=&quot;RUNNING&quot;&gt;</span><span>
+    &lt;script id=&quot;dtbook-to-zedai&quot; href=&quot;http://example.org/scripts/dtbook-to-zedai&quot;&gt;
+        &lt;nicename&gt;DTBook to ZedAI&lt;/nicename&gt;
+        &lt;description&gt;Transforms DTBook XML into ZedAI XML.&lt;/description&gt;
+    &lt;/script&gt;</span><span>
+    &lt;messages&gt;
+        &lt;message level=&quot;WARNING&quot; sequence=&quot;22&quot;&gt;Warning about this job&lt;/message&gt;
+    &lt;/messages&gt;</span>
+&lt;/job&gt;
+            </code></pre>
+        </p>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Submitting a job (cont'd)</h2>
+
+    <p>Along with their POST request, the client supplies an XML document based on the script's parameters:</p>
+
+<pre>
+<code><span>
+&lt;jobRequest&gt;</span><span>
+    &lt;script href=&#x27;http://example.org/scripts/dtbook-to-zedai&#x27;/&gt;</span><span>
+    &lt;input name=&#x27;source&#x27;&gt;</span><span>
+        &lt;docwrapper&gt;</span><span>
+            &lt;dtbook xmlns=&#x27;http://www.daisy.org/z3986/2005/dtbook/&#x27; version=&#x27;2005-3&#x27; xml:lang=&#x27;en-US&#x27;&gt;
+                &lt;head&gt;...&lt;/head&gt;
+                &lt;book&gt;
+                    ...
+                    &lt;bodymatter&gt;
+                    &lt;level1&gt;
+                        &lt;h1&gt;Introduction&lt;/h1&gt;
+                        &lt;p&gt;&lt;sent&gt;The DAISY Pipeline 2 is an ongoing project to develop a next generation framework for automated production of accessible materials for people with print disabilities.&lt;/sent&gt;&lt;sent&gt;It is the follow-up and total redesign of the original DAISY Pipeline 1 project.&lt;/sent&gt;&lt;/p&gt;
+                        &lt;/level1&gt;
+                    &lt;/bodymatter&gt;
+                &lt;/book&gt;
+            &lt;/dtbook&gt;</span>
+        &lt;/docwrapper&gt;
+    &lt;/input&gt;
+&lt;/jobRequest&gt;
+</code></pre>
+</section>
+
+<section class="slide">
+    <h2>Submitting a job (cont'd)</h2>
+
+    <p>In another scenario, the client wants to submit a fileset, not just an inline DTBook document, so the client sends a multipart request.</p>
+    <p>Client request: 
+<pre>
+<code>
+POST http://example.org/jobs
+
+Part 1: 'job-request'
+&lt;jobRequest&gt;
+    &lt;script href=&#x27;http://example.org/scripts/dtbook-to-zedai&#x27;/&gt;
+    &lt;input name=&#x27;source&#x27;&gt;<span>
+        &lt;file src=&#x27;./dtbook-basic.xml&#x27;/&gt;</span>
+    &lt;/input&gt;
+&lt;/jobRequest&gt;
+
+Part 2: 'job-data'
+Attached zip file containing all data including the DTBook file.
+</code></pre>
+</p>
+
+<p>The <code>&lt;file&gt;</code> element above references the DTBook file inside the zip archive.  Other files in the zip archive will be images and resources used by the DTBook input file.</p>
+
+<p>These resources will be included in the job result fileset in order to preserve image references etc.</p>
+</section>
+
+<section class="slide">
+    <h2>Checking the status of a job</h2>
+    <p>Remember the job's URL, which was sent by the server when the job was created (e.g. <code>http://example.org/jobs/job-id-01</code>)?  Use it to get current information about the job.</p>
+    <p>Client request: <code>GET http://example.org/jobs/job-id-01</code></p>
+    <p>Server response:
+        <pre><code>
+&lt;job id=&quot;job-id-01&quot; href=&quot;http://example.org/jobs/job-id-01&quot; <span>status=&quot;DONE&quot;&gt;</span>
+    &lt;script id=&quot;dtbook-to-zedai&quot; href=&quot;http://example.org/scripts/dtbook-to-zedai&quot;&gt;
+        &lt;nicename&gt;DTBook to ZedAI&lt;/nicename&gt;
+        &lt;description&gt;Transforms DTBook XML into ZedAI XML.&lt;/description&gt;
+    &lt;/script&gt;
+    &lt;messages&gt;
+        &lt;message level=&quot;WARNING&quot; sequence=&quot;22&quot;&gt;Warning about this job&lt;/message&gt;
+    &lt;/messages&gt;<span>
+    &lt;log href=&quot;http://example.org/jobs/job-id-01/log&quot;/&gt;
+    &lt;result href=&quot;http://example.org/jobs/job-id-01/result&quot;/&gt;</span>
+&lt;/job&gt;
+</code></pre>
+
+<p>Possible status codes are: <code>IDLE</code>, <code>RUNNING</code>, <code>ERROR</code>, and <code>DONE</code></p>
+</section>
+
+<section class="slide">
+    <h2>Getting the results of a job</h2>
+    <p>Use the results URL to get a zip archive containing the job's results.</p>
+    <p>Results are available when a job is <code>DONE</code>.</p>
+    <p>Client request: <code>GET http://example.org/jobs/job-id-01/result</code></p>
+    <p>Server response: <code>Zip archive containing the transformed fileset</code></p>
+</section>
+ 
+<section class="slide">
+    <h2>Authentication</h2>
+    <p>Allow requests only from authenticated clients.</p>
+    <p>Remember that <em>clients</em> are other pieces of software, not human users.</p>
+    <h3 class="slide">What's the authentication process?</h3>
+    <div class="slide">
+        <h4>1. Sysadmin approves the client</h4>
+        <p>The sysadmin issues authentication IDs and secret codes to client application developers.</p>
+        <p>Then the sysadmin uses the Pipeline's command-line administrative interface to add a record for this new client.</p>
+    </div>
+    
+    <div class="slide">
+        <h4>2. Client includes credentials in URL requests</h4 >
+        <p>When the client issues a request, it must include its ID in order to identify itself.
+            <pre><code>GET http://example.org/scripts?<span>authid=myclient</span></code></pre>
+        </p>
+        <p>It also must include a timestamp and a "nonce" to uniquely identify the request.
+            <pre><code>GET http://example.org/scripts?authid=myclient&<span>time=2012-02-09T02:23:40Z</span>&<span>nonce=533473712461604713238933268313</span></code></pre>
+        </p>
+        <p>Finally, the client uses its secret to generate a hash from the entire request string, and then it must append the hash signature to the request string.
+            <pre><code>GET http://example.org/ws/scripts?authid=myclient&time=2012-02-09T02:23:40Z&nonce=533473712461604713238933268313&<span>sign=gq%2FlpIuWqEDjhWviAjyccNTzdZk%3D</span></code></pre>
+        </p>
+    </div>
+</section>
+ 
+<section class="slide">
+    <h2>Documentation and samples</h2>
+    
+    <p><a href="http://code.google.com/p/daisy-pipeline/wiki/WebServiceAPI">API</a> docs and <a href="http://code.google.com/p/daisy-pipeline/source/browse/#hg%2Fwebservice%2Fsamples%2Fclients">sample clients</a> are available. The official <a href="http://code.google.com/p/daisy-pipeline/source/browse/#hg%2FCLI">Pipeline CLI</a> is itself a client, written in Ruby.</p>
+    <p>For the tutorial sessions tomorrrow, we've prepared code snippets to expediate various tasks (e.g. authentication, submitting multipart requests).</p>
+    
+    <p>Everything can be found by browsing the wiki and source code, available from
+        <pre><code><a href="http://daisy-pipeline.googlecode.com">http://daisy-pipeline.googlecode.com</a></code></pre>
+    </p>
+    
+    
+</section>
+ 
+<section class="slide">
+    <h2>Future plans</h2>
+    <h3>Notifications</h3>
+    <p>Notifications will inform the client when a job is completed, or if it ended in error, without the client having to constantly poll the server.</p>
+    <p>Different approaches for notifications:</p>
+    <ul>
+        <li>Email</li>
+        <li>Long polling</li>
+    </ul>
+    
+    <h3>Advanced authentication</h3>
+    <ul>
+        <li>OAuth version 2</li>
+        <li>Is there a need among our users?</li>
+    </ul>
+    
+    <h3>Community contributions</h3>
+    <ul>
+        <li>Incorporate guidelines based on end-user experiences.</li>
+        <li>E.g., how to set up the Pipeline on different web servers.</li>
+    </ul>
+    
+    
+</section>
+
+<section class="slide">
+    <h2>Questions and comments</h2>
+</section>
+
+
+<!-- End slides -->
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+<!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+<script>window.jQuery || document.write('<script src="deck.js/jquery-1.7.min.js"><\/script>')</script>
+
+<!-- Deck Core and extensions -->
+<script src="deck.js/core/deck.core.js"></script>
+<script src="deck.js/extensions/hash/deck.hash.js"></script>
+<script src="deck.js/extensions/menu/deck.menu.js"></script>
+<script src="deck.js/extensions/goto/deck.goto.js"></script>
+<script src="deck.js/extensions/status/deck.status.js"></script>
+<script src="deck.js/extensions/navigation/deck.navigation.js"></script>
+
+<!-- Initialize the deck -->
+<script>
+$(function() {
+	$.deck('.slide');
+});
+
+$(document).ready(function() {
+    $('code span').mouseover(function() {
+       $(this).css("color", "red"); 
+    });
+    
+    $('code span').mouseout(function() {
+       $(this).css("color", "inherit"); 
+    });
+});
+
+
+</script>
+
+</body>
+</html>

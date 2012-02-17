@@ -1,0 +1,69 @@
+
+The Pipeline 2 "TTS-base Production" and "Braille Production" sub-working groups are proposed in the charter for the first phase of the Pipeline 2 project [http://code.google.com/p/daisy-pipeline/wiki/ProjectCharter#A.4.1_Braille_in_DAISY_working_group].
+The working groups are open to all organizations, they are not restricted to the organizations that already have decided to contribute to Pipeline 2 core development. 
+
+Two separate calls for participation to the Pipeline 2 Working Group have been sent to the DAISY mailing lists in early April. Each call included a document describing:
+ * the scope and objectives of the Pipeline 2 project
+ * the lifespan of the Working Group
+ * the participation requirements and
+ * the foreseen means of communications.
+
+Those interested in participating were requested to send an email by April 30th to the lead of the Pipeline 2 project Romain Deltour (rdeltour@gmail.com) with cc to Markus Gylling (markus.gylling@gmail.com), George Kerscher (kerscher@montana.com), and Bernhard Heinser (b.heinser@sbszh.ch).
+
+Note: The April 30th deadline was given as an incentive to receive timely answers, but it is still possible to join the working groups after this date.
+
+
+= TTS-based Production WG =
+ 
+The call for participation was sent to the following lists on April 1st 2010: 
+ * daisy-board@daisy.org (DAISY Board)
+ * members@daisy.org (DAISY Full and Associate members)
+ * friends@daisy.org (Friends of the DAISY Consortium)
+ * support@mail.daisy.org (DAISY Training and Technical Support)
+ * technical-developments@mail.daisy.org (DAISY Technical Interest)
+
+The answers have confirmed the participation of 8 persons coming from 8 organizations: 
+ * Olaf Mittelstaedt, DAISY Consortium, daisym@tters.org
+ * Ron Stewart, AHAED, ron@ahead.org
+ * Niels Thøgersen, xml-tekst, niels@studiebogservice.dk
+ * Lukasz Osowski, IVONA Software, losowski@ivona.com
+ * Mayu Hamada, ATDO, hamada@atdo.jp
+ * Ted van der Togt, Dedicon, tvdtogt@dedicon.nl
+ * RNIB confirmed their intent to join the WG, no name has been confirmed yet. The contact person is Sarah Home, sarah.home@rnib.org.uk
+ * TPB confirmed their intent to join the WG, no name has been confirmed yet
+ * + Romain Deltour (DAISY Consortium) coordinating with the Pipeline 2 core development group
+
+Participation to the "TTS Production" working group mostly consists of brainstorming and preparatory work for a total redesign of the Pipeline 1 Narrator, putting the focus on better extensibility (e.g. call of remote TTS services) and standards support (SSML, PLS). 
+Upon confirmation of the Pipeline 2 project, a first conference call will be scheduled in June 2010 to introduce the participants and refine the WG objectives.
+ 
+= Braille Production WG =
+
+The call for participation was sent to the following lists on April 8th 2010: 
+ * daisy-board@daisy.org (DAISY Board)
+ * members@daisy.org (DAISY Full and Associate members)
+ * friends@daisy.org (Friends of the DAISY Consortium)
+ * support@mail.daisy.org (DAISY Training and Technical Support)
+ * technical-developments@mail.daisy.org (DAISY Technical Interest)
+ * braille-in-daisy@daisy.org
+
+
+The answers have confirmed the participation of 14 persons coming from 11 organizations:
+ * Susan Jolly, Individual Expert, easjolly@ix.netcom.com
+ * Mats Køber, NLB, mats.kober@nlb.no
+ * Zaheda Bhorat, Google, zaheda@google.com
+ * Christian Egli, SBS, christian.egli@sbszh.ch
+ * Sébastien Hinderer, Individual Expert, sebastien.hinderer@ens-lyon.org
+ * Susanne ?, xml-tekst, susanne@xml-tekst.dk
+ * Paul Wood, Torch Trust, paulw@uploads.torchtrust.org
+ * Mukta Cooper, Irish National Braille Production Centre (NBPC), mcooper@braille.ie
+ * José Luis Lorente Barajas, ONCE (CIDAT), jllb@once.es.
+ * Rafael Pérez Arnáez, ONCE (SBO), rpar@once.es
+ * Óscar Domínguez Negreira, ONCE (SBO), odn@once.es
+ * Juan Miguel Castellano García, ONCE (CIDAT), jmcg@once.es
+ * RNIB confirmed their intent to join the WG, no name has been confirmed yet. The contact person is Sarah Home, sarah.home@rnib.org.uk
+ * TPB confirmed their intent to join the WG, no name has been confirmed yet
+ * + Romain Deltour (DAISY Consortium) coordinating with the Pipeline 2 core development group
+
+
+This working group is established to bring about a unified approach to the inclusion of automated braille output in production work flow, an uncontested objective embedded in a broader Braille Initiative. Participation will mostly consist of brainstorming and preparatory work for future Pipeline developments and will *not* include heavy development work.	
+Upon confirmation of the Pipeline 2 project, a first conference call will be scheduled in June 2010. The first tasks of the group will be identifying a group leader and refining the group objectives as well as aligning them with the overall Pipeline 2 project objectives.

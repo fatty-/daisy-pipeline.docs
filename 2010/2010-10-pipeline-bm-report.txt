@@ -1,0 +1,61 @@
+= Pipeline 2 project =
+
+== Organization ==
+
+The core Pipeline 2 team is composed of 5 developers: Bernhard Wagner (SBS, 30% FTE), Javer Asensio Cubero (Dedicon, 50% FTE), Jostein Austvik Jacobsen (NLB, 60% FTE), Marisa DeMeglio (DAISY, 60% FTE), Romain Deltour (DAISY, 70% FTE, project lead).
+The team is collaborating remotely via a mailing list (hosted on Google Groups) and project web space (hosted on Google Code) and is having a conference call every two weeks.
+
+== Progress ==
+
+The DAISY Pipeline 2 project started in June 2010, one month later then initially planned due to the cancellation of the Board Meeting in Spring 2010 (consequently of the volcanic eruption in Iceland).
+
+The two high level tasks of the project have been started in parallel:
+
+a) Development of the Pipeline 2 framework:
+
+To allow for a better remote collaboration with different time zones and availability, the framework-related task have been split in several main topics (divide and conquer): Modularization, Extensibility, Messaging, Error Handling, Internationalization, Configurability, Documentation, Testing.
+
+b) Development of concrete processing functions
+
+ * The development of the DTBook (DAISY 3 XML) to  ZedAI (DAISY 4 XML) has started. No major issues have been faced.
+ * The development of ZedAI (DAISY 4 XML) to EPUB is to be started soon.
+
+== Roadmap ==
+
+ * F2F meeting to be scheduled in Europe (Zurich, Amsterdam or Oslo) in November
+ * Alpha / early preview in December 2010
+ * F2F meeting in Spring 2011
+ * Release in late June 2011
+
+== Conclusion ==
+
+The adoption of state-of-the art technologies is somewhat challenging, due to premature/inexistent tooling or because of the lack of hindsight when taking technical decisions. On the other hand these technologies are backed by responsive and growing communities, in which we are actively taking part.
+
+The project is well on track so far. The overarching decision to adopt XML-centric, platform-neutral technologies is fully satisfying.
+
+= TTS Production WG =
+
+Chair: Romain Deltour (DAISY)
+
+The group is collaborating via a mailing list hosted on Google Groups and is having a conference call every three weeks.
+
+The requirements gathering phase is reaching a successful end, the outcome is available on a wiki page.
+Next step is to call for external reviews, then define the general processing workflow, and identify the pool of components that will help us satisfy the aforementioned requirements.
+
+No participation of TTS vendors so far.
+
+= Braille Production WG =
+
+Chairs:
+ * Peter Osborne (RNIB) - responsible for strategical / political direction
+ * Christian Egli (SBS) - responsible for technical direction
+
+The group is collaborating via a mailing list hosted on Google Groups and is having a conference call every three weeks.
+
+It took some slightly longer than expected to actually get started due to some difficulty to organize an international call in July/August. Progress will be smoother now that a regular timeframe has been chosen and two co-chairs have been elected.
+
+The high-level objectives and several work tasks are being identified and shall be carried out in over the next months.
+
+= Miscellaneous =
+
+The working groups faced technical issues with conferencing solutions, ranging from the impossibility to join the call to poor audio quality. The issue has been reported to DAISY's management and communication teams and alternative solutions are being examined.
