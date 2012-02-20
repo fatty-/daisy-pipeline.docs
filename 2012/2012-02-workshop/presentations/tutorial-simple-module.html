@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>DAISY Pipeline 2: Objectives and Roadmap</title>
+	<meta name="author" content="Romain Deltour">
+    	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="deck.js/core/deck.core.css">
+	<link rel="stylesheet" href="deck.js/extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="deck.js/extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="deck.js/extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="deck.js/extensions/status/deck.status.css">
+	<link rel="stylesheet" href="deck.js/extensions/hash/deck.hash.css">
+	
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<link rel="stylesheet" href="deck.js/themes/style/daisy.css">
+	
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+	<link rel="stylesheet" href="deck.js/themes/transition/horizontal-slide.css">
+	
+	<!-- code highligh theme -->
+	<link rel="stylesheet" href="highlight.js/styles/github.css">
+	
+	<script src="deck.js/modernizr.custom.js"></script>
+    <style>
+span.highlight {
+	background-color: yellow;
+}
+    </style>
+    
+</head>
+
+<body class="deck-container">
+	
+
+<!-- Begin slides -->
+
+<section class="slide title">	
+	<h2 style="margin-top: 4em">DAISY Pipeline 2 Workshop</h2>
+	<h3>Creating a (not so) simple Pipeline 2 script</h3>
+	<img width="210" height="200" style="margin-top:4em; margin-bottom:2em" src="images/DAISY-logo.png" alt="DAISY Consortium logo" />
+	<p>Februart 17th, 2012 - Romain Deltour</p>
+</section>
+
+
+<section class="slide">
+	<h2>Objectives</h2>
+	<blockquote>
+	<p>Query the Pipeline 2 Web Service to get the current list of jobs and output a nice human-readable HTML report</p>
+	</blockquote>
+</section>
+
+<section class="slide">
+	<h2>Prerequsisites</h2>
+	<ul>
+		<li>The code skeleton associated to this tutorial</li>
+		<li>A Pipeline 2 installation</li>
+		<li>A text editor</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Workflow</h2>
+	<img src="images/tutorial-wf.png" alt="Pipeline workflow" style="float:right; height: 50%;"/>
+	<ul>
+		<li>Query the web service to get the list of jobs as XML</li>
+		<li>Convert the list of jobs to HTML</li>
+		<li>Store the result to the file specified as an option</li>
+	</ul>
+	<!-- <img src="images/tutorial-wf.png" alt="Pipeline workflow" style="float:right; width: 30%;"/> -->
+</section>
+
+<section class="slide">
+	<h2>Basic structure of the module</h2>
+	<ul>
+		<li><p><code>META-INF</code> &rarr; module metadata</p>
+			<ul>
+				<li><p><code>catalog.xml</code> &rarr; OASIS XML Catalog</p></li>
+				<li><p><code>MANIFEST.MF</code> &rarr; OSGi Manifest</p></li>
+			</ul>
+		</li>
+		<li><p><code>OSGI-INF</code> &rarr; script metadata</p>
+			<ul>
+				<li><p><code>job-lister.xml</code> &rarr; our script service descriptor</p></li>
+			</ul>
+		</li>
+		<li><p><code>job-lister</code> &rarr; source code</p>
+			<ul>
+				<li><p><code>job-lister.xpl</code> &rarr; XProc script</p></li>
+				<li><p><code>job-to-html.xsl</code> &rarr; XSLT converter</p></li>
+			</ul>
+		</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Declare the signature of the XProc step</h2>
+	<p><strong>Objective</strong>: declare the input / output / options of our XProc pipeline</p>
+	<ul class="slide">
+		<li>the script has <em>no inputs</em></li>
+		<li>the script has <em>no outputs</em></li>
+		<li>the script has a <em>required</em> option named <code>output</code></li>
+	</ul>
+<pre class="slide"><code class="xml">&lt;p:option name=&quot;output&quot; required=&quot;true&quot;&gt;</code></pre>
+</section>
+
+<section class="slide">
+	<h2>Implement the step: Web Service request</h2>
+	<p><strong>Objective</strong>: add a step to invoke the Web Service API</p>
+	<ol>
+		<li>Use the <a href="http://www.w3.org/TR/xproc/#c.http-request"><code>p:http-request</code></a> step</li>
+		<li>Bind the input port to an inline <code>c:request</code> request description</li>
+	</ol>
+	<pre class="slide"><code class="xml">&lt;p:http-request&gt;
+    &lt;p:input port=&quot;source&quot;&gt;
+        &lt;p:inline&gt;
+            &lt;c:request method=&quot;GET&quot; href=&quot;http://localhost:8182/ws/jobs&quot;/&gt;
+        &lt;/p:inline&gt;
+    &lt;/p:input&gt;
+&lt;/p:http-request&gt;</code></pre>
+</section>
+<section class="slide">
+	<h2>Implement the step: XSLT conversion</h2>
+	<p><strong>Objective</strong>: add a step to convert the Web Service answer to XHTML</p>
+	<ol>
+		<li>Use the <a href="http://www.w3.org/TR/xproc/#c.xslt"><code>p:xslt</code></a> step</li>
+		<li>Bind the <code>stylesheet</code> input port to our external XSLT document</li>
+		<li>Set the <code>parameters</code> input port to be empty</li>
+		<li>That's it! The <code>source</code> input port is implicitly passed-through from the previous step</li>
+	</ol>
+<pre class="slide"><code class="xml">&lt;p:xslt&gt;
+    &lt;p:input port=&quot;stylesheet&quot;&gt;
+        &lt;p:document href=&quot;job-to-xhtml.xsl&quot;/&gt;
+    &lt;/p:input&gt;
+    &lt;p:input port=&quot;parameters&quot;&gt;
+        &lt;p:empty/&gt;
+    &lt;/p:input&gt;
+&lt;/p:xslt&gt;</code></pre>
+</section>
+<section class="slide">
+	<h2>Declare the XProc step as a Pipeline 2 script (1)</h2>
+	<p><strong>Objective</strong>: declare the XProc script as a public component in the module OASIS XML Catalog</p>
+	<ol>
+		<li>Open the <code>META-INF/catalog.xml</code> file</li>
+		<li><p>Add a <code>uri</code> element with <code>name</code> attribute set the module's public URI and the <code>uri</code> attribute to the relative path to the module</p>
+			<p><strong>Note</strong>: the public URI can be anything, we suggest: <code>http://www.daisy.org/pipeline/modules/job-lister/job-lister.xpl</code></p></li>
+	</ol>
+<pre class="slide"><code class="xml">&lt;uri name=&quot;http://www.daisy.org/pipeline/modules/job-lister/job-lister.xpl&quot; uri=&quot;../job-lister/job-lister.xpl&quot;/&gt;</code></pre>
+</section>
+
+<section class="slide">
+	<h2>Declare the XProc step as a Pipeline 2 script (2)</h2>
+	<p><strong>Objective</strong>: add metadata to the Script service descriptor</p>
+	<ol>
+		<li>Open the <code>OSGI-INF/job-lister.xml</code> file</li>
+		<li>Complete the metadata for the <code>script.name</code>, <code>script.description</code>, <code>script.url</code> properties</li>
+	</ol>
+<pre class="slide"><code class="xml">   &lt;property name=&quot;script.name&quot; type=&quot;String&quot; <span class="highlight">value=&quot;job-lister&quot;</span>/&gt;
+   &lt;property name=&quot;script.description&quot; type=&quot;String&quot; <span class="highlight">value=&quot;Creates an HTML view of the current Pipeline 2 jobs.&quot;</span>/&gt;
+   &lt;property name=&quot;script.url&quot; type=&quot;String&quot; <span class="highlight">value=&quot;http://www.daisy.org/pipeline/modules/job-lister/job-lister.xpl&quot;</span>/&gt;</code></pre>
+</section>
+<section class="slide">
+	<h2>Declare the XProc step as a Pipeline 2 script (3)</h2>
+	<p><strong>Objective</strong>: add inline Pipeline 2 metadata to the XProc file</p>
+	<ol>
+		<li>Go back to the <code>job-lister.xpl</code> file</li>
+		<li>Add a <code>px:type</code> attribute set to <code>anyFileURI</code>to the <code>output</code> option</li>
+		<li><p>Add a <code>p:documentation</code> child to the <code>p:option</code> element</p>
+			<ul>
+				<li>With a <code>xd:detail</code> child containing the option description</li>
+			</ul>
+		</li>
+	</ol>
+<pre class="slide"><code class="xml">&lt;p:option name=&quot;output&quot; required=&quot;true&quot; <span class="highlight">px:type=&quot;anyFileURI&quot;</span>&gt;
+    <span class="highlight">&lt;p:documentation&gt;
+        &lt;xd:detail&gt;An HTML document displaying the current list of Pipeline 2 jobs&lt;/xd:detail&gt;
+    &lt;/p:documentation&gt;</span>
+&lt;/p:option&gt;</code></pre>
+</section>
+
+<section class="slide">
+	<h2>Package the module</h2>
+	<p><strong>Objective</strong>: package the module content to a <em>jar</em> archive</p>
+	<ol>
+		<li>Open a command window and go to the module's top-level directory</li>
+		<li>ZIP the content into an archive with the <code>.jar</code> extension</li>
+	</ol>
+<pre><code class="no-highlight">zip -ur ../org.daisy.pipeline.modules.job-lister.jar META-INF/MANIFEST.MF *</code></pre>
+</section>
+
+<section class="slide">
+	<h2>Deploy the module</h2>
+	<p><strong>Objective</strong>: install the created module archive to a Pipeline 2 installation</p>
+	<ol>
+		<li>Just move the <em>jar</em> file to the <code>fwk/modules/</code> directory of your Pipeline 2 installation</li>
+	</ol>
+	<p><strong>Note</strong>: no need to stop the web service if it's already running, it will be dynamically updated</p>
+</section>
+<section class="slide">
+	<h2>Run the script!</h2>
+<pre><code class="no-highlight">$ cli/dp2 help job-lister
+Usage: dp2 job-lister [options]
+       --x-output [option_value]    
+	 Desc:An HTML document displaying the current list of Pipeline 2 jobs
+	 Media type:text/html
+	 Required:true
+	 Type:anyFileURI
+
+   -b, --background                 Runs the job in the background (will be persistent)
+   -p, --persistent                 Forces to keep the job data in the server</code></pre>
+</section>
+
+<!-- End slides -->
+
+<footer id="daisy-footer">
+	<p>&copy; DAISY Consortium 2012</p>
+</footer>
+
+<!-- deck.js configuration -->
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+<!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+<script>window.jQuery || document.write('<script src="deck.js/jquery-1.7.min.js"><\/script>')</script>
+
+<!-- Deck Core and extensions -->
+<script src="deck.js/core/deck.core.js"></script>
+<script src="deck.js/extensions/hash/deck.hash.js"></script>
+<script src="deck.js/extensions/menu/deck.menu.js"></script>
+<script src="deck.js/extensions/goto/deck.goto.js"></script>
+<script src="deck.js/extensions/status/deck.status.js"></script>
+<script src="deck.js/extensions/navigation/deck.navigation.js"></script>
+
+<!-- Initialize the deck -->
+<script>
+$(function() {
+	$.deck('.slide');
+});
+
+</script>
+
+
+<!-- Code Hightlighting -->
+<script src="highlight.js/highlight.pack.js"></script>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
