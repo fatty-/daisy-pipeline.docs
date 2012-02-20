@@ -1,0 +1,434 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>Notes on EPUB 3</title>
+	<meta name="author" content="Marisa DeMeglio">
+    	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="deck.js/core/deck.core.css">
+	<link rel="stylesheet" href="deck.js/extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="deck.js/extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="deck.js/extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="deck.js/extensions/status/deck.status.css">
+	<link rel="stylesheet" href="deck.js/extensions/hash/deck.hash.css">
+	
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<!--<link rel="stylesheet" href="deck.js/themes/style/web-2.0.css">-->
+    <link rel="stylesheet" href="deck.js/themes/style/daisy.css">
+	
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+	<link rel="stylesheet" href="deck.js/themes/transition/horizontal-slide.css">
+	
+	<script src="deck.js/modernizr.custom.js"></script>
+    <style>
+    
+    .slide img {
+        margin-top: 6em;
+    }
+    
+    dt {
+        font-weight: bolder !important;
+    }
+    dd {
+        margin-bottom: 2em !important;
+    }
+    .actions em {
+        font-weight: bold;
+        font-style: normal;
+    }
+    
+    </style>
+    
+</head>
+
+<body class="deck-container">
+
+<!-- Begin slides -->
+<section class="slide">
+    <h1>Notes on EPUB 3</h1>
+</section>
+
+<section class="slide">
+    <h2>.epub</h2>
+    <ul>
+        <li>All files are bundled into a single archive.</li>
+        <li>E.g. <code>AliceInWonderland.epub</code></li>
+        <li>Self-contained and easy to distribute</li>
+    </ul>
+    <img src="images/SingleFileDownload.png" alt="Cartoon showing a user downloading a .epub file from the Internet." style="margin-top: 3em"/>
+</section>
+        
+
+<section class="slide">
+    <h2>EPUB 3 Fileset Basics</h2>
+    <p>Not a comprehensive list, but the essentials:</p>
+    <ul>
+        <li>Package document</li>
+        <li>Content document</li>
+        <li>Navigation document</li>
+        <li>Media overlays</li>
+    </ul>
+    <p>To look at the files inside an EPUB, just rename it with a zip extension (e.g. <code>AliceInWonderland.zip</code>) and unzip.</p>
+    <img src="images/Fileset.png" alt="Generic fileset icon" style="margin-top: 3em"/>
+    
+</section>
+
+<section class="slide">
+    <h2>Package Document</h2>
+    <pre>Extension: <code>.opf</code></pre>
+    <ul>
+        <li>Evolution of EPUB 2 / DAISY 3 OPF file</li>
+        <li>Contains publication metadata</li>
+        <li>Lists all publication files</li>
+        <li>Defines spine</li>
+        <li>Associates Media Overylays with Content Documents</li>
+    </ul>
+    <pre><code>
+&lt;package xmlns=&quot;http://www.idpf.org/2007/opf&quot; version=&quot;3.0&quot; xml:lang=&quot;en&quot; unique-identifier=&quot;pub-id&quot;&gt;
+    &lt;dc:title id=&quot;title&quot;&gt;Moby-Dick&lt;/dc:title&gt;
+    &lt;meta refines=&quot;#title&quot; property=&quot;title-type&quot;&gt;main&lt;/meta&gt;
+    ...
+    &lt;manifest&gt;
+        ...
+        &lt;item id=&quot;toc&quot; properties=&quot;nav&quot; href=&quot;toc.xhtml&quot; media-type=&quot;application/xhtml+xml&quot;/&gt;
+        &lt;item id=&quot;xchapter_001&quot; href=&quot;chapter_001.xhtml&quot; media-type=&quot;application/xhtml+xml&quot; media-overlay=&quot;chapter_001_overlay&quot;/&gt;
+        &lt;item id=&quot;chapter_001_overlay&quot; href=&quot;chapter_001_overlay.smil&quot; media-type=&quot;application/smil+xml&quot;/&gt;
+        ...
+    &lt;/manifest&gt;
+    
+    &lt;spine&gt;
+        ...
+        &lt;itemref idref=&quot;xchapter_001&quot;/&gt;
+        ...
+    &lt;/spine&gt;
+&lt;/package&gt;
+    </code></pre>
+</section>
+
+<section class="slide">
+    <h2>Navigation</h2>
+    <pre>Extension: <code>.xhtml</code></pre>
+    <ul>
+        <li>Type of Content Document</li>
+        <li>Uses XHTML5 <code>nav</code> element as a container for lists of navigation targets</li>
+        <li>Primary navigation structure identified by attribute <code>epub:type = toc</code></li>
+        <li>Other pre-defined <code>epub:type</code> values: <code>page-list</code> and <code>landmarks</code></li>
+    </ul>
+    
+    <pre><code>
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xmlns:epub=&quot;http://www.idpf.org/2007/ops&quot;&gt;
+   &lt;head&gt;
+      &lt;title&gt;Moby-Dick&lt;/title&gt;
+      &lt;meta charset=&quot;utf-8&quot;/&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+      &lt;section epub:type=&quot;frontmatter toc&quot;&gt;
+         &lt;header&gt;
+             &lt;h1&gt;Contents&lt;/h1&gt;
+         &lt;/header&gt;
+         &lt;nav epub:type=&quot;toc&quot; id=&quot;toc&quot;&gt;
+            &lt;ol&gt;
+               &lt;li id=&quot;toc-titlepage&quot;&gt;
+                  &lt;a href=&quot;titlepage.xhtml&quot;&gt;Moby-Dick&lt;/a&gt;
+               &lt;/li&gt;
+               ...
+               &lt;li id=&quot;toc-chapter_001&quot;&gt;
+                  &lt;a href=&quot;chapter_001.xhtml&quot;&gt;Chapter 1. Loomings.&lt;/a&gt;
+               &lt;/li&gt;
+               ...
+        &lt;/nav&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    
+</section>
+
+<section class="slide">
+    <h2>Content Document</h2>
+    <pre>Extension: <code>.xhtml</code></pre>
+    <ul>
+        <li>Main text documents of the publication are in this format.</li>
+        <li>XHTML 5 plus some restrictions and exceptions</li>
+        <li>Accessibility features include:
+            <ul>
+                <li>Semantic inflection</li>
+                <li>Speech Synthesis Markup Lanaguage (SSML)</li>
+                <li>Pronunciation Lexicon Specification (PLS)</li>
+            </ul>
+        </li>
+    </ul>
+    
+    <pre><code>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xmlns:epub=&quot;http://www.idpf.org/2007/ops&quot;&gt;
+    &lt;head&gt;
+        &lt;title&gt;Moby-Dick&lt;/title&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;css/stylesheet.css&quot; type=&quot;text/css&quot;/&gt;
+        &lt;meta charset=&quot;utf-8&quot;/&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;section epub:type=&quot;bodymatter chapter&quot;&gt;
+        &lt;header&gt;
+            &lt;h1&gt;&lt;span id=&quot;c001s0000&quot;&gt;Chapter 1. Loomings.&lt;/span&gt;&lt;/h1&gt;
+        &lt;/header&gt;
+        &lt;p&gt;&lt;span id=&quot;c001s0001&quot;&gt;Call me Ishmael.&lt;/span&gt;
+        ...
+    &lt;/body&gt;
+&lt;html&gt;
+</code></pre>
+    
+</section>    
+<section class="slide">
+    <h2>Semantic Inflection</h2>
+    
+    <p>Used in Content Documents and Media Overlays</p>
+    <p>Assign machine-readable semantics to document structures and enable reading systems to provide a better user experience.</p>
+    <p>The default vocabulary is the EPUB 3 Structural Semantics Vocabulary</p>
+    
+    <h3>Examples</h3>
+    <p>Include page numbers:</p>
+    <pre><code>
+&lt;span epub:type=&quot;pagebreak&quot; title=&quot;234&quot;/&gt;
+    </code></pre>
+
+    <p>Identify structures such as glossaries:</p>
+    <pre><code>
+&lt;dl epub:type=&quot;glossary&quot;&gt;
+ &hellip;    
+&lt;/dl&gt; 
+    </code></pre>  
+    
+    <p>Use in Media Overlays:</p>
+    <pre><code>
+&lt;seq id=&quot;id1&quot; epub:textref=&quot;chapter_001.xhtml&quot; <span>epub:type=&quot;bodymatter chapter&quot;</span>&gt;
+    </code></pre>
+
+</section>    
+
+
+<section class="slide">
+    <h2>PLS</h2>
+    <ul>
+        <li>Application-specific lexicons to extend internal capabilities of TTS engines.</li>
+        <li>Linked inside the content document <code>head</code> and fed to the TTS engine.</li>
+    </ul>
+    <pre><code>
+&lt;head&gt;
+    &hellip;
+    &lt;link rel=&quot;pronunciation&quot; type=&quot;application/pls+xml&quot; hreflang=&quot;zh&quot; href=&quot;zh.pls&quot;/&gt;
+    &lt;link rel=&quot;pronunciation&quot; type=&quot;application/pls+xml&quot; hreflang=&quot;mn&quot; href=&quot;mn.pls&quot;/&gt;
+&lt;/head&gt;        
+    </code></pre>
+</section>    
+
+<section class="slide">
+    <h2>SSML</h2>
+
+    <ul>
+        <li>W3C standard; part of Voice Browser WG.</li>
+        <li>EPUB 3 uses some attributes from SSML for phonetic pronunciation:
+            <ul>
+                <li><code>ssml:alphabet</code> attribute</li>
+                <li><code>ssml:ph</code> attribute</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p>For example, to correctly pronounce &quot;La Vita e Bella&quot;</p>
+
+    <pre><code>
+&lt;p&gt;Have you seen &lt;span ssml:alphabet=&quot;ipa&quot; ssml:ph=<span>&quot;&#x2C8;l&#x251; &#x2C8;vi&#x2D0;&#x27E;&#x259; &#x2C8;&#x294;e&#x26A; &#x2C8;b&#x25B;l&#x259;&quot;</span>&gt;&quot;La vita &egrave; bella&quot;&lt;/span&gt;?&lt;/p&gt;
+    </code></pre>    
+    
+    <p style="margin-top: 4em">In the case of overlap, these <code>ssml:</code> attributes take precedence over the pronunciation lexicon.</p> 
+    
+</section>    
+
+<section class="slide">
+    <h2>CSS Speech</h2>
+    <ul>
+        <li>W3C standard; part of Voice Browser WG.</li>
+        <li>Specify voice properties and cues</li>
+    </ul>
+    
+    <pre><code>
+        h1, h2, h3, h4, h5, h6
+        {
+          voice-family: paul;
+          voice-stress: moderate;
+          cue-before: url(../audio/ping.wav);
+          voice-volume: medium 6dB;
+        }
+    </code></pre>
+    
+</section>    
+        
+
+<section class="slide">
+    <h2>Media Overlays</h2>
+    <pre>Extension: <code>.smil</code></pre>
+    <ul>
+        <li>SMIL files</li>
+        <li>Add narrated audio to content document.</li>
+    </ul>
+    
+    <h3>Changes from previous DAISY standards</h3>
+    <ul>    
+        <li>Added <code>textref</code> attribute to seq containers</li>
+        <li>Each content document corresponds to no more than one SMIL file</li>
+        <li>Added semantics via <code>epub:type</code></li>
+        <li>Semantics enable skip/escape on reading systems.</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Media Overlays (cont'd)</h2>
+    <p>Example</p>
+    
+    <pre><code>
+&lt;smil 
+     xmlns=&quot;http://www.w3.org/ns/SMIL&quot;
+     xmlns:epub=&quot;http://www.idpf.org/2007/ops&quot;
+     version=&quot;3.0&quot;&gt;
+    &lt;body&gt;
+        &lt;seq id=&quot;id1&quot; epub:textref=&quot;chapter_001.xhtml&quot; <span>epub:type=&quot;bodymatter chapter&quot;</span>&gt;
+            &lt;par id=&quot;sentence0&quot;&gt;
+                &lt;text src=&quot;chapter_001.xhtml#c001s0000&quot;/&gt;
+                &lt;audio src=&quot;audio.mp4&quot; clipBegin=&quot;0:00:21&quot; clipEnd=&quot;0:00:28&quot;/&gt;
+            &lt;/par&gt;
+            &lt;par id=&quot;sentence1&quot;&gt;
+                &lt;text src=&quot;chapter_001.xhtml#c001s0001&quot;/&gt;
+                &lt;audio src=&quot;audio.mp4&quot; clipBegin=&quot;0:00:28&quot; clipEnd=&quot;0:00:30&quot;/&gt;
+            &lt;/par&gt;
+            ...
+        &lt;/seq&gt;
+    &lt;/body&gt;
+&lt;/smil&gt;
+    </code></pre>
+</section>
+
+<section class="slide">
+    <h2>Media Overlays and the Package Document</h2>
+    
+    <h3>Metadata</h3>
+    <p>Media Overlay metadata goes in the Package Document.</p>
+    <pre><code>
+&lt;meta property=&quot;media:duration&quot; refines=&quot;#chapter_001_overlay&quot;&gt;0:14:43&lt;/meta&gt;
+&lt;meta property=&quot;media:duration&quot;&gt;0:23:46&lt;/meta&gt;
+&lt;meta property=&quot;media:narrator&quot;&gt;Stuart Wills&lt;/meta&gt;
+    </code></pre>
+    
+    <div class="slide">
+        <h3>Associating Media Overlays with Content Documents</h2>
+        <p>Add the <code>media-overlay</code> attribute to the Content Document manifest item.</p>
+        <pre><code>
+&lt;manifest&gt;
+    ...
+    &lt;item id=&quot;xchapter_001&quot; href=&quot;chapter_001.xhtml&quot; media-type=&quot;application/xhtml+xml&quot; <span>media-overlay=&quot;chapter_001_overlay&quot;</span>/&gt;
+    &lt;item id=&quot;chapter_001_overlay&quot; href=&quot;chapter_001_overlay.smil&quot; media-type=&quot;application/smil+xml&quot;/&gt;
+    ...
+&lt;/manifest&gt;
+        </code></pre>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Media Overlays and CSS</h2>
+    
+    <h3>Highlighting</h3>
+    <p>Use the <code>media:active-class</code> metadata property to specify which CSS class the reading system should apply to the currently-playing text fragment.</p>
+    <pre><code>        
+&lt;meta property=&quot;media:active-class&quot;&gt;-epub-media-overlay-active&lt;/meta&gt;
+    </code></pre>    
+    
+    <p>In this example, the EPUB stylesheet contains a class selector <code>-epub-media-overlay-active</code> with styling rules:</p>
+    <pre><code>
+.-epub-media-overlay-active
+{
+    background-color: yellow;
+}
+    </code></pre>
+</section>
+
+
+<section class="slide">
+    <h2>Related Tools</h2>
+    <ul>
+        <li>EpubCheck validator: use <a href="http://validator.idpf.org">online</a> or <a href="http://epubcheck.googlecode.com">download</a></li>
+        <li>Pipeline scripts: <code>daisy202-to-epub3</code>, <code>dtook-to-epub3</code>, <code>zedai-to-epub3</code></li>
+        <li>Matt Garrish's EPUB books (available for free from O'Reilly)
+            <ul>
+                <li><a href="http://shop.oreilly.com/product/0636920022442.do">What is EPUB 3?</a></li>
+                <li><a href="http://shop.oreilly.com/product/0636920025283.do">Accessible EPUB 3</a></li>
+            </ul>
+        </li>
+    </ul>
+</section> 
+
+<!-- End slides -->
+<footer id="daisy-footer">
+	<p>&copy; DAISY Consortium 2012</p>
+</footer>
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+<!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+<script>window.jQuery || document.write('<script src="deck.js/jquery-1.7.min.js"><\/script>')</script>
+
+<!-- Deck Core and extensions -->
+<script src="deck.js/core/deck.core.js"></script>
+<script src="deck.js/extensions/hash/deck.hash.js"></script>
+<script src="deck.js/extensions/menu/deck.menu.js"></script>
+<script src="deck.js/extensions/goto/deck.goto.js"></script>
+<script src="deck.js/extensions/status/deck.status.js"></script>
+<script src="deck.js/extensions/navigation/deck.navigation.js"></script>
+
+<!-- Initialize the deck -->
+<script>
+$(function() {
+	$.deck('.slide');
+});
+
+$(document).ready(function() {
+    $('code span').mouseover(function() {
+       $(this).css("color", "red"); 
+    });
+    
+    $('code span').mouseout(function() {
+       $(this).css("color", "inherit"); 
+    });
+});
+
+
+</script>
+
+</body>
+</html>
