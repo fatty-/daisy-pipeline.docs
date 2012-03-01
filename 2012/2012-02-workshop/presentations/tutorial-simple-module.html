@@ -5,9 +5,8 @@
 <!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>DAISY Pipeline 2: Objectives and Roadmap</title>
+	<title>DAISY Pipeline 2 Tutorial: Creating a simple script</title>
 	<meta name="author" content="Romain Deltour">
     	
 	<!-- Core and extension CSS files -->
@@ -42,10 +41,10 @@ span.highlight {
 <!-- Begin slides -->
 
 <section class="slide title">	
-	<h2 style="margin-top: 4em">DAISY Pipeline 2 Workshop</h2>
+	<h2 style="margin-top: 4em">DAISY Pipeline 2 Tutorial</h2>
 	<h3>Creating a (not so) simple Pipeline 2 script</h3>
-	<img width="210" height="200" style="margin-top:4em; margin-bottom:2em" src="images/DAISY-logo.png" alt="DAISY Consortium logo" />
-	<p>Februart 17th, 2012 - Romain Deltour</p>
+	<img width="210" height="200" style="margin-top:4em; margin-bottom:2em" src="images/DAISY-logo.png" title="DAISY Consortium logo" alt="" />
+	<p>February 17th, 2012 - Romain Deltour</p>
 </section>
 
 
@@ -57,7 +56,7 @@ span.highlight {
 </section>
 
 <section class="slide">
-	<h2>Prerequsisites</h2>
+	<h2>Prerequisites</h2>
 	<ul>
 		<li>The code skeleton associated to this tutorial</li>
 		<li>A Pipeline 2 installation</li>
@@ -67,13 +66,12 @@ span.highlight {
 
 <section class="slide">
 	<h2>Workflow</h2>
-	<img src="images/tutorial-wf.png" alt="Pipeline workflow" style="float:right; height: 50%;"/>
-	<ul>
+	<ul style="float:left; width: 60%">
 		<li>Query the web service to get the list of jobs as XML</li>
 		<li>Convert the list of jobs to HTML</li>
 		<li>Store the result to the file specified as an option</li>
 	</ul>
-	<!-- <img src="images/tutorial-wf.png" alt="Pipeline workflow" style="float:right; width: 30%;"/> -->
+	<img src="images/tutorial-wf.png" title="The script workflow" alt="The first step is an HTTP request to a (possibly rmeote) Pipeline Web Service ; then an XSLT conversion to finally produce an HTML report." style="float:right; width: 35%;"/>
 </section>
 
 <section class="slide">
@@ -107,7 +105,7 @@ span.highlight {
 		<li>the script has <em>no outputs</em></li>
 		<li>the script has a <em>required</em> option named <code>output</code></li>
 	</ul>
-<pre class="slide"><code class="xml">&lt;p:option name=&quot;output&quot; required=&quot;true&quot;&gt;</code></pre>
+<pre class="slide"><code class="xml">&lt;p:option name=&quot;output&quot; required=&quot;true&quot;/&gt;</code></pre>
 </section>
 
 <section class="slide">
@@ -191,7 +189,11 @@ span.highlight {
 		<li>Open a command window and go to the module's top-level directory</li>
 		<li>ZIP the content into an archive with the <code>.jar</code> extension</li>
 	</ol>
+	<p><strong>Warning:</strong> the order of the files in the jar archive matters ; the manifest <em>must</em> be the first entry.</p>
 <pre><code class="no-highlight">zip -ur ../org.daisy.pipeline.modules.job-lister.jar META-INF/MANIFEST.MF *</code></pre>
+<p>or</p>
+<pre><code class="no-highlight">jar cmf META-INF/MANIFEST.MF ../org.daisy.pipeline.modules.job-lister.jar *</code></pre>
+<aside style="float: right"><small>Note: the <code>jar</code> command requires a Java Development Kit (JDK) to be installed</small></aside>
 </section>
 
 <section class="slide">
