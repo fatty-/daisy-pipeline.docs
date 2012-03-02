@@ -5,11 +5,9 @@
 <!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>Pipeline 2: What End Users and Integrators Need to Know</title>
+	<title>Pipeline 2: Internal architecture and technical details</title>
 	
-	<meta name="description" content="Instalation and first steps">
 	<meta name="author" content="Javier Asensio Cubero">
 	<meta name="viewport" content="width=1024, user-scalable=no">
 	
@@ -25,43 +23,43 @@
 	<link rel="stylesheet" href="deck.js/themes/style/daisy.css">
 	
 	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
-	<link rel="stylesheet" href=deck.js/themes/transition/horizontal-slide.css">
+	<link rel="stylesheet" href="deck.js/themes/transition/horizontal-slide.css">
 	
 	<script src="deck.js/modernizr.custom.js"></script>
-</head>
+</head> 
 
 <body class="deck-container">
 
 <!-- Begin slides -->
-<section class="slide" id="title-slide">
+<section class="title slide" id="title-slide">
 	<h2 style="margin-top: 4em">DAISY Pipeline 2 </h2>
 	<h3>Internal architecture and technical details</h3>
-	<img width="210" height="200" style="margin-top:4em; margin-bottom:2em" src="images/DAISY-logo.png" alt="DAISY Consortium logo" />
+	<img width="210" height="200" style="margin-top:4em; margin-bottom:2em" src="images/DAISY-logo.png" title="DAISY Consortium logo" alt=""/>
 	<p>February 17, 2011 - Javier Asensio</p>
 </section>
 
 <section class="slide" id="dp-intro">
-	<h2> Daisy pipeline 2 design </h2>
-	<p>Our aims: </p>
+	<h2> DAISY Pipeline 2 design </h2>
+	<p>Our goals: </p>
 	<ul>
 		<li>Minimise the development and maintenance costs. </li>
 		<li>Establish a low learning curve for users and developers. </li>	
 		<li>Increase the interoperability with the heterogeneous community needs. </li>
 	</ul>
-	<p>Adoption of existing standards relaying on:</p>
+	<p>Adoption of existing standards relying on:</p>
 	<ul>
-		<li><h3>OSGI</h3> for modularisation.</li>
-		<li><h3>XProc</h3> as xml processing technology.</li>
+		<li><h3>OSGi</h3> for modularisation.</li>
+		<li><h3>XProc</h3> for the XML processing pipeline description.</li>
 		<li><h3>Restful API</h3> for a simple integration with other systems.</li>
 	</ul>
 </section>
 <section class="slide" id="osgi-1">
-	<h2>OSGI</h2>
-	<p>OSGI is a java module system and service platform <a href="http://en.wikipedia.org/wiki/OSGi"> according to the wikipedia</a></p>
-	<p> The reasons/benefits for using OSGI are: <p>
+	<h2>OSGi</h2>
+	<p>OSGi is a java module system and service platform <a href="http://en.wikipedia.org/wiki/OSGi"> according to Wikipedia</a></p>
+	<p> The reasons/benefits for using OSGi are: <p>
 	<ul>
 		<li> It is an open standard with several open-source implementations.
-		<li> Easy software design using modularisation (OSGI bundles). </li>
+		<li> Easy software design using modularisation (OSGi bundles). </li>
 		<li> Allows hot module loading/unloading. </li>
 		<li> Automatic interface publication using dynamic services (improved factory method pattern). </li>
 		 	
@@ -69,24 +67,24 @@
 
 </section>
 <section class="slide" id="osgi-bundle">
-	<h2>OSGI Bundles Services</h2>
+	<h2>OSGi Bundles Services</h2>
 	<ul>
 		<li>Bundles are classes grouped by functionality, namely libraries (jar files).</li>
-		<li>OSGI bundles can offer functionality using services (a part from common interfaces and classes). These services are abstract behaviours (interfaces) where the actual implementation is hidden.   </li>
-		<li> The process of publishing services may be managed by the underlying OSGI framework.</li>
+		<li>OSGi bundles can offer functionality using services (a part from common interfaces and classes). These services are abstract behaviours (interfaces) where the actual implementation is hidden.   </li>
+		<li> The process of publishing services may be managed by the underlying OSGi framework.</li>
 	</ul>
-	<img src="images/bundle-services.jpg" alt="Service diagram">
-	<p> Image from <a href="http://felix.apache.org/" > Apache felix site </a></p>
+	<img src="images/bundle-services.jpg" alt="An OSGi service is registered by an implementer bundle and used by a consumer bundle. A listener bundle can listen to registration events.">
+	<p style="text-align: center"><small>Image from <a href="http://felix.apache.org/" > Apache felix site </a></small></p>
 </section>
 <section class="slide" id="osgi-service-exmpl">
-	<h2>OSGI Service example</h2>
+	<h2>OSGi Service example</h2>
 	<p> Simple scenario - Messaging system<p>
 	<ul>
 		<li>Every message service offers the same interface.
 			<pre>
 			<code>
 public interface MessageService{
-	public List<Message> getUnreadMessages();
+	public List&lt;Message&gt; getUnreadMessages();
 }	
 			</code>
 			</pre>
@@ -108,8 +106,8 @@ public interface MessageService{
 </section>
 <section class="slide" id="osgi-dynamic-service">
 	<h2>Declaring dynamic services</h2>
-	<p>Services can be declared or queried programmatically using the OSGI API.<p>
-	<p>But we can also declare them in a xml file and let the framework deal with the hassle for us</p>
+	<p>Services can be declared or queried programmatically using the OSGi API.<p>
+	<p>But we can also declare them in a XML file and let the framework deal with the hassle for us</p>
 	<pre>
 	<code>
 &lt;?xml version="1.0" encoding="UTF-8"?&gt;
@@ -123,41 +121,37 @@ public interface MessageService{
 	</pre>
 </section>
 <section class="slide" id="xproc-1">
-	<h2> Xproc introdution </h2>
-		<table style="border:0"/>
-			<tr>
-				<td>
-				<ul>
-					<li><a href="http://www.w3.org/TR/xproc/">XProc </a> is an xml transformation language based on xml pipelines.</li>
-					<li>An XProc pipeline consists of many steps piped together defining a sequential and or parallel xml workflow.</li>
-					<li>It is a W3C recommendation and an open standard.</li>
-					<li>It is well integrated with other xml related technologies such as XSLT, XPath, different types of validations and XQuery.</li>
-					<li>Its design allows to easily reuse pipelines/steps and embed them to build new pipelines.</li>
-				</ul>
-				</td>
-				<td> <img src="http://www.w3.org/TR/xproc/graphics/sch-transform.png" alt="XProc step example"/> </td>
-			</tr>
-		</table>
-	</div>
+	<h2> XProc introduction </h2>
+	<aside style="float:right; width: 30%; margin-left: 10px"><img src="http://www.w3.org/TR/xproc/graphics/sch-transform.png" title="XProc step example" alt=""/></aside>
+	<ul>
+		<li><a href="http://www.w3.org/TR/xproc/">XProc </a> is an XML transformation language based on XML pipelines.</li>
+		<li>An XProc pipeline consists of many steps piped together defining a sequential and or parallel XML workflow.</li>
+		<li>It is a W3C recommendation and an open standard.</li>
+		<li>It is well integrated with other XML related technologies such as XSLT, XPath, different types of validations and XQuery.</li>
+		<li>Its design allows to easily reuse pipelines/steps and embed them to build new pipelines.</li>
+	</ul>
 </section>
 <section class="slide" id="xproc-2">
-	<h2> Xproc Steps </h2>
+	<h2> XProc Steps </h2>
 	<p>XProc defines three different types of steps:</p>
 	<ul>
-		<li><font style="font-style:italic">Atomic steps</font> perform a single indivisible operation (XSLT transform, validate a document, copy or filter xml trees). </li>
-		<li><font style="font-style:italic">Compound steps</font> which contain other subpipelines or step groups. This increases scalability  as we are able to include pipelines within pipelines<sup> within pipelines<sup> within pipelines<sup> within pipelines</sup></sup></sup> </li>
-		<li><font style="font-style:italic">Multi-container steps</font> contain several alternate subpipelines (e.g. if/then/else, try/catch). </li>
-	</ul>
-	
-	<h2> Anatomy of an Xproc Step </h2>
-	<p>The basic elements of an XProc steps are:</p>
-	<ul>
-		<li><font style="font-style:italic">Input ports: </font> They are the entry points for the XML documents to be processed (and only XML documents)	</li>
-	    	<li><font style="font-style:italic">Output ports:</font> Sink where all the results are streamed. </li>
-		<li><font style="font-style:italic">Options:</font> modifiers with several uses (switches, non-xml files entry points,...). </li>
+		<li><em>Atomic steps</em> perform a single indivisible operation (XSLT transform, validate a document, copy or filter XML trees). </li>
+		<li><em>Compound steps</em> which contain other subpipelines or step groups. This increases scalability  as we are able to include pipelines within pipelines<sup> within pipelines<sup> within pipelines<sup> within pipelines</sup></sup></sup> </li>
+		<li><em>Multi-container steps</em> contain several alternate subpipelines (e.g. if/then/else, try/catch). </li>
 	</ul>
 </section>
 <section class="slide" id="xproc-3">
+	
+
+	<h2> Anatomy of an XProc Step </h2>
+	<p>The basic elements of an XProc steps are:</p>
+	<ul>
+		<li><em>Input ports: </em> They are the entry points for the XML documents to be processed (and only XML documents)	</li>
+	    	<li><em>Output ports:</em> Sink where all the results are streamed. </li>
+		<li><em>Options:</em> modifiers with several uses (switches, non-xml files entry points,...). </li>
+	</ul>
+</section>
+<section class="slide" id="xproc-4">
 	<h2> Simple Step Example </h2>
 	<pre>
 	<code>
@@ -184,57 +178,54 @@ public interface MessageService{
 	</pre>
 </section>
 <section class="slide" id="dp2-concepts">
-	<h2> Daisy pipeline concepts </h2>
+	<h2> DAISY Pipeline 2 concepts </h2>
 	<ul>
-		<li><strong> Module: </strong> set of resources which offer certain functionality to the framework (i.e. zedai related transformations) </li> 
-		<li><strong> Script: </strong> Extended XProc steps which offer a simple interface and allow end-users carry out a complete transform (i.e. Dtbook-to-zedai)  </li> 
+		<li><strong> Module: </strong> set of resources which offer certain functionality to the framework (i.e. ZedAI-related transformations) </li> 
+		<li><strong> Script: </strong> Extended XProc step which offers a simple interface and allow end-users to carry out a complete transform (e.g. dtbook-to-zedai)  </li> 
 		<li><strong> Job: </strong> Instance of a script (or plain XProc step) with all the information needed to be executed.   </li> 
 	</ul>
 </section>
-<section class="slide" id="dp2-1">
-	<h2> Daisy pipeline abstract architecture </h2>
+<section class="slide">
+	<h2> DAISY Pipeline 2 abstract architecture </h2>
 	<p>The big picture</p>
-	<img src="images/backend.png"/>
+	<img src="images/backend.png" title="The Pipeline 2 architecture" alt="The base of the back-end is an XProc engine. The job management layer uses an I/O layer and the execution service for the XProc engine. In parallel, a module and script management layer is added to the XProc engine through URI resolution mechanisms. The front-end is the Web API or a Java API."/>
 </section>
-<section class="slide" id="dp2-2">
-	<h2> Daisy modules and components </h2>
-	<p> A daisy pipeline module is a set of resources  bundled under a common name </p>
+<section class="slide">
+	<h2> DAISY modules and components </h2>
+	<p> A DAISY Pipeline module is a set of resources  bundled under a common name </p>
 	<ul>
 		<li>Modules are formed of components. </li>		
-		<li>Components are mainly, but not only xml files. </li>		
+		<li>Components are mainly, but not only XML files. </li>		
 		<li>Components can be public (other modules can access them) or private. </li>		
 		<li>Public components are accessible using their URI. </li>		
-		<li>Public components are listed in the module's descriptor(based on xml catalogs). </li>		
+		<li>Public components are listed in the module's descriptor (based on XML catalogs). </li>		
 	</ul>
 </section>
-<section class="slide" id="dp2-2">
-	<h2> How to create a daisy module </h2>
+<section class="slide">
+	<h2> How to create a DAISY module </h2>
 	<p>This is what you need to create a daisy module: </p>
 	<ol>	
-		<li>An xml catalog listing the available components.</li>
-		<li>A manifest file with some basic information for OSGI.</li>
-		<li>Simple xml file for the building system.</li>
-		<li> Your actual xml resources </li>
+		<li>An XML catalog listing the available components.</li>
+		<li>A manifest file with some basic information for OSGi.</li>
+		<li>Simple XML file for the building system.</li>
+		<li> Your actual XML resources </li>
 	</ol>
-	<img src="images/module_dir.png" />
-	<p><sub>* DISCLAIMER: 1,2,3 will be merged soon! </sub><p> 
+	<img src="images/module_dir.png" alt=""/>
+	<p><small>DISCLAIMER: 1,2,3 will be merged soon! </small><p> 
 </section>
-<section class="slide" id="dp2-2">
+<section class="slide">
 	<h2> How to create a daisy module II </h2>
-	<p>Catalog example</p>
-	<pre><code> 
-		<?xml version="1.0" encoding="UTF-8"?>
+	<p>XML Catalog example</p>
+	<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"&gt;
   &lt;uri name="http://www.daisy.org/pipeline/modules/dtbook-to-zedai/dtbook-to-zedai.xpl" uri="../dtbook-to-zedai/dtbook-to-zedai.xpl"/&gt;
   &lt;uri name="http://www.daisy.org/pipeline/modules/dtbook-to-zedai/dtbook-to-zedai.load.xpl" uri="../dtbook-to-zedai/dtbook-to-zedai.load.xpl"/&gt;
   &lt;uri name="http://www.daisy.org/pipeline/modules/dtbook-to-zedai/dtbook-to-zedai.convert.xpl" uri="../dtbook-to-zedai/dtbook-to-zedai.convert.xpl"/&gt;
   &lt;uri name="http://www.daisy.org/pipeline/modules/dtbook-to-zedai/dtbook-to-zedai.store.xpl" uri="../dtbook-to-zedai/dtbook-to-zedai.store.xpl"/&gt;
-&lt;/catalog&gt;
-
-	</code></pre>
+&lt;/catalog&gt;</code></pre>
 </section>
-<section class="slide" id="dp2-2">
-	<h2> How to create a daisy module III </h2>
+<section class="slide">
+	<h2> How to create a DAISY module III </h2>
 	<p>MANIFEST.MF</p>
 	<pre><code> 
 Manifest-Version: 1.0
@@ -250,13 +241,13 @@ Require-Bundle: org.daisy.pipeline.modules.metadata-utils,
  org.daisy.pipeline.modules.file-utils
 	</code></pre>
 </section>
-<section class="slide" id="dp2-2">
+<section class="slide">
 	<h2> Scripts </h2>
-	<p> A daisy pipeline script is an extended xproc step, where: </p>
+	<p> A DAISY Pipeline script is an extended xproc step, where: </p>
 	<ul>
 		<li>Authoring information is attached. </li>		
 		<li>Input ports are extended with a description and the media type accepted. </li>		
-		<li>Options are enriched with a description, xs:data type and media type in case they are expecting xml file paths.</li>		
+		<li>Options are enriched with a description, xs:data type and media type in case they are expecting XML file paths.</li>		
 	</ul>
 <pre>
 $ dp2 help dtbook-to-zedai
@@ -268,18 +259,18 @@ Usage: dp2 dtbook-to-zedai [options]
 ...
 </pre>
 </section>
-<section class="slide" id="dp2-2">
+<section class="slide">
 	<h2> How to create a script </h2>
 	<p> Main steps:</p>
 	<ol>
-		<li> Enhance your xproc step with some metadata.</li>
-		<li> Create your Script descriptor (publish it as an OSGI service). </li>
+		<li> Enhance your XProc step with some metadata.</li>
+		<li> Create your Script descriptor (publish it as an OSGi service). </li>
 		<li> Add some required extra info to the manifest file. </li>
 	</ol>
-	<img src="images/module_dir_ds.png" />
+	<img src="images/module_dir_ds.png" alt=""/>
 </section>
-<section class="slide" id="dp2-2">
-	<h2> Script meta-data </h2>
+<section class="slide">
+	<h2> Script metadata </h2>
 	<p>Important script documentation </p>
 	<pre>
 	<code>
@@ -298,8 +289,8 @@ Usage: dp2 dtbook-to-zedai [options]
 	</code>
 	</pre>
 </section>
-<section class="slide" id="dp2-2">
-	<h2> Script meta-data II</h2>
+<section class="slide">
+	<h2> Script metadata II</h2>
 	<p>Input ports: </p>
 	<pre>
 	<code>
@@ -312,8 +303,8 @@ Usage: dp2 dtbook-to-zedai [options]
 	</code>
 	</pre>
 </section>
-<section class="slide" id="dp2-2">
-	<h2> Script meta-data III</h2>
+<section class="slide">
+	<h2> Script metadata III</h2>
 	<p>Options metadata: </p>
 	<pre>
 	<code>
@@ -326,7 +317,7 @@ Usage: dp2 dtbook-to-zedai [options]
 	</code>
 	</pre>
 </section>
-<section class="slide" id="dp2-2">
+<section class="slide">
 	<h2> Publishing the script as a service</h2>
 	<p>OSGI-INF/dtbook-to-zedai.xml </p>
 	<pre>
@@ -343,7 +334,7 @@ Usage: dp2 dtbook-to-zedai [options]
 	</code>
 	</pre>
 </section>
-<section class="slide" id="dp2-2">
+<section class="slide">
 	<h2> Publishing the script as a service II</h2>
 	<p>META-INF/MANIFEST.MF</p>
 	<pre>
@@ -361,9 +352,16 @@ Service-Component: OSGI-INF/dtbook-to-zedai.xml
 
 	<p> Further readings: </p>
 	<ul>
-		<li> Daisy pipeline wiki on <a href="http://code.google.com/p/daisy-pipeline/w/list"> google code </a></li>
+		<li> DAISY Pipeline wiki on <a href="http://code.google.com/p/daisy-pipeline/w/list"> google code </a></li>
 	</ul>	
 </section>
+
+<!-- End of slides -->
+
+<footer id="daisy-footer">
+	<p><small>&copy; DAISY Consortium 2012</small></p>
+</footer>
+
 <!-- deck.navigation snippet -->
 <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
 <a href="#" class="deck-next-link" title="Next">&#8594;</a>

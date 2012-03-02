@@ -5,9 +5,8 @@
 <!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>DAISY Pipeline 2: Objectives and Roadmap</title>
+	<title>DAISY Pipeline 2: Use Cases and Workflows</title>
 	<meta name="author" content="Romain Deltour">
     	
 	<!-- Core and extension CSS files -->
@@ -40,7 +39,7 @@
 <section class="slide title">	
 	<h2 style="margin-top: 4em">DAISY Pipeline 2 Overview</h2>
 	<h3>Use cases and workflows</h3>
-	<img width="210" height="200" style="margin-top:4em; margin-bottom:2em" src="images/DAISY-logo.png" alt="DAISY Consortium logo" />
+	<img width="210" height="200" style="margin-top:4em; margin-bottom:2em" src="images/DAISY-logo.png" title="DAISY Consortium logo" alt=""/>
 	<p>February 16, 2011 - Romain Deltour</p>
 </section>
 
@@ -52,15 +51,15 @@
 	<h2>Remote vs Local</h2>
 	<section class="slide">
 		<h3>Local installation</h3>
-		<img style="width:30%" src="images/local-installation.png" alt="local deployment">
+		<img style="width:30%" src="images/local-installation.png" title="Local deployment" alt="In this scenario, a user interacts with the Pipeline 2 installed locally on his computer">
 	</section>
 	<section class="slide">
 		<h3>Organization-wide deployment</h3>
-		<img style="width:30%" src="images/organization-service.png" alt="local deployment">
+		<img style="width:30%" src="images/organization-service.png" title="Intranet deployment"  alt="In this scenario, severa users interact remotely with the Pipeline 2 installed on a server in the intranet">
 	</section>
 	<section class="slide">
 		<h3>Public service</h3>
-		<img style="width:30%" src="images/public-service.png" alt="local deployment">
+		<img style="width:30%" src="images/public-service.png" title="Public deployment" alt="In this scenario, several users interact remotely with the Pipeline 2 installed on a remote server ">
 	</section>
 </section>
 
@@ -88,9 +87,9 @@
 
 <section class="slide">
 	<h2>Minimalist graphical user interface (GUI)</h2>
-	<img style="width: 50%; float: right; clear:right" src="images/pipeline-lite-1.png" alt"pipeline lite screenshot">
-	<img style="width: 50%; float: right; clear:right" src="images/pipeline-lite-2.png" alt"pipeline lite screenshot">
-	<img style="width: 50%; float: right; clear:right" src="images/pipeline-lite-3.png" alt"pipeline lite screenshot">
+	<img style="width: 50%; float: right; clear:right" src="images/pipeline-lite-1.png" alt="The job configuration dialog allows to set the required and optional parameters" title="Pipeline Lite job configuration dialog">
+	<img style="width: 50%; float: right; clear:right" src="images/pipeline-lite-2.png" alt="The job progress dialog mostly consists in a progress bar" title="Pipeline Lite job progress dialog">
+	<img style="width: 50%; float: right; clear:right" src="images/pipeline-lite-3.png" alt="The job result dialog displays a list of the execution messages" title="Pipeline Lite job results dialog">
 	<ul class="aerated">
 		<li>Dialog-based, minialist interface</li>
 		<li>Job configuration dialog</li>
@@ -105,8 +104,8 @@
 		<li class="slide">The Pipeline 2 is launched as daemon process</li>
 		<li class="slide">Supports local or remote setups</li>
 		<li class="slide">Can provide a native facade API
-			<img style="height: 15%;" src="images/local-api.png" alt"native API to a local pipeline">
-			<img style="height: 15%;" src="images/remote-api.png" alt"native API to a remote pipeline">
+			<img style="height: 15%;" src="images/local-api.png" title="Native API to a local pipeline" alt="the pipeline engine and an API layer are two software components">
+			<img style="height: 15%;" src="images/remote-api.png" title="Native API to a remote pipeline" alt="the pipeline engine and an API layer software components can be distributed over the wire">
 			</li>
 	</ul>
 </section>
@@ -206,13 +205,13 @@
 <section class="slide">
 	<h2>Example: DTBook to ZedAI</h2>
 	<section>
-		<img style="height:80%" src="images/dtbook-to-zedai.png" alt="DTBook to ZedAI workflow"/>
+		<img style="height:80%" src="images/dtbook-to-zedai.png" title="DTBook to ZedAI workflow" alt="The sequence of input documents is optionally upgraded to DTBook 2005-3, merged, validated ; then the XML is normalized and converted to ZedAI while auxiliary files are produced ; the the different parts are packaged together as a ZedAI file set."/>
 	</section>
 </section>
 
 <section class="slide">
 	<h2>Example: TTS-aware EPUB 3 production</h2>
-	<img style="height:80%; float:right;" src="images/tts-wf.png" alt="TTS-annotation workflow"/>
+	<img style="height:80%; float:right;" src="images/tts-wf.png" title="TTS annotation workflow" alt="First, gradually enrich the input ZedAI markup; then the zedai-to-epub invokes a remote lexicon ; it finally produces an EPUB 3 with pronunciation hints."/>
 	<section class="slide squeezed">
 		<h3>DAISY AI</h3>
 <pre><code>&lt;p&gt;Have you seen the movie <strong style="background-color:yellow;">&quot;La vita e bella&quot;</strong> ?&lt;/p&gt;</code></pre>
@@ -230,7 +229,7 @@
 <section class="slide">
 	<h2>Example: Interactive Workflow</h2>
 	<p style="text-align: center"><em>Use case from the Braille WG: identify apostrophes vs. single quotes</em></p>
-	<img style="height:80%; float:right;" src="images/interactive-wf.png" alt="TTS-annotation workflow"/>
+	<img style="height:80%; float:right;" src="images/interactive-wf.png" title="ZedAI to Braille Interactive workflow" alt="A first automated step identifies the ambiguities by enriching the ZedAI markup ; then, a human user is asked to resolve the ambiguities ; the resolved ZedAI can then be automatically converted into Braille (e.g. PEF)."/>
 	<section class="slide squeezed">
 		<h3>DAISY AI</h3>
 		<pre><code>&lt;p&gt;don<strong style="background-color:yellow;">'</strong>t do <strong style="background-color:yellow;">'</strong>that<strong style="background-color:yellow;">'</strong>&lt;/p&gt;</code></pre>
@@ -254,7 +253,7 @@
 <!-- End slides -->
 
 <footer id="daisy-footer">
-	<p>&copy; DAISY Consortium 2012</p>
+	<p><small>&copy; DAISY Consortium 2012</small></p>
 </footer>
 
 <!-- deck.js configuration -->

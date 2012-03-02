@@ -5,9 +5,8 @@
 <!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>Pipeline 2: Tutorial 1</title>
+	<title>Pipeline 2 Tutorial: Simple client to the Web API</title>
 	
 	<meta name="description" content="Simple client implementation">
 	<meta name="author" content="Javier Asensio Cubero">
@@ -25,7 +24,7 @@
 	<link rel="stylesheet" href="deck.js/themes/style/daisy.css">
 	
 	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
-	<link rel="stylesheet" href=deck.js/themes/transition/horizontal-slide.css">
+	<link rel="stylesheet" href="deck.js/themes/transition/horizontal-slide.css">
 	
 	<script src="deck.js/modernizr.custom.js"></script>
 </head>
@@ -33,31 +32,31 @@
 <body class="deck-container">
 
 <!-- Begin slides -->
-<section class="slide" id="title-slide">
-	<h2 style="margin-top: 4em">DAISY Pipeline 2 - Tutorial 2 </h2>
-	<h3> Simple client implementation for local mode </h3>
-	<img width="210" height="200" style="margin-top:4em; margin-bottom:2em" src="images/DAISY-logo.png" alt="DAISY Consortium logo" />
+<section class="title slide" id="title-slide">
+	<h2 style="margin-top: 4em">DAISY Pipeline 2 Tutorial</h2>
+	<h3> Simple client implementation for the local mode </h3>
+	<img width="210" height="200" style="margin-top:4em; margin-bottom:2em" src="images/DAISY-logo.png" title="DAISY Consortium logo" alt=""/>
 	<p>February 17, 2011</p>
 </section>
 
 <section class="slide" id="intro">
 	<h2> C# client coding </h2>
 	<p>MISSION: To the new Pipeliners. </p>
-	<p>We have been informed from the Daisy Headquarters that some of the current developers from the pipeline 2 have deserted. These rascal dissidents have left the new Daisy Pipeline 2 C# client halfway through. Your mission is finishing their work within an estimated time of 2 hours. If you fail Dr.Evil will kill the attached super cute kittens. </p>
-	<img src="images/super_cute_kittens.jpg"/>
+	<p>We have been informed from the DAISY Headquarters that some of the current developers from the Pipeline 2 have deserted. These rascal dissidents have left the new DAISY Pipeline 2 C# client halfway through. Your mission is to finish their work within an estimated time of 2 hours. If you fail Dr.Evil will kill the attached super cute kittens. </p>
+	<img src="images/super_cute_kittens.jpg" title="A bunch of kittens" alt="Five cute kittens are looking at you."/>
 	
 </section>
 <section class="slide" id="weapons">
 	<h2> Your weapons for this task are: </h2>
 	<ul>
-		<li> Daisy Pipeline WS API <a href="http://code.google.com/p/daisy-pipeline/wiki/WebServiceAPI">http://code.google.com/p/daisy-pipeline/wiki/WebServiceAPI</a> </li>	
+		<li>The DAISY Pipeline WS API <a href="http://code.google.com/p/daisy-pipeline/wiki/WebServiceAPI">http://code.google.com/p/daisy-pipeline/wiki/WebServiceAPI</a> </li>	
 		<li> A C# project with some of the key parts missing. </li>	
-		<li> Your developing skills. </li>	
+		<li> Your developer's skills. </li>	
 	</ul>
 	<p> This is the <a href="http://docs.daisy-pipeline.googlecode.com/hg-history/bfa53fba8b5e698a4905ca3d96b2a7bfcceacd99/2012/2012-02-workshop/tutorials/simple-ws-client/cliLocalTutorial.zip"> incomplete code </a>, the complete simple client is available <a href="http://docs.daisy-pipeline.googlecode.com/hg-history/bfa53fba8b5e698a4905ca3d96b2a7bfcceacd99/2012/2012-02-workshop/tutorials/simple-ws-client/cliLocalSolved.zip"> here </a> </p>
 	
 </section>
-<section class="slide" id="tasks">
+<section class="slide" id="tasks-1">
 	<h2> Your check points are: </h2>
 	<ol>
 		<li> Familiarise yourselves with the code.</li>
@@ -66,24 +65,30 @@
 		<li> Submit a job. </li>	
 		<li> Show the job status. </li>	
 		<li> Bonus stage: delete a job. </li>	
-	</ul>
-	<strong> GOOD LUCK! </strong>
+	</ol>
+	<p><strong> GOOD LUCK! </strong></p>
 	
 </section>
-<section class="slide" id="tasks">
+<section class="slide" id="tasks-2">
 	<h2> Remote Mode: </h2>
 	<ol>
-		<li> You will have to modify Authentication.cs to build the proper authenticated URI. Follow the api to get how to do it.</li>
+		<li> You will have to modify <code>Authentication.cs</code> to build the proper authenticated URI. Follow the API to get how to do it.</li>
 		<li> Keep in mind that in remote mode:
 			<ul>
-				<li> You have to provide the data file. So add the parameter --job-data=PATH_TO_ZIP </li> 
-				<li> The inputs must be relative to the zip file (e.g. inside the zip file you have "/dir/file.xml" then your input have to be something like "./dir/file.xml") </li> 
+				<li> You have to provide the data file. So add the parameter <code>--job-data=PATH_TO_ZIP</code> </li> 
+				<li> The inputs must be relative to the ZIP file (e.g. inside the ZIP file you have <code>/dir/file.xml</code> then your input have to be something like <code>./dir/file.xml</code>) </li> 
 			</ul>
 		</li>	
-	</ul>
+	</ol>
 	<p> This is the <a href="http://docs.daisy-pipeline.googlecode.com/hg-history/bfa53fba8b5e698a4905ca3d96b2a7bfcceacd99/2012/2012-02-workshop/tutorials/advanced-ws-client/cliRemoteTutorial.zip"> incomplete code </a>, the complete simple client is available <a href="http://docs.daisy-pipeline.googlecode.com/hg-history/bfa53fba8b5e698a4905ca3d96b2a7bfcceacd99/2012/2012-02-workshop/tutorials/advanced-ws-client/cliRemoteSolved.zip"> here </a> </p>
 	
 </section>
+
+<!-- End slides -->
+<footer id="daisy-footer">
+	<p><small>&copy; DAISY Consortium 2012</small></p>
+</footer>
+
 <!-- deck.navigation snippet -->
 <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
 <a href="#" class="deck-next-link" title="Next">&#8594;</a>
