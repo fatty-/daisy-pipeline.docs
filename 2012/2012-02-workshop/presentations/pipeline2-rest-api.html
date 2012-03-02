@@ -6,7 +6,6 @@
 <!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
 	<title>The REST approach to Web Services and the Pipeline 2 API</title>
 	<meta name="author" content="Marisa DeMeglio">
@@ -99,10 +98,10 @@
         <dd>Architectural style rather than a standard.  Works with the pre-existing architecture of the Web (HTTP). Comparatively lightweight. Language-agnostic.</dd>
         
         <dt>SOAP</dt>
-        <dd>W3C standard for an XML-based messaging framework.  Relatively complex and multi-layered.  Language-agnostic.</p>
+        <dd>W3C standard for an XML-based messaging framework.  Relatively complex and multi-layered.  Language-agnostic.</dd>
             
         <dt>RPC</dt>
-        <dd>Uses methods, not resources, to communicate. Often language-specific.</p>
+        <dd>Uses methods, not resources, to communicate. Often language-specific.</dd>
     </dl> 
     
     
@@ -203,7 +202,7 @@
 <section class="slide">
     <h2>URL: Uniform Resource Locator</h2>
     <p>URLs identify resources in the system.</p>
-    <img style="text-align: left; display: inline; margin-top: 2em" src="images/URL.png" alt="URL http://example.org/page.html, highlighting 'page.html' as the resource part.">
+    <img style="text-align: left; display: inline; margin-top: 2em" src="images/URL.png" alt="In the URL http://example.org/page.html, 'page.html' is the resource part.">
     
     <p>Clients send requests using URLs to identify the resource they want.</p>
     
@@ -243,7 +242,7 @@
         
         <dt>DELETE</dt>
         <dd>Deletes the specified resource.</dd>
-    </ul>
+    </dl>
     
 </section>
 
@@ -256,9 +255,8 @@
     <div class="slide">
     <h3>What it really looks like</h3>
     <p>Client request: <code>GET http://example.org/scripts</code></p>
-    <p>Server response: 
-<pre><code>
-HTTP 200 OK
+    <p>Server response:</p>
+<pre><code>HTTP 200 OK
 <span>       
 &lt;scripts href=&quot;http://example.org/scripts&quot;&gt;</span><span>
    &lt;script id=&quot;zedai-to-epub3&quot; href=&quot;http://example.org/scripts/zedai-to-epub3&quot;&gt;
@@ -276,7 +274,6 @@ HTTP 200 OK
    &lt;/script&gt;</span>
 &lt;/scripts&gt;
 </code></pre>    
-    </p>
     </div>
 </section>
 
@@ -289,9 +286,8 @@ HTTP 200 OK
     <div class="slide">
         <h3>What it really looks like</h3>
         <p>Client request: <code>GET http://example.org/scripts/dtbook-to-zedai</code></p>
-        <p>Server response:
-<pre><code>
-HTTP 200 OK
+        <p>Server response:</p>
+<pre><code>HTTP 200 OK
 <span>
 &lt;script xmlns=&quot;http://www.daisy.org/ns/pipeline/data&quot;
     id=&quot;dtbook-to-zedai&quot;
@@ -307,7 +303,7 @@ HTTP 200 OK
     &lt;option desc=&quot;Filename for the generated CSS file&quot; mediaType=&quot;&quot; name=&quot;opt-css-filename&quot; required=&quot;false&quot; type=&quot;string&quot;/&gt;</span><span>
     &lt;option desc=&quot;Filename for the generated ZedAI file&quot; mediaType=&quot;&quot; name=&quot;opt-zedai-filename&quot; required=&quot;false&quot; type=&quot;string&quot;/&gt;</span>
 &lt;/script&gt;
-</pre></code>
+</code></pre>
     </div>
 </section>
 
@@ -319,19 +315,15 @@ HTTP 200 OK
     
     <div class="slide">
         <h3>What it really looks like</h3>
-        <p>Client request: 
-            <code><pre>
-POST http://example.org/jobs
+        <p>Client request:</p>
+            <pre><code>POST http://example.org/jobs
 
 &lt;jobRequest&gt;
     ...
-&lt;/jobRequest&gt;
-            </code></pre>
-        </p>
+&lt;/jobRequest&gt;</code></pre>
         <p>We'll look at the details of the request body XML in the next slide.</p>
-        <p>Server response:
-            <code><pre>
-HTTP 201 Created
+        <p>Server response:</p>
+            <pre><code>HTTP 201 Created
 <span>
 &lt;job id=&quot;job-id-01&quot; href=&quot;http://example.org/jobs/job-id-01&quot; status=&quot;RUNNING&quot;&gt;</span><span>
     &lt;script id=&quot;dtbook-to-zedai&quot; href=&quot;http://example.org/scripts/dtbook-to-zedai&quot;&gt;
@@ -343,7 +335,6 @@ HTTP 201 Created
     &lt;/messages&gt;</span>
 &lt;/job&gt;
             </code></pre>
-        </p>
     </div>
 </section>
 
@@ -352,9 +343,7 @@ HTTP 201 Created
 
     <p>Along with their POST request, the client supplies an XML document based on the script's parameters:</p>
 
-<pre>
-<code><span>
-&lt;jobRequest&gt;</span><span>
+<pre><code><span>&lt;jobRequest&gt;</span><span>
     &lt;script href=&#x27;http://example.org/scripts/dtbook-to-zedai&#x27;/&gt;</span><span>
     &lt;input name=&#x27;source&#x27;&gt;</span><span>
         &lt;docwrapper&gt;</span><span>
@@ -380,10 +369,8 @@ HTTP 201 Created
     <h2>Submitting a job (cont'd)</h2>
 
     <p>In another scenario, the client wants to submit a fileset, not just an inline DTBook document, so the client sends a multipart request.</p>
-    <p>Client request: 
-<pre>
-<code>
-POST http://example.org/jobs
+    <p>Client request: </p>
+<pre><code>POST http://example.org/jobs
 
 Part 1: 'job-request'
 &lt;jobRequest&gt;
@@ -396,7 +383,6 @@ Part 1: 'job-request'
 Part 2: 'job-data'
 Attached zip file containing all data including the DTBook file.
 </code></pre>
-</p>
 
 <p>The <code>&lt;file&gt;</code> element above references the DTBook file inside the zip archive.  Other files in the zip archive will be images and resources used by the DTBook input file.</p>
 
@@ -407,9 +393,8 @@ Attached zip file containing all data including the DTBook file.
     <h2>Checking the status of a job</h2>
     <p>Remember the job's URL, which was sent by the server when the job was created (e.g. <code>http://example.org/jobs/job-id-01</code>)?  Use it to get current information about the job.</p>
     <p>Client request: <code>GET http://example.org/jobs/job-id-01</code></p>
-    <p>Server response:
-        <pre><code>
-&lt;job id=&quot;job-id-01&quot; href=&quot;http://example.org/jobs/job-id-01&quot; <span>status=&quot;DONE&quot;&gt;</span>
+    <p>Server response:</p>
+<pre><code>&lt;job id=&quot;job-id-01&quot; href=&quot;http://example.org/jobs/job-id-01&quot; <span>status=&quot;DONE&quot;&gt;</span>
     &lt;script id=&quot;dtbook-to-zedai&quot; href=&quot;http://example.org/scripts/dtbook-to-zedai&quot;&gt;
         &lt;nicename&gt;DTBook to ZedAI&lt;/nicename&gt;
         &lt;description&gt;Transforms DTBook XML into ZedAI XML.&lt;/description&gt;
@@ -446,15 +431,12 @@ Attached zip file containing all data including the DTBook file.
     
     <div class="slide">
         <h4>2. Client includes credentials in URL requests</h4 >
-        <p>When the client issues a request, it must include its ID in order to identify itself.
+        <p>When the client issues a request, it must include its ID in order to identify itself.</p>
             <pre><code>GET http://example.org/scripts?<span>authid=myclient</span></code></pre>
-        </p>
-        <p>It also must include a timestamp and a "nonce" to uniquely identify the request.
+        <p>It also must include a timestamp and a "nonce" to uniquely identify the request.</p>
             <pre><code>GET http://example.org/scripts?authid=myclient&<span>time=2012-02-09T02:23:40Z</span>&<span>nonce=533473712461604713238933268313</span></code></pre>
-        </p>
-        <p>Finally, the client uses its secret to generate a hash from the entire request string, and then it must append the hash signature to the request string.
-            <pre><code>GET http://example.org/ws/scripts?authid=myclient&time=2012-02-09T02:23:40Z&nonce=533473712461604713238933268313&<span>sign=gq%2FlpIuWqEDjhWviAjyccNTzdZk%3D</span></code></pre>
-        </p>
+        <p>Finally, the client uses its secret to generate a hash from the entire request string, and then it must append the hash signature to the request string.</p>
+            <pre><code>GET http://example.org/ws/scripts?authid=myclient&amp;time=2012-02-09T02:23:40Z&amp;nonce=533473712461604713238933268313&amp;<span>sign=gq%2FlpIuWqEDjhWviAjyccNTzdZk%3D</span></code></pre>
     </div>
 </section>
  
@@ -464,9 +446,8 @@ Attached zip file containing all data including the DTBook file.
     <p><a href="http://code.google.com/p/daisy-pipeline/wiki/WebServiceAPI">API</a> docs and <a href="http://code.google.com/p/daisy-pipeline/source/browse/#hg%2Fwebservice%2Fsamples%2Fclients">sample clients</a> are available. The official <a href="http://code.google.com/p/daisy-pipeline/source/browse/#hg%2FCLI">Pipeline CLI</a> is itself a client, written in Ruby.</p>
     <p>For the tutorial sessions tomorrrow, we've prepared code snippets to expediate various tasks (e.g. authentication, submitting multipart requests).</p>
     
-    <p>Everything can be found by browsing the wiki and source code, available from
+    <p>Everything can be found by browsing the wiki and source code, available from</p>
         <pre><code><a href="http://daisy-pipeline.googlecode.com">http://daisy-pipeline.googlecode.com</a></code></pre>
-    </p>
     
     
 </section>
@@ -496,14 +477,14 @@ Attached zip file containing all data including the DTBook file.
     
 </section>
 
-<section class="slide">
+<section class="title slide">
     <h2>Questions and comments</h2>
 </section>
 
 
 <!-- End slides -->
 <footer id="daisy-footer">
-	<p>&copy; DAISY Consortium 2012</p>
+	<p><small>&copy; DAISY Consortium 2012</small></p>
 </footer>
 
 <!-- deck.navigation snippet -->

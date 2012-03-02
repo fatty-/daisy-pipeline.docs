@@ -5,7 +5,6 @@
 <!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
 	<title>Pipeline 2: What End Users and Integrators Need to Know</title>
 	
@@ -25,7 +24,7 @@
 	<link rel="stylesheet" href="deck.js/themes/style/daisy.css">
 	
 	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
-	<link rel="stylesheet" href=deck.js/themes/transition/horizontal-slide.css">
+	<link rel="stylesheet" href="deck.js/themes/transition/horizontal-slide.css">
 	
 	<script src="deck.js/modernizr.custom.js"></script>
 </head>
@@ -33,10 +32,10 @@
 <body class="deck-container">
 
 <!-- Begin slides -->
-<section class="slide" id="title-slide">
+<section class="title slide" id="title-slide">
 	<h2 style="margin-top: 4em">DAISY Pipeline 2 </h2>
 	<h3>What End Users and Integrators Need to Know</h3>
-	<img width="210" height="200" style="margin-top:4em; margin-bottom:2em" src="images/DAISY-logo.png" alt="DAISY Consortium logo" />
+	<img width="210" height="200" style="margin-top:4em; margin-bottom:2em" src="images/DAISY-logo.png" title="DAISY Consortium logo" alt=""/>
 	<p>February 16, 2011 - Javier Asensio</p>
 </section>
 
@@ -74,7 +73,7 @@
 			<p>Options:</p>
 	
 			<ul>
-				<li><strong>output-dir:</strong> The directory to store the generated files in.</li>
+				<li><strong>output-dir:</strong> The directory where to store the generated files.</li>
 				<li><strong>lang: </strong>Language code of the input document.</li>
 				<li><strong>css-filename: </strong>Filename for the generated CSS file</li>
 				<li><strong>mods-filename: </strong>Filename for the generated MODS file</li>
@@ -122,7 +121,7 @@ dp2 help COMMAND
 		<li class="slide"> et voi-l&agrave;</li>
 	</ol>
 </section>
-<section class="slide" id="dp2-local-2">
+<section class="slide" id="dp2-local-3">
 	<h2>Using Pipeline 2 as personal xml engine: Job persistence and background mode</h2>
 		<p>Humm, the execution takes ages and the CLI says that the Job has been deleted from the WS</p>
 		<ul >
@@ -141,7 +140,7 @@ dp2 help COMMAND
 		</li>	
 	</ul>
 </section>
-<section class="slide" id="dp2-local-3">
+<section class="slide" id="dp2-local-4">
 	<h2>Using Pipeline 2 as personal xml engine: Advanced commands</h2>
 	<p> Getting the most out of the CLI (local mode edition)</p>
 	<ul>
@@ -150,7 +149,7 @@ dp2 help COMMAND
 		<li class="slide"> <strong>dp2 delete </strong> removes all the information attached to a job id.</li> 
 		<li class="slide"> <strong>dp2 halt </strong> stops the underlying WS instance.</li>
 		<li class="slide"> BONUS! the most useless dp2 command:
-			<iframe src="http://www.youtube.com/embed/KxaWvJ-ziXA" width="400" height="225" frameborder="0"></iframe>
+			<iframe src="http://www.youtube.com/embed/KxaWvJ-ziXA" width="400" height="225" style="border: 0"></iframe>			
 		</li> 
 	</ul>
 </section>
@@ -158,12 +157,14 @@ dp2 help COMMAND
 	<h2>Using Pipeline 2 as an xml transform service</h2>
 	<p>Using the CLI to communicate with a WS installed somewhere else  </p>
 	<ol>
-		<li>Configure your CLI: (config.yml) </li>
-		<ol>
-			<li> Set both <strong>host</strong> <strong>port</strong> items to connect to the machine where the WS is running. </li>
-			<li> Set <strong>local</strong> to false.</li>
-			<li> If the remote WS needs your client to authenticate set <strong>authenticate</strong> to true, along with the <strong>client_key</strong> and the <strong>client_secret</strong> to the values provided by your admin.</li>
-		</ol>
+		<li>Configure your CLI: (config.yml)
+			<ol>
+				<li> Set both <strong>host</strong> <strong>port</strong> items to connect to the machine where the WS is running. </li>
+				<li> Set <strong>local</strong> to false.</li>
+				<li> If the remote WS needs your client to authenticate set <strong>authenticate</strong> to true, along with the <strong>client_key</strong> and the <strong>client_secret</strong> to the values provided by your admin.</li>
+			</ol>
+			
+		</li>
 		<li>Now ask for help <p class="slide">using <strong>dp2 help</strong></p> </li>
 	</ol>
 
@@ -180,7 +181,7 @@ dp2 help COMMAND
 		<li> Persistence and background modes are also available.</li>	   
 	</ul>	
 </section>
-<section class="slide" id="dp2-remote-2">
+<section class="slide" id="dp2-remote-3">
 	<h2>Using Pipeline 2 as an xml transform service: Advanced commands</h2>
 	<p> Getting the most out of the CLI (remote mode edition)</p>
 	<ul>
@@ -194,10 +195,10 @@ dp2 help COMMAND
 	<h2>Final comments</h2>
 	<p>There are two scripts for starting the framework</p>
 	<ul>
-		<li><font style="font-style: italic">dp2ws_local.sh</font> starts the framework in local mode (no needed as the CLI do the job for you).  </li> 
+		<li><em>dp2ws_local.sh</em> starts the framework in local mode (no needed as the CLI do the job for you).  </li> 
 	</ul>
 	<ul>
-		<li><font style="font-style: italic">dp2ws.sh</font> spawns the framework in remote mode.  </li> 
+		<li><em>dp2ws.sh</em> spawns the framework in remote mode.  </li> 
 	</ul>
 	<p>Logs</p>
 	<ul>
@@ -216,6 +217,14 @@ dp2 help COMMAND
 		<li> How to modify the WS behaviour using system properties? Here is the<a href="http://code.google.com/p/daisy-pipeline/wiki/RuntimeConfigurationProperties"> list.</a></li>
 	</ul>	
 </section>
+
+
+<!-- End of slides -->
+
+<footer id="daisy-footer">
+	<p><small>&copy; DAISY Consortium 2012</small></p>
+</footer>
+
 <!-- deck.navigation snippet -->
 <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
 <a href="#" class="deck-next-link" title="Next">&#8594;</a>
