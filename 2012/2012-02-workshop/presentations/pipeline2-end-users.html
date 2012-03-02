@@ -1,0 +1,262 @@
+	<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>Pipeline 2: What End Users and Integrators Need to Know</title>
+	
+	<meta name="description" content="Instalation and first steps">
+	<meta name="author" content="Javier Asensio Cubero">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="deck.js/core/deck.core.css">
+	<link rel="stylesheet" href="deck.js/extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="deck.js/extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="deck.js/extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="deck.js/extensions/status/deck.status.css">
+	<link rel="stylesheet" href="deck.js/extensions/hash/deck.hash.css">
+	
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<link rel="stylesheet" href="deck.js/themes/style/daisy.css">
+	
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+	<link rel="stylesheet" href=deck.js/themes/transition/horizontal-slide.css">
+	
+	<script src="deck.js/modernizr.custom.js"></script>
+</head>
+
+<body class="deck-container">
+
+<!-- Begin slides -->
+<section class="slide" id="title-slide">
+	<h2 style="margin-top: 4em">DAISY Pipeline 2 </h2>
+	<h3>What End Users and Integrators Need to Know</h3>
+	<img width="210" height="200" style="margin-top:4em; margin-bottom:2em" src="images/DAISY-logo.png" alt="DAISY Consortium logo" />
+	<p>February 16, 2011 - Javier Asensio</p>
+</section>
+
+<section class="slide" id="pre-requisites">
+	<h2>Pipeline 2: What you need to run it</h2>
+	<ol>
+		<li>
+			<h3>Framework: Java 1.5 (or higher)</h3>
+			<ul>
+				<li>Linux and Windows <a href="http://www.oracle.com/us/technologies/java/index.html ">Oracle Java</a> </li> 
+				<li>MacOS via <span style="font-style:italic">Software Update</span> </li> 
+			</ul>
+		</li>
+		<li>
+			<h3>Official CLI: Ruby 1.8.7 (or higher)</h3>
+				<ul>
+					<li>All systems from the <a href="http://www.ruby-lang.org/en/downloads/">ruby site</a> </li>
+				</ul>
+		</li>
+		<li>
+			<h3>That's all</h3>
+		</li>
+	</ol>
+</section>
+<section class="slide" id="dp2-scripts">
+	<h2>Pipeline 2 concept: Scripts</h2>
+	<ul>
+		<li> Intuitive idea: A script is a blackbox which converts some <span style="font-style: italic;">xml inputs</span> into another xml format taking into account some <span style="font-style: italic;">options</span></li>
+		<li>E.g: 
+			<p><strong> Dtbook-to-zedai:</strong> Transforms DTBook XML into ZedAI XML. <p>
+			<p>Inputs:</p>
+			<ul>
+				<li><strong>source:</strong> One or more DTBook files to be transformed. In the case of multiple files, a merge will be performed.
+			</ul>
+			<p>Options:</p>
+	
+			<ul>
+				<li><strong>output-dir:</strong> The directory to store the generated files in.</li>
+				<li><strong>lang: </strong>Language code of the input document.</li>
+				<li><strong>css-filename: </strong>Filename for the generated CSS file</li>
+				<li><strong>mods-filename: </strong>Filename for the generated MODS file</li>
+				<li><strong>zedai-filename: </strong>Filename for the generated ZedAI file</li>
+			</ul>
+		</li>
+	</ul>
+</section>
+
+<section class="slide" id="dp2-local-1">
+	<h2>Using Pipeline 2 as personal xml engine</h2>
+	<ul>
+		<li> Pipeline running in local mode. </li>
+		<li> WS transparent to the user through the CLI. </li>
+		<li> CLI help in local mode:
+			<pre>
+javi@disorder:~/daisy/daisy-pipeline/CLI$ ./dp2 help
+Usage: dp2 command [options]
+help				Shows this message or the command help
+
+Script commands:
+
+dtbook-to-zedai		Transforms DTBook XML into ZedAI XML.
+dtbook-to-epub3		Converts multiple dtbooks to epub3 format
+
+Advanced commands:
+
+result			Gets the zip file containing the job results
+halt			Stops the WS
+delete			Deletes a job
+jobs			Shows the status for every job
+status			Shows the detailed status for a single job
+
+To get help for a command write:
+dp2 help COMMAND
+			</pre>	
+		</li>
+	</ul>
+</section>
+<section class="slide" id="dp2-local-2">
+	<h2>Using Pipeline 2 as personal xml engine: Running a script</h2>
+	<ol>
+		<li class="slide"> Get the script help typing <strong>dp2 help dtbook-to-zedai </strong></li>
+		<li class="slide"> Provide all the inputs and required options when executing the script, e.g. <strong>dp2 dtbook-to-zedai --i-source example/hauy_valid --x-opt-outputdir outputs/hauy/</strong></li>
+		<li class="slide"> et voi-l&agrave;</li>
+	</ol>
+</section>
+<section class="slide" id="dp2-local-2">
+	<h2>Using Pipeline 2 as personal xml engine: Job persistence and background mode</h2>
+		<p>Humm, the execution takes ages and the CLI says that the Job has been deleted from the WS</p>
+		<ul >
+		<li class="slide">But I would love to check the job status and messages later on.
+			<ul>
+				<li >Running the script with the <strong> -p </strong> will retain the job information on the server.</li>
+				<li> So you can get the job status in the future. </li>  
+			</ul> 
+		 </li>	
+		<li class="slide">It would be brilliant if I could run several scripts while I go for a nice cup of tea. 
+
+			<ul>
+				<li> Running the script with the <strong> -b </strong> will run the job in the background.</li>
+				<li> The script will run in a non-blocking mode, allowing you to run several jobs at a time while you enjoy a good brew. </li>  
+			</ul> 
+		</li>	
+	</ul>
+</section>
+<section class="slide" id="dp2-local-3">
+	<h2>Using Pipeline 2 as personal xml engine: Advanced commands</h2>
+	<p> Getting the most out of the CLI (local mode edition)</p>
+	<ul>
+		<li class="slide"> <strong>dp2 jobs </strong> lists all the stored jobs (script executions).</li> 
+		<li class="slide"> <strong>dp2 status </strong> gives details about a job status.</li> 
+		<li class="slide"> <strong>dp2 delete </strong> removes all the information attached to a job id.</li> 
+		<li class="slide"> <strong>dp2 halt </strong> stops the underlying WS instance.</li>
+		<li class="slide"> BONUS! the most useless dp2 command:
+			<iframe src="http://www.youtube.com/embed/KxaWvJ-ziXA" width="400" height="225" frameborder="0"></iframe>
+		</li> 
+	</ul>
+</section>
+<section class="slide" id="dp2-remote-1">
+	<h2>Using Pipeline 2 as an xml transform service</h2>
+	<p>Using the CLI to communicate with a WS installed somewhere else  </p>
+	<ol>
+		<li>Configure your CLI: (config.yml) </li>
+		<ol>
+			<li> Set both <strong>host</strong> <strong>port</strong> items to connect to the machine where the WS is running. </li>
+			<li> Set <strong>local</strong> to false.</li>
+			<li> If the remote WS needs your client to authenticate set <strong>authenticate</strong> to true, along with the <strong>client_key</strong> and the <strong>client_secret</strong> to the values provided by your admin.</li>
+		</ol>
+		<li>Now ask for help <p class="slide">using <strong>dp2 help</strong></p> </li>
+	</ol>
+
+</section>
+<section class="slide" id="dp2-remote-2">
+	<h2>Using Pipeline 2 as an xml transform service: Running scripts</h2>
+	<p> There are some differences with the local mode: </p>
+	<ul>
+		<li>No output script options are displayed. </li>
+		<li> The <strong>--data</strong> parameter has to point to zip file containing all the files needed during the execution. </li>
+		<li> <strong>--file</strong> parameter tells the client where to store the script results.</li>
+		<li> The inputs have to refer to files inside the zip, therefore <strong>they have to be relative to the zip file's root</strong> </li>
+		<li><strong>dp2 dtbook-to-zedai --i-source ./hauy_valid.xml --data dtbook.zip --file output.zip</strong> </li>
+		<li> Persistence and background modes are also available.</li>	   
+	</ul>	
+</section>
+<section class="slide" id="dp2-remote-2">
+	<h2>Using Pipeline 2 as an xml transform service: Advanced commands</h2>
+	<p> Getting the most out of the CLI (remote mode edition)</p>
+	<ul>
+		<li class="slide"> <strong>dp2 jobs </strong> lists all the stored jobs (script executions).</li> 
+		<li class="slide"> <strong>dp2 status </strong> gives details about a job status.</li> 
+		<li class="slide"> <strong>dp2 delete </strong> removes all the information attached to a job id.</li> 
+		<li class="slide"> <strong>dp2 result </strong> gets the result from a job (in a zip file).</li>
+	</ul>
+</section>
+<section class="slide" id="final-comments">
+	<h2>Final comments</h2>
+	<p>There are two scripts for starting the framework</p>
+	<ul>
+		<li><font style="font-style: italic">dp2ws_local.sh</font> starts the framework in local mode (no needed as the CLI do the job for you).  </li> 
+	</ul>
+	<ul>
+		<li><font style="font-style: italic">dp2ws.sh</font> spawns the framework in remote mode.  </li> 
+	</ul>
+	<p>Logs</p>
+	<ul>
+		<li> In <strong>logs/daisy-pipeline.log</strong> you will find the framework log files.</li>
+		<li> In <strong>data/</strong> you will find every job output files and logs.</li>
+	</ul>
+	
+</section>
+<section class="slide" id="dp2-end">
+	<h2>Thanks for listening!</h2>
+	<h3>Any questions?</h3>
+
+	<p> Further readings: </p>
+	<ul>
+		<li> <a href="https://code.google.com/p/daisy-pipeline/wiki/UserGuideIntro">CLI documentation.</a></li>
+		<li> How to modify the WS behaviour using system properties? Here is the<a href="http://code.google.com/p/daisy-pipeline/wiki/RuntimeConfigurationProperties"> list.</a></li>
+	</ul>	
+</section>
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+
+<!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+<script>window.jQuery || document.write('<script src="deck.js/jquery-1.7.min.js"><\/script>')</script>
+
+<!-- Deck Core and extensions -->
+<script src="deck.js/core/deck.core.js"></script>
+<script src="deck.js/extensions/hash/deck.hash.js"></script>
+<script src="deck.js/extensions/menu/deck.menu.js"></script>
+<script src="deck.js/extensions/goto/deck.goto.js"></script>
+<script src="deck.js/extensions/status/deck.status.js"></script>
+<script src="deck.js/extensions/navigation/deck.navigation.js"></script>
+
+<!-- Initialize the deck -->
+<script>
+$(function() {
+	$.deck('.slide');
+});
+</script>
+
+</body>
+</html>

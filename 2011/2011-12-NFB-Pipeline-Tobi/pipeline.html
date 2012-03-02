@@ -1,0 +1,618 @@
+<html lang="en">
+	<!-- DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd" -->
+	<head>
+		<meta charset="utf-8" />
+		<title>Pipeline - Tobi joint presentation</title>
+		<meta name="viewport" content="width=1024, user-scalable=no" />
+
+		<!-- link href="http://fonts.googleapis.com/css?family=Spinnaker" rel="stylesheet"
+			type="text/css" />
+		<link href="http://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet"
+			type="text/css" / -->
+
+		<link rel="stylesheet" href="./deck.js/deck.core.css" type="text/css" />
+		<link rel="stylesheet" href="./deck.js/swiss.css" type="text/css" />
+
+
+
+		<style type="text/css">
+			.slide .slide
+			{
+			    visibility : visible;
+			}
+			.deck-child-current .slide
+			{
+			    visibility : visible;
+			}</style>
+
+		<!-- link rel="stylesheet" href="./deck.js/animate.css" type="text/css" />
+
+		<link rel="stylesheet" href="./deck.js/horizontal-slide_fade.css" type="text/css" />
+
+		<script src="./deck.js/jquery.min.js"></script>
+
+		<script src="./deck.js/modernizr.custom.js"></script>
+
+		<script src="./deck.js/deck.core.js"></script>
+
+		<script src="./deck.js/deck.goto.js"></script>
+		<link rel="stylesheet" href="./deck.js/deck.goto.css" type="text/css" />
+
+		<script src="./deck.js/deck.hash.js"></script>
+		<link rel="stylesheet" href="./deck.js/deck.hash.css" type="text/css" />
+
+		<script src="./deck.js/deck.menu.js"></script>
+		<link rel="stylesheet" href="./deck.js/deck.menu.css" type="text/css" />
+
+		<script src="./deck.js/deck.navigation.js"></script>
+		<link rel="stylesheet" href="./deck.js/deck.navigation.css" type="text/css" / -->
+
+
+
+		<!-- script src="./deck.js/deck.scale.js"></script>
+	<link rel="stylesheet" href="./deck.js/deck.scale.css" type="text/css" -->
+
+		<!-- script src="./deck.js/deck.status.js"></script>
+	<link rel="stylesheet" href="./deck.js/deck.status.css" type="text/css" -->
+
+
+		<style type="text/css">
+.deck-container
+{
+font-family: sans-serif, Roboto; /* 'Spinnaker' */
+font-size: 1.4em;
+}
+	
+.deck-container .slide h2
+{
+	font-family: 'Gill Sans', Sansation, Roboto, Michroma, Futura, sans-serif;
+  font-size: 1.8em;
+	}
+	
+.deck-container .slide h3
+{
+	font-family: 'Gill Sans', Sansation, Roboto, sans-serif; /* 'Varela Round' */
+  font-size: 1.2em;
+	color: #505050;
+	}
+	
+	.deck-container ul li {
+	  list-style: disc;
+	}
+	.deck-container ul li ul li {
+	  list-style: square;
+	}
+	
+	.deck-container .slide h2.nfb {
+	}
+	.deck-container .slide h2.daisy {
+	  color: #009;
+	}
+	.deck-container .slide h2.pipeline {
+	  color: #333399;
+	}
+	.deck-container .slide h2.tobi {
+	  color: #669933;
+	  margin-bottom: 1.3em;
+	}
+	.deck-container .slide {
+	  background-color: transparent;
+	}
+	
+.deck-container .slide ul li ul li p {
+	margin-bottom: 0px;
+}
+
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .slide .deck-current.fade.highlight {
+background-color: yellow;
+}
+
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .deck-child-current .deck-next.fade.highlight,
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .deck-child-current .deck-after.fade.highlight {
+/*  visibility: visible; */
+opacity: 0.5;
+}
+.deck-container .slide ul li .quote {
+  border-left: 7px solid #ccc;
+}
+.deck-container .slide ul li p.quote {
+  padding-left: 0.5em;
+}
+.deck-container .slide ul li ul.quote {
+  padding-left: 0.64em;
+}
+	 </style>
+	</head>
+	<body class="deck-container">
+
+		<section class="slide fade" style="padding-top:4em;">
+			<img style="float: right;margin-top:8em;" width="210" height="200"
+				src="img/DAISY-logo.png" alt="DAISY Consortium logo" />
+			<!-- 472x438 -->
+			<h2 style="margin-top: 4em;" class="daisy">Content Transformation: Automated Tools &amp;
+				Interactive Authoring</h2>
+			<h3>December 6, 2011 (11am-12pm)</h3>
+			<p>
+				<cite>Romain Deltour &amp; Daniel Weck<br />(DAISY Consortium)</cite>
+			</p>
+
+		</section>
+		
+		
+		<section class="slide fade" style="margin-left: 6em;">
+
+			<h2 class="nfb" style="margin-top: 6em;">eBook Accessibility Symposium</h2>
+
+			<!-- ul><li -->
+			<h3>NFB <span style="font-size: 80%;">(National Federation of the Blind)</span></h3>
+			<p>
+				<cite>Jernigan Institute,<br />200 East Wells Street, Jernigan
+					Place,<br />Baltimore, MD 21230</cite>
+			</p>
+			<!-- /li></ul -->
+		</section>
+
+		
+		
+		<!--====================================================================================-->
+		<!--===  Pipeline2: Title                                                             ==-->
+		<!--====================================================================================-->
+		<section class="slide">
+
+			<img class="bounceInDown animated" style="margin-top: 5em;" src="img/Pipeline-logo.png"
+				alt="Pipeline logo" />
+
+			<center>
+				<h2 class="pipeline" style="margin-bottom: 0.5em;">DAISY Pipeline 2</h2>
+				<p class="quote">
+					<strong>An open framework for automated document processing</strong>
+				</p>
+				<ul style="margin-top: 2em; margin-left: 0;">
+					<li class="slide fade" style="list-style-type: none;">
+						<h3>Introduction</h3>
+						<p style="opacity: 0.8">(15mn)</p>
+					</li>
+					<li class="slide fade" style="list-style-type: none;">
+						<h3>Workflow samples</h3>
+						<p style="opacity: 0.8">(10mn)</p>
+					</li>
+					<li class="slide fade" style="list-style-type: none;">
+						<h3>Questions</h3>
+						<p style="opacity: 0.8">(5mn)</p>
+					</li>
+				</ul>
+			</center>
+
+		</section>
+
+
+		<!--====================================================================================-->
+		<!--===  Pipeline2: Background                                                        ==-->
+		<!--====================================================================================-->
+		<section class="slide">
+			<img style="clear:right; float: right; margin-top:1em;" src="img/Pipeline-logo.png" alt="Pipeline logo" />
+
+			<h2 class="pipeline">Background</h2>
+
+			<img class="wobble animated" style="clear:right;  float:right; opacity: 0.5; width: 20%"
+				src="img/cogs.png" alt="cogs" />
+
+
+			<ul>
+				<li class="slide fade">
+					<h3>An increasing demand for accessible content</h3>
+					<ul class="quote slide fade" style="margin-bottom: 0;">
+						<li>
+							<p>to a wide range of user groups</p>
+						</li>
+						<li>
+							<p>through various distribution channels</p>
+						</li>
+						<li>
+							<p>to an increasing variety of devices</p>
+						</li>
+						<li>
+							<p>in several output formats</p>
+						</li>
+					</ul>
+				</li>
+				<li class="slide fade">
+					<h3>Follow-up of the successful Pipeline 1 project</h3>
+					<ul class="quote slide fade" style="margin-bottom: 0;">
+						<li>
+							<p>Pipeline 1: started in 2002, now in maintenance mode</p>
+						</li>
+						<li>
+							<p>Pipeline 2: started in 2010, total redesign</p>
+						</li>
+					</ul>
+				</li>
+				<li class="slide fade">
+					<h3>High-level objectives</h3>
+					<ul style="margin-bottom: 0;">
+						<li class="slide">
+							<p>
+								<strong>Efficiency</strong>
+							</p>
+							<p><span style="margin-left:1em;">&#8618;</span>&nbsp;produce many
+								documents in a short time</p>
+						</li>
+						<li class="slide">
+							<p>
+								<strong>Low cost</strong>
+							</p>
+							<p><span style="margin-left:1em;">&#8618;</span>&nbsp;easy to develop
+								and easy to maintain</p>
+						</li>
+						<li class="slide">
+							<p>
+								<strong>Versatility</strong>
+							</p>
+							<p style="margin-bottom: 0;"><span style="margin-left:1em;"
+									>&#8618;</span>&nbsp;several output formats</p>
+							<p><span style="margin-left:1em;">&#8618;</span>&nbsp;interoperable with
+								other systems</p>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</section>
+
+		<!--====================================================================================-->
+		<!--===  Pipeline2: Approach                                                      ==-->
+		<!--====================================================================================-->
+		<section class="slide">
+			<img style="float: right; margin-top:1em;" src="img/Pipeline-logo.png" alt="Pipeline logo" />
+
+			<h2 class="pipeline">Approach</h2>
+
+			<ul>
+				<li class="slide fade">
+					<h3>Modular system</h3>
+					<ul class="quote slide">
+						<li>
+							<p>easy to extend</p>
+						</li>
+						<li>
+							<p>easy to customize</p>
+						</li>
+						<li>
+							<p>open to commercial plugins/services</p>
+						</li>
+					</ul>
+
+				</li>
+				<li class="slide fade">
+					<h3>Promote "single source" publishing</h3>
+					<img style="align: center; width: 40%" class="slide" src="img/single-source.png"
+						alt="single source publishing diagram" />
+				</li>
+				<li class="slide fade">
+					<h3>Focus on accessibility &amp; quality</h3>
+				</li>
+			</ul>
+		</section>
+		<!--====================================================================================-->
+		<!--===  Pipeline2: Architecture                                                    ==-->
+		<!--====================================================================================-->
+		<section class="slide">
+			<img style="float: right; margin-top:1em;" src="img/Pipeline-logo.png" alt="Pipeline logo" />
+
+			<h2 class="pipeline">Architecture</h2>
+
+
+			<img class="animated bounceInDown" style="clear:right;  float: right; width: 40%" src="img/architecture.png" alt="architecture" />
+			<img class="animated fadeInUp" style="clear:right;  float: right; width: 20%"
+				src="img/W3C_logo.jpg" alt="W3C logo" />
+
+			<ul>
+				<li class="slide fade">
+					<h3><em>XProc</em> core</h3>
+					<ul class="quote">
+						<li>
+							<p>"XML Pipeline Language"</p>
+						</li>
+						<li>
+							<p>W3C Recommendation since May 2010</p>
+						</li>
+						<li>
+							<p>several open source and commercial engines</p>
+						</li>
+					</ul>
+				</li>
+				<li class="slide fade">
+					<h3>Module system</h3>
+					<ul class="quote">
+						<li>
+							<p>XSLT tranforms | XPath functions | Java code | external tools</p>
+						</li>
+						<li>
+							<p>orchestrated via XProc + XML catalogs</p>
+						</li>
+					</ul>
+				</li>
+				<li class="slide fade">
+					<h3>Runtime framework</h3>
+					<ul class="quote">
+						<li>
+							<p>Java-based, powered by OSGi</p>
+						</li>
+						<li>
+							<p style="margin-bottom: 0">Service-oriented</p>
+							<p><span style="margin-left:1em;">&#8618;</span>&nbsp;Job management,
+								logging, etc</p>
+						</li>
+					</ul>
+				</li>
+			</ul>
+
+		</section>
+		<!--====================================================================================-->
+		<!--===  Pipeline2: Deployment options                                                ==-->
+		<!--====================================================================================-->
+		<section class="slide">
+			<img style="float: right; margin-top:1em;" src="img/Pipeline-logo.png" alt="Pipeline logo" />
+
+			<h2 class="pipeline">Deployment options</h2>
+
+			<img class="wobble animated" style="clear:right; float:right; opacity: 0.5; width: 20%"
+				src="img/3d-human-globe.jpg" alt="3d human with a globe in the hands" />
+
+			<ul>
+				<li class="slide fade">
+					<h3>Command line tool</h3>
+					<p class="quote slide" style="opacity: 0.8">&#10137;&nbsp;already available
+						&mdash;&nbsp;revamped in early 2012</p>
+				</li>
+				<li class="slide fade">
+					<h3>Web service</h3>
+					<p class="quote slide" style="opacity: 0.8">&#10137;&nbsp;already available
+						&mdash;&nbsp;gradually enriched</p>
+				</li>
+				<li class="slide fade">
+					<h3>Web application</h3>
+					<p class="quote slide" style="opacity: 0.8">&#10137;&nbsp;June 2012</p>
+				</li>
+				<li class="slide fade">
+					<h3>Desktop UI</h3>
+					<p class="quote slide" style="opacity: 0.8">&#10137;&nbsp;First half of 2013</p>
+				</li>
+			</ul>
+		</section>
+
+		<!--====================================================================================-->
+		<!--===  Pipeline2: Demo                                                            ==-->
+		<!--====================================================================================-->
+		<section class="slide">
+
+			<img class="bounceInDown animated" style="margin-top: 5em;" src="img/Pipeline-logo.png"
+				alt="Pipeline logo" />
+
+			<center>
+				<h2 class="pipeline">Sample workflows</h2>
+			</center>
+		</section>
+		
+		
+		<section class="slide">
+			<img style="float: right; margin-top:1em;" src="img/Pipeline-logo.png" alt="Pipeline logo" />
+
+			<h2 class="pipeline">EPUB Production</h2>
+			
+			<img src="img/epub-wf-generic.png" class="slide fade" style="padding-top: 4em; width:100%"/>
+			<img src="img/epub-wf-daisy.png" class="slide fade"  style="padding-top: 4em; width:100%"/>
+		</section>
+
+		<section class="slide">
+			<img style="float: right; margin-top:1em;" src="img/Pipeline-logo.png" alt="Pipeline logo" />
+
+			<h2 class="pipeline">TTS Annotations</h2>
+			
+			<table width="100%">
+				<tr class="slide">
+					<td rowspan="3" width="40%">
+						<img src="img/wf-ssml.png" alt="workflow" />
+					</td>
+					<td>
+						<p>DAISY AI:</p>
+						<pre>
+&lt;p&gt;Have you seen the movie <strong style="background-color:lightgrey;">&quot;La vita e bella&quot;</strong> ?&lt;/p&gt;
+						</pre>
+					</td>
+				</tr>
+				<tr class="slide">
+					<td>
+						<p>DAISY AI:</p>
+						<pre>
+&lt;p&gt;Have you seen the movie <span style="background-color:lightgrey;"><strong>&lt;name&gt;&quot;</strong>La vita e bella&quot;<strong style="background-color:lightgrey;">&lt;/name&gt;</strong></span> ?&lt;/p&gt;
+						</pre>
+					</td>
+				</tr>
+				<tr class="slide">
+					<td>
+						<p>EPUB3 HTML:</p>
+						<pre>
+&lt;p&gt;Have you seen the movie
+&lt;span <strong style="background-color:lightgrey;">ssml:alphabet="ipa"</strong>
+      <strong style="background-color:lightgrey;">ssml:ph="ˈlɑ ˈviːɾə ˈʔeɪ ˈbɛlə"</strong>&gt;
+&quot;La vita e bella&quot;
+&lt;/span&gt; ?&lt;/p&gt;
+						</pre>
+					</td>
+				</tr>
+			</table>
+
+		</section>
+
+		<!--====================================================================================-->
+		<!--===  Pipeline2: Open platform                                                     ==-->
+		<!--====================================================================================-->
+		<section class="slide">
+			<img style="float: right; margin-top:1em;" src="img/Pipeline-logo.png" alt="Pipeline logo" />
+
+			<h2 class="pipeline">DAISY Pipeline 2</h2>
+
+			<img class="animated tada" style="clear:right; float:right; opacity: 0.5; width: 30%"
+				src="img/3d-humans-team.jpg" alt="q team" />
+
+			<ul>
+				<li class="slide fade">
+					<h3>Open platform</h3>
+					<ul class="quote">
+						<li>
+							<p>Open source (LGPL / Apache license ?)</p>
+						</li>
+						<li>
+							<p>Collaborative project</p>
+						</li>
+						<li>
+							<p>Extensible and customizable</p>
+						</li>
+					</ul>
+				</li>
+				<li class="slide">
+					<h3>Available today:</h3>
+					<ul class="quote">
+						<li>
+							<p>DTBook to DAISY AI</p>
+						</li>
+						<li>
+							<p>DAISY AI to EPUB 3</p>
+						</li>
+						<li>
+							<p>DAISY 2.02 to EPUB 3</p>
+						</li>
+					</ul>
+				</li>
+				<li class="slide">
+					<h3>In the works:</h3>
+					<ul class="quote">
+						<li>
+							<p>Improved EPUB 3 support</p>
+						</li>
+						<li>
+							<p>Additional input formats</p>
+						</li>
+						<li>
+							<p>Braille production</p>
+						</li>
+						<li>
+							<p>TTS-based production</p>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</section>
+
+		<!--====================================================================================-->
+		<!--===  Pipeline2: Thanks                                                            ==-->
+		<!--====================================================================================-->
+		<section class="slide">
+
+			<img class="bounceInDown animated" style="margin-top: 5em;" src="img/Pipeline-logo.png"
+				alt="Pipeline logo" />
+
+			<center>
+				<h2 class="pipeline">Thank you</h2>
+				<p>
+					<a href="http://www.daisy.org/pipeline2">http://www.daisy.org/pipeline2</a>
+				</p>
+			</center>
+		</section>
+
+
+		<!-- p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p -->
+
+		<!-- a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+		<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+		<form action="." method="get" class="goto-form">
+			<label for="goto-slide">Go to slide:</label>
+			<input type="text" name="slidenum" id="goto-slide" list="goto-datalist" />
+			<datalist id="goto-datalist"></datalist>
+			<input type="submit" value="Go" />
+		</form>
+
+		<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+
+		<script>
+	<!_-
+	$(function() {
+		
+		$(document).bind('deck.change', function(event, from, to) {
+			
+			var jq1 = $('#slide-' + to + ' .animated');
+			if (jq1.length > 0)
+			{
+				if (from < to)
+			jq1.each(function(index, elem) {
+				//$(elem).removeClass('animated').addClass('animated');
+				/*
+				elem.style.webkitAnimationName = "";
+				setTimeout(function ()
+				{
+				    elem.style.webkitAnimationName = "rollIn";
+				}, 0);
+				*/
+				var elm = elem;
+				var newOne = elm.cloneNode(true);
+				elm.parentNode.replaceChild(newOne, elm);
+			});
+			} else {
+				
+				setTimeout(function ()
+				{
+
+//				console.log("FROM:" + from + " TO: " + to);
+				
+				var jq = $('section.deck-before.deck-child-current #slide-' + from);
+			if (jq.length == 0)
+			{
+//			console.log("_1");
+				 jq = $('section.deck-previous.deck-child-current #slide-' + from);
+				if (jq.length == 0)
+				{
+//				console.log("_2");
+				
+				jq = $('section.deck-previous');
+				if(jq.length==0)
+				{
+				jq = $('section.deck-before:last');
+
+				
+						 jq.each(function(index_, elem_) { //'[id |= "slide"]' // , $('.deck-container').elem
+
+//							console.log("_3");
+							
+							//console.log($(elem_).attr('id'));
+							//console.log($(elem_).attr('class'));
+							//if ($(elem_).hasClass('deck-child-current'))
+							
+				$('.animated', elem_).each(function(index, elem) {
+								console.log("ANIM");
+
+							var elm = elem;
+							var newOne = elm.cloneNode(true);
+							elm.parentNode.replaceChild(newOne, elm);
+										});
+			});
+		}
+
+		}}
+		
+		}, 100);
+			}
+			
+		});
+		
+		$.deck('.slide');
+	});
+	-->
+</script -->
+	</body>
+</html>
